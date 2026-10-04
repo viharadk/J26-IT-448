@@ -7,296 +7,354 @@ import {
   View,
 } from 'react-native';
 
+import WaterMap from '../components/WaterMap';
+
 type LocationData = {
   id: string;
   name: string;
   level: number;
   status: 'LOW' | 'MEDIUM' | 'HIGH';
   prediction: number;
-  lastUpdated: string;
   sensorOnline: boolean;
+  lastUpdated: string;
+  latitude: number;
+  longitude: number;
 };
 
 const locations: LocationData[] = [
   {
-    id: '01',
+    id: 'location-01',
     name: 'Location 01',
     level: 0.72,
     status: 'MEDIUM',
     prediction: 0.84,
-    lastUpdated: 'Just now',
     sensorOnline: true,
+    lastUpdated: 'Just now',
+    latitude: 6.9271,
+    longitude: 80.7789,
   },
   {
-    id: '02',
+    id: 'location-02',
     name: 'Location 02',
     level: 0.65,
     status: 'MEDIUM',
     prediction: 0.76,
-    lastUpdated: '1 min ago',
     sensorOnline: true,
+    lastUpdated: '1 min ago',
+    latitude: 6.9282,
+    longitude: 80.7802,
   },
 ];
 
 const recentReadings = [
-  { time: '11:30', location01: 0.68, location02: 0.61 },
-  { time: '11:35', location01: 0.69, location02: 0.62 },
-  { time: '11:40', location01: 0.70, location02: 0.63 },
-  { time: '11:45', location01: 0.71, location02: 0.64 },
-  { time: '11:50', location01: 0.72, location02: 0.65 },
+  {
+    time: '11:50',
+    location01: 0.72,
+    location02: 0.65,
+  },
+  {
+    time: '11:40',
+    location01: 0.69,
+    location02: 0.63,
+  },
+  {
+    time: '11:30',
+    location01: 0.66,
+    location02: 0.61,
+  },
+  {
+    time: '11:20',
+    location01: 0.64,
+    location02: 0.59,
+  },
 ];
 
-function getStatusColor(status: LocationData['status']) {
-  if (status === 'HIGH') {
-    return '#dc2626';
-  }
+function getStatusStyle(status: LocationData['status']) {
+  switch (status) {
+    case 'HIGH':
+      return styles.highStatus;
 
-  if (status === 'MEDIUM') {
-    return '#d97706';
-  }
+    case 'MEDIUM':
+      return styles.mediumStatus;
 
-  return '#16a34a';
+    default:
+      return styles.lowStatus;
+  }
 }
 
-function getStatusBackground(status: LocationData['status']) {
-  if (status === 'HIGH') {
-    return '#fee2e2';
-  }
+function getStatusTextStyle(status: LocationData['status']) {
+  switch (status) {
+    case 'HIGH':
+      return styles.highStatusText;
 
-  if (status === 'MEDIUM') {
-    return '#fef3c7';
-  }
+    case 'MEDIUM':
+      return styles.mediumStatusText;
 
-  return '#dcfce7';
+    default:
+      return styles.lowStatusText;
+  }
+}
+
+function LocationCard({ location }: { location: LocationData }) {
+  return (
+    <View style={styles.locationCard}>
+      <View style={styles.locationHeader}>
+        <View>
+          <Text style={styles.locationName}>{location.name}</Text>
+
+          <View style={styles.sensorRow}>
+            <View
+              style={[
+                styles.sensorDot,
+                {
+                  backgroundColor: location.sensorOnline
+                    ? '#16a34a'
+                    : '#dc2626',
+                },
+              ]}
+            />
+
+            <Text style={styles.sensorText}>
+              {location.sensorOnline ? 'Sensor Online' : 'Sensor Offline'}
+            </Text>
+          </View>
+        </View>
+
+        <View
+          style={[
+            styles.statusBadge,
+            getStatusStyle(location.status),
+          ]}
+        >
+          <Text
+            style={[
+              styles.statusText,
+              getStatusTextStyle(location.status),
+            ]}
+          >
+            {location.status}
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.levelContainer}>
+        <Text style={styles.levelValue}>
+          {location.level.toFixed(2)}
+        </Text>
+
+        <Text style={styles.levelUnit}>m</Text>
+      </View>
+
+      <Text style={styles.levelLabel}>Current Water Level</Text>
+
+      <View style={styles.infoRow}>
+        <View>
+          <Text style={styles.infoLabel}>30 min Prediction</Text>
+
+          <Text style={styles.predictionValue}>
+            {location.prediction.toFixed(2)} m
+          </Text>
+        </View>
+
+        <View style={styles.updatedContainer}>
+          <Text style={styles.infoLabel}>Last Updated</Text>
+
+          <Text style={styles.updatedText}>
+            {location.lastUpdated}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
 }
 
 export default function HomeScreen() {
+  const onlineSensors = locations.filter(
+    (location) => location.sensorOnline
+  ).length;
+
+  const highAlerts = locations.filter(
+    (location) => location.status === 'HIGH'
+  ).length;
+
   return (
     <ScrollView
-      style={styles.screen}
+      style={styles.container}
       contentContainerStyle={styles.content}
       showsVerticalScrollIndicator={false}
     >
       {/* Header */}
       <View style={styles.header}>
         <View>
-          <Text style={styles.smallTitle}>IoT River Monitoring</Text>
-          <Text style={styles.title}>Water Level Dashboard</Text>
+          <Text style={styles.title}>RiverWatch</Text>
+
+          <Text style={styles.subtitle}>
+            Real-time Water Level Monitoring
+          </Text>
         </View>
 
-        <View style={styles.onlineBadge}>
-          <View style={styles.onlineDot} />
-          <Text style={styles.onlineText}>LIVE</Text>
+        <View style={styles.headerIcon}>
+          <Text style={styles.headerIconText}>💧</Text>
         </View>
       </View>
 
       {/* Summary */}
       <View style={styles.summaryCard}>
-        <View>
-          <Text style={styles.summaryLabel}>Monitoring Stations</Text>
-          <Text style={styles.summaryValue}>2</Text>
+        <View style={styles.summaryItem}>
+          <Text style={styles.summaryNumber}>
+            {locations.length}
+          </Text>
+
+          <Text style={styles.summaryLabel}>Stations</Text>
         </View>
 
         <View style={styles.summaryDivider} />
 
-        <View>
+        <View style={styles.summaryItem}>
+          <Text style={styles.summaryNumber}>
+            {onlineSensors}/{locations.length}
+          </Text>
+
           <Text style={styles.summaryLabel}>Sensors Online</Text>
-          <Text style={styles.summaryValue}>2 / 2</Text>
         </View>
 
         <View style={styles.summaryDivider} />
 
-        <View>
+        <View style={styles.summaryItem}>
+          <Text
+            style={[
+              styles.summaryNumber,
+              highAlerts > 0 && styles.alertNumber,
+            ]}
+          >
+            {highAlerts}
+          </Text>
+
           <Text style={styles.summaryLabel}>Alerts</Text>
-          <Text style={styles.summaryValue}>0</Text>
         </View>
       </View>
 
-      {/* Location cards */}
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Current Water Levels</Text>
-        <Text style={styles.sectionSubtitle}>Live sensor readings</Text>
-      </View>
+      {/* Location Cards */}
+      <Text style={styles.sectionTitle}>
+        Current Water Levels
+      </Text>
 
       {locations.map((location) => (
-        <View key={location.id} style={styles.locationCard}>
-          <View style={styles.cardTopRow}>
-            <View>
-              <Text style={styles.locationName}>{location.name}</Text>
-
-              <View style={styles.sensorStatus}>
-                <View
-                  style={[
-                    styles.sensorDot,
-                    {
-                      backgroundColor: location.sensorOnline
-                        ? '#16a34a'
-                        : '#dc2626',
-                    },
-                  ]}
-                />
-
-                <Text style={styles.sensorText}>
-                  {location.sensorOnline ? 'Sensor Online' : 'Sensor Offline'}
-                </Text>
-              </View>
-            </View>
-
-            <View
-              style={[
-                styles.statusBadge,
-                {
-                  backgroundColor: getStatusBackground(location.status),
-                },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.statusText,
-                  {
-                    color: getStatusColor(location.status),
-                  },
-                ]}
-              >
-                {location.status}
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.levelSection}>
-            <Text style={styles.levelValue}>{location.level.toFixed(2)}</Text>
-            <Text style={styles.levelUnit}>m</Text>
-          </View>
-
-          <View style={styles.cardDivider} />
-
-          <View style={styles.cardInfoRow}>
-            <View>
-              <Text style={styles.infoLabel}>Last updated</Text>
-              <Text style={styles.infoValue}>{location.lastUpdated}</Text>
-            </View>
-
-            <View style={styles.predictionBox}>
-              <Text style={styles.infoLabel}>30 min prediction</Text>
-              <Text style={styles.predictionValue}>
-                {location.prediction.toFixed(2)} m
-              </Text>
-            </View>
-          </View>
-        </View>
+        <LocationCard
+          key={location.id}
+          location={location}
+        />
       ))}
 
-      {/* Prediction information */}
-      <View style={styles.predictionCard}>
-        <View style={styles.predictionHeader}>
-          <View>
-            <Text style={styles.predictionTitle}>AI Water Level Prediction</Text>
-            <Text style={styles.predictionSubtitle}>
-              Predicted water level for the next 30 minutes
-            </Text>
-          </View>
+      {/* Map */}
+      <Text style={styles.sectionTitle}>
+        Monitoring Locations
+      </Text>
 
-          <Text style={styles.aiBadge}>ML</Text>
-        </View>
-
-        <View style={styles.predictionRow}>
-          <View>
-            <Text style={styles.predictionLocation}>Location 01</Text>
-            <Text style={styles.bigPrediction}>0.84 m</Text>
-          </View>
-
-          <View>
-            <Text style={styles.predictionLocation}>Location 02</Text>
-            <Text style={styles.bigPrediction}>0.76 m</Text>
-          </View>
-        </View>
+      <View style={styles.mapCard}>
+        <WaterMap locations={locations} />
       </View>
 
-      {/* Recent readings */}
+      {/* Recent Readings */}
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>Recent Readings</Text>
-        <Text style={styles.sectionSubtitle}>
-          Latest sensor measurements
+        <Text style={styles.sectionTitle}>
+          Recent Readings
         </Text>
+
+        <Pressable
+          onPress={() => router.push('/history')}
+        >
+          <Text style={styles.viewText}>View History</Text>
+        </Pressable>
       </View>
 
       <View style={styles.readingsCard}>
         <View style={styles.tableHeader}>
-          <Text style={[styles.tableText, styles.timeColumn]}>Time</Text>
-          <Text style={[styles.tableText, styles.valueColumn]}>
+          <Text style={[styles.tableHeaderText, styles.timeColumn]}>
+            Time
+          </Text>
+
+          <Text style={styles.tableHeaderText}>
             Location 01
           </Text>
-          <Text style={[styles.tableText, styles.valueColumn]}>
+
+          <Text style={styles.tableHeaderText}>
             Location 02
           </Text>
         </View>
 
         {recentReadings.map((reading) => (
-          <View style={styles.tableRow} key={reading.time}>
+          <View
+            key={reading.time}
+            style={styles.tableRow}
+          >
             <Text style={[styles.tableText, styles.timeColumn]}>
               {reading.time}
             </Text>
 
-            <Text style={[styles.tableValue, styles.valueColumn]}>
+            <Text style={styles.tableText}>
               {reading.location01.toFixed(2)} m
             </Text>
 
-            <Text style={[styles.tableValue, styles.valueColumn]}>
+            <Text style={styles.tableText}>
               {reading.location02.toFixed(2)} m
             </Text>
           </View>
         ))}
       </View>
 
-      {/* Navigation */}
-      <View style={styles.navigationSection}>
+      {/* Bottom Buttons */}
+      <View style={styles.buttonRow}>
         <Pressable
-          style={styles.navigationButton}
+          style={styles.primaryButton}
           onPress={() => router.push('/history')}
         >
-          <Text style={styles.navigationButtonText}>View History</Text>
+          <Text style={styles.primaryButtonText}>
+            View History
+          </Text>
         </Pressable>
 
         <Pressable
-          style={[styles.navigationButton, styles.alertButton]}
+          style={styles.secondaryButton}
           onPress={() => router.push('/alerts')}
         >
-          <Text style={styles.navigationButtonText}>View Alerts</Text>
+          <Text style={styles.secondaryButtonText}>
+            View Alerts
+          </Text>
         </Pressable>
       </View>
 
-      <Text style={styles.footer}>
-        Prototype • IoT River Water Level Monitoring System
-      </Text>
+      {/* Prototype Notice */}
+      <View style={styles.noticeCard}>
+        <Text style={styles.noticeTitle}>
+          Prototype Monitoring System
+        </Text>
+
+        <Text style={styles.noticeText}>
+          Current readings are prototype values. Live ESP32
+          sensor data will be connected through the backend API.
+        </Text>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
-    backgroundColor: '#f5f7fb',
+    backgroundColor: '#f5f7fa',
   },
 
   content: {
-    width: '100%',
-    maxWidth: 1000,
-    alignSelf: 'center',
-    padding: 24,
-    paddingBottom: 50,
+    padding: 20,
+    paddingBottom: 40,
   },
 
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 24,
-  },
-
-  smallTitle: {
-    fontSize: 14,
-    color: '#64748b',
-    marginBottom: 4,
+    marginBottom: 20,
   },
 
   title: {
@@ -305,107 +363,114 @@ const styles = StyleSheet.create({
     color: '#0f172a',
   },
 
-  onlineBadge: {
-    flexDirection: 'row',
+  subtitle: {
+    marginTop: 4,
+    fontSize: 14,
+    color: '#64748b',
+  },
+
+  headerIcon: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#dbeafe',
+    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#dcfce7',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20,
   },
 
-  onlineDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#16a34a',
-    marginRight: 6,
-  },
-
-  onlineText: {
-    fontSize: 12,
-    fontWeight: '800',
-    color: '#15803d',
+  headerIconText: {
+    fontSize: 25,
   },
 
   summaryCard: {
     backgroundColor: '#ffffff',
     borderRadius: 18,
-    padding: 20,
+    paddingVertical: 18,
+    paddingHorizontal: 10,
     flexDirection: 'row',
-    justifyContent: 'space-around',
     alignItems: 'center',
-    marginBottom: 30,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
+    marginBottom: 25,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+  },
+
+  summaryItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+
+  summaryNumber: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#0f172a',
+  },
+
+  alertNumber: {
+    color: '#dc2626',
   },
 
   summaryLabel: {
-    fontSize: 12,
+    marginTop: 4,
+    fontSize: 11,
     color: '#64748b',
-    marginBottom: 5,
-    textAlign: 'center',
-  },
-
-  summaryValue: {
-    fontSize: 23,
-    fontWeight: '800',
-    color: '#0f172a',
     textAlign: 'center',
   },
 
   summaryDivider: {
     width: 1,
-    height: 42,
+    height: 35,
     backgroundColor: '#e2e8f0',
   },
 
-  sectionHeader: {
-    marginBottom: 12,
-  },
-
   sectionTitle: {
-    fontSize: 21,
+    fontSize: 19,
     fontWeight: '800',
     color: '#0f172a',
-  },
-
-  sectionSubtitle: {
-    fontSize: 13,
-    color: '#64748b',
-    marginTop: 4,
+    marginBottom: 12,
   },
 
   locationCard: {
     backgroundColor: '#ffffff',
     borderRadius: 18,
-    padding: 20,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
+    padding: 18,
+    marginBottom: 15,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
 
-  cardTopRow: {
+  locationHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
 
   locationName: {
-    fontSize: 20,
-    fontWeight: '800',
+    fontSize: 18,
+    fontWeight: '700',
     color: '#0f172a',
   },
 
-  sensorStatus: {
+  sensorRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 7,
+    marginTop: 6,
   },
 
   sensorDot: {
-    width: 7,
-    height: 7,
+    width: 8,
+    height: 8,
     borderRadius: 4,
     marginRight: 6,
   },
@@ -417,200 +482,225 @@ const styles = StyleSheet.create({
 
   statusBadge: {
     paddingHorizontal: 12,
-    paddingVertical: 7,
+    paddingVertical: 6,
     borderRadius: 20,
   },
 
   statusText: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: '800',
   },
 
-  levelSection: {
+  lowStatus: {
+    backgroundColor: '#dcfce7',
+  },
+
+  lowStatusText: {
+    color: '#15803d',
+  },
+
+  mediumStatus: {
+    backgroundColor: '#fef3c7',
+  },
+
+  mediumStatusText: {
+    color: '#b45309',
+  },
+
+  highStatus: {
+    backgroundColor: '#fee2e2',
+  },
+
+  highStatusText: {
+    color: '#b91c1c',
+  },
+
+  levelContainer: {
     flexDirection: 'row',
     alignItems: 'flex-end',
     marginTop: 22,
   },
 
   levelValue: {
-    fontSize: 48,
+    fontSize: 44,
     fontWeight: '800',
-    color: '#0f172a',
+    color: '#0369a1',
   },
 
   levelUnit: {
     fontSize: 18,
+    fontWeight: '600',
     color: '#64748b',
-    marginLeft: 6,
     marginBottom: 8,
+    marginLeft: 5,
   },
 
-  cardDivider: {
-    height: 1,
-    backgroundColor: '#e2e8f0',
-    marginVertical: 18,
+  levelLabel: {
+    fontSize: 12,
+    color: '#64748b',
   },
 
-  cardInfoRow: {
+  infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 20,
+    paddingTop: 15,
+    borderTopWidth: 1,
+    borderTopColor: '#e2e8f0',
   },
 
   infoLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#64748b',
     marginBottom: 4,
   },
 
-  infoValue: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#334155',
+  predictionValue: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#0f172a',
   },
 
-  predictionBox: {
+  updatedContainer: {
     alignItems: 'flex-end',
   },
 
-  predictionValue: {
-    fontSize: 15,
-    fontWeight: '800',
-    color: '#2563eb',
+  updatedText: {
+    fontSize: 13,
+    color: '#334155',
+    fontWeight: '600',
   },
 
-  predictionCard: {
-    backgroundColor: '#eff6ff',
+  mapCard: {
+    backgroundColor: '#ffffff',
     borderRadius: 18,
-    padding: 20,
-    marginTop: 10,
-    marginBottom: 30,
-    borderWidth: 1,
-    borderColor: '#bfdbfe',
+    overflow: 'hidden',
+    marginBottom: 25,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
 
-  predictionHeader: {
+  sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
 
-  predictionTitle: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: '#1e3a8a',
-  },
-
-  predictionSubtitle: {
-    fontSize: 12,
-    color: '#475569',
-    marginTop: 4,
-  },
-
-  aiBadge: {
-    backgroundColor: '#2563eb',
-    color: '#ffffff',
-    fontSize: 12,
-    fontWeight: '800',
-    paddingHorizontal: 9,
-    paddingVertical: 6,
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-
-  predictionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 22,
-  },
-
-  predictionLocation: {
-    fontSize: 12,
-    color: '#64748b',
-    textAlign: 'center',
-  },
-
-  bigPrediction: {
-    fontSize: 27,
-    fontWeight: '800',
-    color: '#1d4ed8',
-    marginTop: 5,
+  viewText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#0284c7',
+    marginBottom: 12,
   },
 
   readingsCard: {
     backgroundColor: '#ffffff',
     borderRadius: 18,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
     overflow: 'hidden',
-    marginBottom: 24,
+    marginBottom: 20,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
   },
 
   tableHeader: {
     flexDirection: 'row',
-    paddingVertical: 14,
-    paddingHorizontal: 14,
-    backgroundColor: '#f8fafc',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
+    backgroundColor: '#f1f5f9',
+    paddingVertical: 13,
+    paddingHorizontal: 12,
+  },
+
+  tableHeaderText: {
+    flex: 1,
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#475569',
+    textAlign: 'center',
   },
 
   tableRow: {
     flexDirection: 'row',
     paddingVertical: 14,
-    paddingHorizontal: 14,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    paddingHorizontal: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#f1f5f9',
   },
 
   tableText: {
-    fontSize: 12,
-    color: '#64748b',
-    fontWeight: '600',
-  },
-
-  tableValue: {
+    flex: 1,
     fontSize: 13,
     color: '#334155',
-    fontWeight: '700',
-  },
-
-  timeColumn: {
-    flex: 1,
-  },
-
-  valueColumn: {
-    flex: 1.5,
     textAlign: 'center',
   },
 
-  navigationSection: {
-    flexDirection: 'row',
-    gap: 12,
-    marginTop: 8,
+  timeColumn: {
+    textAlign: 'left',
+    flex: 0.7,
   },
 
-  navigationButton: {
+  buttonRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 20,
+  },
+
+  primaryButton: {
     flex: 1,
-    backgroundColor: '#2563eb',
+    backgroundColor: '#0284c7',
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: 'center',
   },
 
-  alertButton: {
-    backgroundColor: '#475569',
-  },
-
-  navigationButtonText: {
+  primaryButtonText: {
     color: '#ffffff',
     fontSize: 14,
-    fontWeight: '800',
+    fontWeight: '700',
   },
 
-  footer: {
-    textAlign: 'center',
-    fontSize: 11,
-    color: '#94a3b8',
-    marginTop: 30,
+  secondaryButton: {
+    flex: 1,
+    backgroundColor: '#e0f2fe',
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+
+  secondaryButtonText: {
+    color: '#0369a1',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+
+  noticeCard: {
+    backgroundColor: '#eff6ff',
+    borderRadius: 14,
+    padding: 15,
+    borderWidth: 1,
+    borderColor: '#bfdbfe',
+  },
+
+  noticeTitle: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#1e40af',
+    marginBottom: 5,
+  },
+
+  noticeText: {
+    fontSize: 12,
+    lineHeight: 18,
+    color: '#475569',
   },
 });
