@@ -1,3 +1,5 @@
+import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import {
   Pressable,
@@ -7,6 +9,7 @@ import {
   View,
 } from 'react-native';
 
+import { useAppTheme } from '@/context/ThemeContext';
 import WaterMap from '../components/WaterMap';
 
 type LocationData = {
@@ -24,465 +27,599 @@ type LocationData = {
 const locations: LocationData[] = [
   {
     id: 'location-01',
-    name: 'Location 01',
+    name: 'Hanwella Station',
     level: 0.72,
     status: 'MEDIUM',
     prediction: 0.84,
     sensorOnline: true,
     lastUpdated: 'Just now',
-    latitude: 6.9271,
-    longitude: 80.7789,
+    latitude: 6.9031,
+    longitude: 80.0823,
   },
   {
     id: 'location-02',
-    name: 'Location 02',
+    name: 'Glencourse Station',
     level: 0.65,
     status: 'MEDIUM',
     prediction: 0.76,
     sensorOnline: true,
     lastUpdated: '1 min ago',
-    latitude: 6.9282,
-    longitude: 80.7802,
+    latitude: 6.9786,
+    longitude: 80.1737,
   },
 ];
 
 const recentReadings = [
-  {
-    time: '11:50',
-    location01: 0.72,
-    location02: 0.65,
-  },
-  {
-    time: '11:40',
-    location01: 0.69,
-    location02: 0.63,
-  },
-  {
-    time: '11:30',
-    location01: 0.66,
-    location02: 0.61,
-  },
-  {
-    time: '11:20',
-    location01: 0.64,
-    location02: 0.59,
-  },
+  { time: '11:50', location01: 0.72, location02: 0.65 },
+  { time: '11:40', location01: 0.69, location02: 0.63 },
+  { time: '11:30', location01: 0.66, location02: 0.61 },
+  { time: '11:20', location01: 0.64, location02: 0.59 },
 ];
 
-function getStatusStyle(status: LocationData['status']) {
-  switch (status) {
-    case 'HIGH':
-      return styles.highStatus;
+function StatusBadge({ status }: { status: LocationData['status'] }) {
+  const { colors } = useAppTheme();
 
-    case 'MEDIUM':
-      return styles.mediumStatus;
+  const config = {
+    HIGH: { bg: colors.dangerLight, text: colors.danger, label: '🔴 HIGH' },
+    MEDIUM: {
+      bg: colors.warningLight,
+      text: colors.warning,
+      label: '🟡 MEDIUM',
+    },
+    LOW: { bg: colors.successLight, text: colors.success, label: '🟢 LOW' },
+  }[status];
 
-    default:
-      return styles.lowStatus;
-  }
+  return (
+    <View style={[styles.statusBadge, { backgroundColor: config.bg }]}>
+      <Text style={[styles.statusText, { color: config.text }]}>
+        {config.label}
+      </Text>
+    </View>
+  );
 }
 
-function getStatusTextStyle(status: LocationData['status']) {
-  switch (status) {
-    case 'HIGH':
-      return styles.highStatusText;
+function WaterLevelBar({ level }: { level: number }) {
+  const { colors } = useAppTheme();
+  const percent = Math.min(level / 2.0, 1); // max assumed 2m
 
-    case 'MEDIUM':
-      return styles.mediumStatusText;
+  const barColor =
+    level > 1.5
+      ? colors.danger
+      : level > 1.0
+        ? colors.warning
+        : colors.accentPrimary;
 
-    default:
-      return styles.lowStatusText;
-  }
+  return (
+    <View
+      style={[styles.levelBarTrack, { backgroundColor: colors.bgElement }]}
+    >
+      <View
+        style={[
+          styles.levelBarFill,
+          { width: `${percent * 100}%` as `${number}%`, backgroundColor: barColor },
+        ]}
+      />
+    </View>
+  );
 }
 
 function LocationCard({ location }: { location: LocationData }) {
-  return (
-    <View style={styles.locationCard}>
-      <View style={styles.locationHeader}>
-        <View>
-          <Text style={styles.locationName}>{location.name}</Text>
+  const { colors } = useAppTheme();
 
+  return (
+    <View
+      style={[
+        styles.locationCard,
+        {
+          backgroundColor: colors.bgCard,
+          borderColor: colors.border,
+          shadowColor: colors.text,
+        },
+      ]}
+    >
+      {/* Card Header */}
+      <View style={styles.locationHeader}>
+        <View style={styles.locationTitleRow}>
+          <Text style={[styles.locationName, { color: colors.text }]}>
+            {location.name}
+          </Text>
           <View style={styles.sensorRow}>
             <View
               style={[
                 styles.sensorDot,
                 {
                   backgroundColor: location.sensorOnline
-                    ? '#16a34a'
-                    : '#dc2626',
+                    ? colors.success
+                    : colors.danger,
                 },
               ]}
             />
-
-            <Text style={styles.sensorText}>
-              {location.sensorOnline ? 'Sensor Online' : 'Sensor Offline'}
+            <Text style={[styles.sensorText, { color: colors.textSecondary }]}>
+              {location.sensorOnline ? 'Online' : 'Offline'}
             </Text>
           </View>
         </View>
+        <StatusBadge status={location.status} />
+      </View>
 
-        <View
-          style={[
-            styles.statusBadge,
-            getStatusStyle(location.status),
-          ]}
-        >
-          <Text
-            style={[
-              styles.statusText,
-              getStatusTextStyle(location.status),
-            ]}
-          >
-            {location.status}
+      {/* Level display */}
+      <View style={styles.levelRow}>
+        <View>
+          <Text style={[styles.levelValue, { color: colors.accentPrimary }]}>
+            {location.level.toFixed(2)}
+            <Text style={[styles.levelUnit, { color: colors.textSecondary }]}>
+              {' '}m
+            </Text>
+          </Text>
+          <Text style={[styles.levelLabel, { color: colors.textMuted }]}>
+            Current Water Level
           </Text>
         </View>
-      </View>
 
-      <View style={styles.levelContainer}>
-        <Text style={styles.levelValue}>
-          {location.level.toFixed(2)}
-        </Text>
-
-        <Text style={styles.levelUnit}>m</Text>
-      </View>
-
-      <Text style={styles.levelLabel}>Current Water Level</Text>
-
-      <View style={styles.infoRow}>
-        <View>
-          <Text style={styles.infoLabel}>30 min Prediction</Text>
-
-          <Text style={styles.predictionValue}>
+        <View style={styles.predictionBox}>
+          <Text style={[styles.predictionLabel, { color: colors.textMuted }]}>
+            30 min forecast
+          </Text>
+          <Text style={[styles.predictionValue, { color: colors.text }]}>
             {location.prediction.toFixed(2)} m
           </Text>
         </View>
+      </View>
 
-        <View style={styles.updatedContainer}>
-          <Text style={styles.infoLabel}>Last Updated</Text>
+      <WaterLevelBar level={location.level} />
 
-          <Text style={styles.updatedText}>
-            {location.lastUpdated}
-          </Text>
-        </View>
+      {/* Footer */}
+      <View style={styles.cardFooter}>
+        <Text style={[styles.updatedText, { color: colors.textMuted }]}>
+          🕐 {location.lastUpdated}
+        </Text>
       </View>
     </View>
   );
 }
 
-export default function HomeScreen() {
-  const onlineSensors = locations.filter(
-    (location) => location.sensorOnline
-  ).length;
-
-  const highAlerts = locations.filter(
-    (location) => location.status === 'HIGH'
-  ).length;
+function StatCard({
+  emoji,
+  value,
+  label,
+  valueColor,
+}: {
+  emoji: string;
+  value: string;
+  label: string;
+  valueColor?: string;
+}) {
+  const { colors } = useAppTheme();
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      showsVerticalScrollIndicator={false}
+    <View
+      style={[
+        styles.statCard,
+        {
+          backgroundColor: colors.bgCard,
+          borderColor: colors.border,
+          shadowColor: colors.text,
+        },
+      ]}
     >
-      {/* Header */}
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.title}>RiverWatch</Text>
+      <Text style={styles.statEmoji}>{emoji}</Text>
+      <Text
+        style={[
+          styles.statValue,
+          { color: valueColor || colors.text },
+        ]}
+      >
+        {value}
+      </Text>
+      <Text style={[styles.statLabel, { color: colors.textMuted }]}>
+        {label}
+      </Text>
+    </View>
+  );
+}
 
-          <Text style={styles.subtitle}>
-            Real-time Water Level Monitoring
+export default function HomeScreen() {
+  const { colors, mode } = useAppTheme();
+
+  const onlineSensors = locations.filter((l) => l.sensorOnline).length;
+  const highAlerts = locations.filter((l) => l.status === 'HIGH').length;
+
+  return (
+    <View style={[styles.root, { backgroundColor: colors.bg }]}>
+      {/* Gradient header */}
+      <LinearGradient
+        colors={[colors.headerGradientStart, colors.headerGradientEnd]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.headerGradient}
+      >
+        <View style={styles.headerInner}>
+          <View style={styles.headerLeft}>
+            <Image
+              source={require('@/assets/images/kelani-guard-logo.jpg')}
+              style={styles.logoImage}
+              contentFit="cover"
+            />
+            <View>
+              <Text style={styles.appName}>Kelani Guard</Text>
+              <Text style={styles.appSubtitle}>Water Level Monitoring</Text>
+            </View>
+          </View>
+          <View style={styles.headerBadge}>
+            <View style={styles.liveDot} />
+            <Text style={styles.liveText}>LIVE</Text>
+          </View>
+        </View>
+      </LinearGradient>
+
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Stats row */}
+        <View style={styles.statsRow}>
+          <StatCard
+            emoji="📍"
+            value={String(locations.length)}
+            label="Stations"
+          />
+          <StatCard
+            emoji="📡"
+            value={`${onlineSensors}/${locations.length}`}
+            label="Online"
+            valueColor={colors.success}
+          />
+          <StatCard
+            emoji="🔔"
+            value={String(highAlerts)}
+            label="Alerts"
+            valueColor={highAlerts > 0 ? colors.danger : colors.success}
+          />
+        </View>
+
+        {/* Section: Water Levels */}
+        <View style={styles.sectionHeader}>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>
+            Water Levels
           </Text>
-        </View>
-
-        <View style={styles.headerIcon}>
-          <Text style={styles.headerIconText}>💧</Text>
-        </View>
-      </View>
-
-      {/* Summary */}
-      <View style={styles.summaryCard}>
-        <View style={styles.summaryItem}>
-          <Text style={styles.summaryNumber}>
-            {locations.length}
-          </Text>
-
-          <Text style={styles.summaryLabel}>Stations</Text>
-        </View>
-
-        <View style={styles.summaryDivider} />
-
-        <View style={styles.summaryItem}>
-          <Text style={styles.summaryNumber}>
-            {onlineSensors}/{locations.length}
-          </Text>
-
-          <Text style={styles.summaryLabel}>Sensors Online</Text>
-        </View>
-
-        <View style={styles.summaryDivider} />
-
-        <View style={styles.summaryItem}>
-          <Text
+          <View
             style={[
-              styles.summaryNumber,
-              highAlerts > 0 && styles.alertNumber,
+              styles.sectionChip,
+              { backgroundColor: colors.accentLight },
             ]}
           >
-            {highAlerts}
-          </Text>
-
-          <Text style={styles.summaryLabel}>Alerts</Text>
-        </View>
-      </View>
-
-      {/* Location Cards */}
-      <Text style={styles.sectionTitle}>
-        Current Water Levels
-      </Text>
-
-      {locations.map((location) => (
-        <LocationCard
-          key={location.id}
-          location={location}
-        />
-      ))}
-
-      {/* Map */}
-      <Text style={styles.sectionTitle}>
-        Monitoring Locations
-      </Text>
-
-      <View style={styles.mapCard}>
-        <WaterMap locations={locations} />
-      </View>
-
-      {/* Recent Readings */}
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>
-          Recent Readings
-        </Text>
-
-        <Pressable
-          onPress={() => router.push('/history')}
-        >
-          <Text style={styles.viewText}>View History</Text>
-        </Pressable>
-      </View>
-
-      <View style={styles.readingsCard}>
-        <View style={styles.tableHeader}>
-          <Text style={[styles.tableHeaderText, styles.timeColumn]}>
-            Time
-          </Text>
-
-          <Text style={styles.tableHeaderText}>
-            Location 01
-          </Text>
-
-          <Text style={styles.tableHeaderText}>
-            Location 02
-          </Text>
-        </View>
-
-        {recentReadings.map((reading) => (
-          <View
-            key={reading.time}
-            style={styles.tableRow}
-          >
-            <Text style={[styles.tableText, styles.timeColumn]}>
-              {reading.time}
-            </Text>
-
-            <Text style={styles.tableText}>
-              {reading.location01.toFixed(2)} m
-            </Text>
-
-            <Text style={styles.tableText}>
-              {reading.location02.toFixed(2)} m
+            <Text
+              style={[styles.sectionChipText, { color: colors.accentPrimary }]}
+            >
+              {locations.length} stations
             </Text>
           </View>
+        </View>
+
+        {locations.map((location) => (
+          <LocationCard key={location.id} location={location} />
         ))}
-      </View>
 
-      {/* Bottom Buttons */}
-      <View style={styles.buttonRow}>
-        <Pressable
-          style={styles.primaryButton}
-          onPress={() => router.push('/history')}
-        >
-          <Text style={styles.primaryButtonText}>
-            View History
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={styles.secondaryButton}
-          onPress={() => router.push('/alerts')}
-        >
-          <Text style={styles.secondaryButtonText}>
-            View Alerts
-          </Text>
-        </Pressable>
-      </View>
-
-      {/* Prototype Notice */}
-      <View style={styles.noticeCard}>
-        <Text style={styles.noticeTitle}>
-          Prototype Monitoring System
+        {/* Section: Map */}
+        <Text style={[styles.sectionTitle, { color: colors.text, marginTop: 8 }]}>
+          Monitoring Map
         </Text>
+        <View
+          style={[
+            styles.mapCard,
+            { backgroundColor: colors.bgCard, borderColor: colors.border },
+          ]}
+        >
+          <WaterMap locations={locations} />
+        </View>
 
-        <Text style={styles.noticeText}>
-          Current readings are prototype values. Live ESP32
-          sensor data will be connected through the backend API.
-        </Text>
-      </View>
-    </ScrollView>
+        {/* Section: Recent Readings */}
+        <View style={styles.sectionHeader}>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>
+            Recent Readings
+          </Text>
+          <Pressable onPress={() => router.push('/history')}>
+            <Text style={[styles.viewLink, { color: colors.accentPrimary }]}>
+              Full History →
+            </Text>
+          </Pressable>
+        </View>
+
+        <View
+          style={[
+            styles.readingsCard,
+            { backgroundColor: colors.bgCard, borderColor: colors.border },
+          ]}
+        >
+          {/* Table header */}
+          <View
+            style={[
+              styles.tableHeader,
+              { backgroundColor: colors.bgElement },
+            ]}
+          >
+            <Text
+              style={[
+                styles.tableHeaderText,
+                styles.timeCol,
+                { color: colors.textSecondary },
+              ]}
+            >
+              Time
+            </Text>
+            <Text
+              style={[
+                styles.tableHeaderText,
+                { color: colors.textSecondary },
+              ]}
+            >
+              Hanwella
+            </Text>
+            <Text
+              style={[
+                styles.tableHeaderText,
+                { color: colors.textSecondary },
+              ]}
+            >
+              Glencourse
+            </Text>
+          </View>
+
+          {recentReadings.map((reading, idx) => (
+            <View
+              key={reading.time}
+              style={[
+                styles.tableRow,
+                {
+                  borderTopColor: colors.divider,
+                  backgroundColor:
+                    idx % 2 === 0 ? 'transparent' : colors.bgElement + '60',
+                },
+              ]}
+            >
+              <Text
+                style={[
+                  styles.tableText,
+                  styles.timeCol,
+                  { color: colors.textSecondary },
+                ]}
+              >
+                {reading.time}
+              </Text>
+              <Text style={[styles.tableText, { color: colors.text }]}>
+                {reading.location01.toFixed(2)} m
+              </Text>
+              <Text style={[styles.tableText, { color: colors.text }]}>
+                {reading.location02.toFixed(2)} m
+              </Text>
+            </View>
+          ))}
+        </View>
+
+        {/* Notice */}
+        <View
+          style={[
+            styles.noticeCard,
+            {
+              backgroundColor: colors.accentLight,
+              borderColor: colors.accentPrimary + '44',
+            },
+          ]}
+        >
+          <Text style={[styles.noticeTitle, { color: colors.accentDark }]}>
+            ℹ️ Prototype System
+          </Text>
+          <Text style={[styles.noticeText, { color: colors.textSecondary }]}>
+            Live ESP32 sensor data will be connected through the backend API.
+            Current readings are prototype values.
+          </Text>
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
-    backgroundColor: '#f5f7fa',
+  },
+
+  /* Header gradient */
+  headerGradient: {
+    paddingTop: 55,
+    paddingBottom: 18,
+    paddingHorizontal: 20,
+  },
+
+  headerInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+
+  logoImage: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)',
+  },
+
+  appName: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#ffffff',
+    letterSpacing: -0.3,
+  },
+
+  appSubtitle: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.75)',
+    marginTop: 1,
+  },
+
+  headerBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(255,255,255,0.18)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.25)',
+  },
+
+  liveDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: '#4ade80',
+  },
+
+  liveText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#ffffff',
+    letterSpacing: 1,
+  },
+
+  /* Scroll */
+  scrollView: {
+    flex: 1,
   },
 
   content: {
-    padding: 20,
-    paddingBottom: 40,
+    padding: 16,
+    paddingBottom: 32,
+    gap: 0,
   },
 
-  header: {
+  /* Stats */
+  statsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-
-  title: {
-    fontSize: 30,
-    fontWeight: '800',
-    color: '#0f172a',
-  },
-
-  subtitle: {
+    gap: 10,
+    marginBottom: 22,
     marginTop: 4,
-    fontSize: 14,
-    color: '#64748b',
   },
 
-  headerIcon: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
-    backgroundColor: '#dbeafe',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  headerIconText: {
-    fontSize: 25,
-  },
-
-  summaryCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 18,
-    paddingVertical: 18,
-    paddingHorizontal: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 25,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-  },
-
-  summaryItem: {
+  statCard: {
     flex: 1,
+    borderRadius: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 10,
     alignItems: 'center',
+    borderWidth: 1,
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
   },
 
-  summaryNumber: {
+  statEmoji: {
     fontSize: 22,
+    marginBottom: 6,
+  },
+
+  statValue: {
+    fontSize: 20,
     fontWeight: '800',
-    color: '#0f172a',
   },
 
-  alertNumber: {
-    color: '#dc2626',
-  },
-
-  summaryLabel: {
-    marginTop: 4,
+  statLabel: {
     fontSize: 11,
-    color: '#64748b',
-    textAlign: 'center',
+    marginTop: 3,
+    fontWeight: '600',
   },
 
-  summaryDivider: {
-    width: 1,
-    height: 35,
-    backgroundColor: '#e2e8f0',
-  },
-
-  sectionTitle: {
-    fontSize: 19,
-    fontWeight: '800',
-    color: '#0f172a',
+  /* Section headers */
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 12,
   },
 
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+    letterSpacing: -0.2,
+  },
+
+  sectionChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 20,
+  },
+
+  sectionChipText: {
+    fontSize: 11,
+    fontWeight: '700',
+  },
+
+  viewLink: {
+    fontSize: 13,
+    fontWeight: '700',
+    marginBottom: 12,
+  },
+
+  /* Location cards */
   locationCard: {
-    backgroundColor: '#ffffff',
     borderRadius: 18,
     padding: 18,
-    marginBottom: 15,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    marginBottom: 12,
+    borderWidth: 1,
+    elevation: 3,
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 3 },
   },
 
   locationHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+    marginBottom: 14,
+  },
+
+  locationTitleRow: {
+    flex: 1,
+    marginRight: 10,
   },
 
   locationName: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#0f172a',
+    fontSize: 16,
+    fontWeight: '800',
+    marginBottom: 5,
   },
 
   sensorRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 6,
+    gap: 5,
   },
 
   sensorDot: {
-    width: 8,
-    height: 8,
+    width: 7,
+    height: 7,
     borderRadius: 4,
-    marginRight: 6,
   },
 
   sensorText: {
     fontSize: 12,
-    color: '#64748b',
+    fontWeight: '500',
   },
 
   statusBadge: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     borderRadius: 20,
   },
 
@@ -491,216 +628,136 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
 
-  lowStatus: {
-    backgroundColor: '#dcfce7',
-  },
-
-  lowStatusText: {
-    color: '#15803d',
-  },
-
-  mediumStatus: {
-    backgroundColor: '#fef3c7',
-  },
-
-  mediumStatusText: {
-    color: '#b45309',
-  },
-
-  highStatus: {
-    backgroundColor: '#fee2e2',
-  },
-
-  highStatusText: {
-    color: '#b91c1c',
-  },
-
-  levelContainer: {
+  levelRow: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginTop: 22,
+    marginBottom: 12,
   },
 
   levelValue: {
-    fontSize: 44,
+    fontSize: 38,
     fontWeight: '800',
-    color: '#0369a1',
+    lineHeight: 42,
   },
 
   levelUnit: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
-    color: '#64748b',
-    marginBottom: 8,
-    marginLeft: 5,
   },
 
   levelLabel: {
     fontSize: 12,
-    color: '#64748b',
+    marginTop: 2,
   },
 
-  infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 20,
-    paddingTop: 15,
-    borderTopWidth: 1,
-    borderTopColor: '#e2e8f0',
-  },
-
-  infoLabel: {
-    fontSize: 11,
-    color: '#64748b',
-    marginBottom: 4,
-  },
-
-  predictionValue: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#0f172a',
-  },
-
-  updatedContainer: {
+  predictionBox: {
     alignItems: 'flex-end',
   },
 
-  updatedText: {
-    fontSize: 13,
-    color: '#334155',
-    fontWeight: '600',
+  predictionLabel: {
+    fontSize: 11,
+    marginBottom: 3,
   },
 
-  mapCard: {
-    backgroundColor: '#ffffff',
-    borderRadius: 18,
-    overflow: 'hidden',
-    marginBottom: 25,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-  },
-
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-
-  viewText: {
-    fontSize: 13,
+  predictionValue: {
+    fontSize: 18,
     fontWeight: '700',
-    color: '#0284c7',
-    marginBottom: 12,
   },
 
-  readingsCard: {
-    backgroundColor: '#ffffff',
+  levelBarTrack: {
+    height: 6,
+    borderRadius: 3,
+    overflow: 'hidden',
+    marginBottom: 10,
+  },
+
+  levelBarFill: {
+    height: '100%',
+    borderRadius: 3,
+  },
+
+  cardFooter: {
+    marginTop: 6,
+  },
+
+  updatedText: {
+    fontSize: 12,
+  },
+
+  /* Map card */
+  mapCard: {
     borderRadius: 18,
     overflow: 'hidden',
-    marginBottom: 20,
+    marginBottom: 22,
+    borderWidth: 1,
     elevation: 2,
-    shadowColor: '#000',
     shadowOpacity: 0.05,
     shadowRadius: 5,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
+  },
+
+  /* Readings card */
+  readingsCard: {
+    borderRadius: 18,
+    overflow: 'hidden',
+    marginBottom: 16,
+    borderWidth: 1,
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
   },
 
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#f1f5f9',
-    paddingVertical: 13,
-    paddingHorizontal: 12,
+    paddingVertical: 11,
+    paddingHorizontal: 14,
   },
 
   tableHeaderText: {
     flex: 1,
     fontSize: 11,
     fontWeight: '800',
-    color: '#475569',
     textAlign: 'center',
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
 
   tableRow: {
     flexDirection: 'row',
-    paddingVertical: 14,
-    paddingHorizontal: 12,
+    paddingVertical: 13,
+    paddingHorizontal: 14,
     borderTopWidth: 1,
-    borderTopColor: '#f1f5f9',
   },
 
   tableText: {
     flex: 1,
     fontSize: 13,
-    color: '#334155',
+    fontWeight: '600',
     textAlign: 'center',
   },
 
-  timeColumn: {
+  timeCol: {
     textAlign: 'left',
     flex: 0.7,
   },
 
-  buttonRow: {
-    flexDirection: 'row',
-    gap: 10,
-    marginBottom: 20,
-  },
-
-  primaryButton: {
-    flex: 1,
-    backgroundColor: '#0284c7',
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-
-  primaryButtonText: {
-    color: '#ffffff',
-    fontSize: 14,
-    fontWeight: '700',
-  },
-
-  secondaryButton: {
-    flex: 1,
-    backgroundColor: '#e0f2fe',
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-
-  secondaryButtonText: {
-    color: '#0369a1',
-    fontSize: 14,
-    fontWeight: '700',
-  },
-
+  /* Notice */
   noticeCard: {
-    backgroundColor: '#eff6ff',
     borderRadius: 14,
-    padding: 15,
+    padding: 14,
     borderWidth: 1,
-    borderColor: '#bfdbfe',
   },
 
   noticeTitle: {
     fontSize: 13,
     fontWeight: '800',
-    color: '#1e40af',
     marginBottom: 5,
   },
 
   noticeText: {
     fontSize: 12,
     lineHeight: 18,
-    color: '#475569',
   },
 });

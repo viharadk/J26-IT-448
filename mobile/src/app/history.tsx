@@ -1,243 +1,319 @@
-import { router } from 'expo-router';
 import {
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 
+import { useAppTheme } from '@/context/ThemeContext';
+
 const readings = [
-  {
-    time: '11:50',
-    location01: 0.72,
-    location02: 0.65,
-  },
-  {
-    time: '11:45',
-    location01: 0.71,
-    location02: 0.64,
-  },
-  {
-    time: '11:40',
-    location01: 0.70,
-    location02: 0.63,
-  },
-  {
-    time: '11:35',
-    location01: 0.69,
-    location02: 0.62,
-  },
-  {
-    time: '11:30',
-    location01: 0.68,
-    location02: 0.61,
-  },
-  {
-    time: '11:25',
-    location01: 0.67,
-    location02: 0.60,
-  },
-  {
-    time: '11:20',
-    location01: 0.66,
-    location02: 0.59,
-  },
+  { time: '11:50', location01: 0.72, location02: 0.65 },
+  { time: '11:45', location01: 0.71, location02: 0.64 },
+  { time: '11:40', location01: 0.70, location02: 0.63 },
+  { time: '11:35', location01: 0.69, location02: 0.62 },
+  { time: '11:30', location01: 0.68, location02: 0.61 },
+  { time: '11:25', location01: 0.67, location02: 0.60 },
+  { time: '11:20', location01: 0.66, location02: 0.59 },
 ];
 
 export default function HistoryScreen() {
-  return (
-    <ScrollView
-      style={styles.screen}
-      contentContainerStyle={styles.content}
-    >
-      <Pressable onPress={() => router.back()}>
-        <Text style={styles.back}>← Back to Dashboard</Text>
-      </Pressable>
+  const { colors } = useAppTheme();
 
-      <Text style={styles.title}>Water Level History</Text>
+  const current01 = readings[0].location01;
+  const current02 = readings[0].location02;
+  const delta01 = readings[0].location01 - readings[readings.length - 1].location01;
+  const delta02 = readings[0].location02 - readings[readings.length - 1].location02;
 
-      <Text style={styles.subtitle}>
-        Historical readings from the monitoring sensors
+  function DeltaBadge({ delta }: { delta: number }) {
+    const isUp = delta > 0;
+    const color = isUp ? colors.danger : colors.success;
+    return (
+      <Text style={[styles.deltaBadge, { color }]}>
+        {isUp ? '▲' : '▼'} {Math.abs(delta).toFixed(2)} m
       </Text>
+    );
+  }
 
-      <View style={styles.summaryRow}>
-        <View style={styles.summaryCard}>
-          <Text style={styles.label}>Location 01</Text>
-          <Text style={styles.value}>0.72 m</Text>
-          <Text style={styles.small}>Current</Text>
-        </View>
-
-        <View style={styles.summaryCard}>
-          <Text style={styles.label}>Location 02</Text>
-          <Text style={styles.value}>0.65 m</Text>
-          <Text style={styles.small}>Current</Text>
-        </View>
+  return (
+    <View style={[styles.root, { backgroundColor: colors.bg }]}>
+      {/* Header */}
+      <View
+        style={[
+          styles.header,
+          { backgroundColor: colors.bgCard, borderBottomColor: colors.border },
+        ]}
+      >
+        <Text style={[styles.headerTitle, { color: colors.text }]}>
+          📊 History
+        </Text>
+        <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
+          Historical sensor readings
+        </Text>
       </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>Recent Measurements</Text>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Summary cards */}
+        <View style={styles.summaryRow}>
+          <View
+            style={[
+              styles.summaryCard,
+              { backgroundColor: colors.bgCard, borderColor: colors.border },
+            ]}
+          >
+            <Text style={[styles.stationLabel, { color: colors.textMuted }]}>
+              Hanwella
+            </Text>
+            <Text style={[styles.currentValue, { color: colors.accentPrimary }]}>
+              {current01.toFixed(2)} m
+            </Text>
+            <DeltaBadge delta={delta01} />
+          </View>
 
-        <View style={styles.tableHeader}>
-          <Text style={styles.time}>Time</Text>
-          <Text style={styles.station}>Location 01</Text>
-          <Text style={styles.station}>Location 02</Text>
+          <View
+            style={[
+              styles.summaryCard,
+              { backgroundColor: colors.bgCard, borderColor: colors.border },
+            ]}
+          >
+            <Text style={[styles.stationLabel, { color: colors.textMuted }]}>
+              Glencourse
+            </Text>
+            <Text style={[styles.currentValue, { color: colors.accentPrimary }]}>
+              {current02.toFixed(2)} m
+            </Text>
+            <DeltaBadge delta={delta02} />
+          </View>
         </View>
 
-        {readings.map((reading) => (
-          <View style={styles.row} key={reading.time}>
-            <Text style={styles.time}>{reading.time}</Text>
+        {/* Readings table */}
+        <View
+          style={[
+            styles.tableCard,
+            { backgroundColor: colors.bgCard, borderColor: colors.border },
+          ]}
+        >
+          <Text style={[styles.tableTitle, { color: colors.text }]}>
+            Recent Measurements
+          </Text>
 
-            <Text style={styles.station}>
-              {reading.location01.toFixed(2)} m
+          <View style={[styles.tableHeader, { backgroundColor: colors.bgElement }]}>
+            <Text style={[styles.thTime, styles.headerCell, { color: colors.textSecondary }]}>
+              Time
             </Text>
-
-            <Text style={styles.station}>
-              {reading.location02.toFixed(2)} m
+            <Text style={[styles.thStation, styles.headerCell, { color: colors.textSecondary }]}>
+              Hanwella
+            </Text>
+            <Text style={[styles.thStation, styles.headerCell, { color: colors.textSecondary }]}>
+              Glencourse
             </Text>
           </View>
-        ))}
-      </View>
 
-      <View style={styles.card}>
-        <Text style={styles.cardTitle}>System Information</Text>
+          {readings.map((r, idx) => (
+            <View
+              key={r.time}
+              style={[
+                styles.row,
+                {
+                  borderTopColor: colors.divider,
+                  backgroundColor: idx % 2 === 0
+                    ? 'transparent'
+                    : colors.bgElement + '50',
+                },
+              ]}
+            >
+              <Text style={[styles.thTime, styles.cellText, { color: colors.textSecondary }]}>
+                {r.time}
+              </Text>
+              <Text style={[styles.thStation, styles.cellText, { color: colors.text }]}>
+                {r.location01.toFixed(2)} m
+              </Text>
+              <Text style={[styles.thStation, styles.cellText, { color: colors.text }]}>
+                {r.location02.toFixed(2)} m
+              </Text>
+            </View>
+          ))}
+        </View>
 
-        <Text style={styles.info}>
-          Data source: ESP32 + JSN-SR04T ultrasonic sensors
-        </Text>
+        {/* System info */}
+        <View
+          style={[
+            styles.infoCard,
+            { backgroundColor: colors.bgCard, borderColor: colors.border },
+          ]}
+        >
+          <Text style={[styles.tableTitle, { color: colors.text }]}>
+            System Information
+          </Text>
 
-        <Text style={styles.info}>
-          Update interval: Prototype configuration
-        </Text>
-
-        <Text style={styles.info}>
-          Storage: Backend database
-        </Text>
-
-        <Text style={styles.info}>
-          Prediction: Python ML service
-        </Text>
-      </View>
-    </ScrollView>
+          {[
+            { label: 'Data source', value: 'ESP32 + JSN-SR04T ultrasonic sensors' },
+            { label: 'Update interval', value: 'Prototype configuration' },
+            { label: 'Storage', value: 'Backend database' },
+            { label: 'Prediction engine', value: 'Python ML service' },
+          ].map((item) => (
+            <View
+              key={item.label}
+              style={[styles.infoRow, { borderTopColor: colors.divider }]}
+            >
+              <Text style={[styles.infoLabel, { color: colors.textMuted }]}>
+                {item.label}
+              </Text>
+              <Text style={[styles.infoValue, { color: colors.text }]}>
+                {item.value}
+              </Text>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  root: {
     flex: 1,
-    backgroundColor: '#f5f7fb',
+  },
+
+  header: {
+    paddingTop: 55,
+    paddingBottom: 16,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+  },
+
+  headerTitle: {
+    fontSize: 26,
+    fontWeight: '800',
+  },
+
+  headerSub: {
+    fontSize: 13,
+    marginTop: 3,
   },
 
   content: {
-    width: '100%',
-    maxWidth: 1000,
-    alignSelf: 'center',
-    padding: 24,
-    paddingBottom: 50,
-  },
-
-  back: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#2563eb',
-    marginBottom: 24,
-  },
-
-  title: {
-    fontSize: 30,
-    fontWeight: '800',
-    color: '#0f172a',
-  },
-
-  subtitle: {
-    fontSize: 14,
-    color: '#64748b',
-    marginTop: 6,
-    marginBottom: 24,
+    padding: 16,
+    paddingBottom: 32,
+    gap: 14,
   },
 
   summaryRow: {
     flexDirection: 'row',
     gap: 12,
-    marginBottom: 20,
   },
 
   summaryCard: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    borderRadius: 16,
-    padding: 18,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
-  },
-
-  label: {
-    fontSize: 13,
-    color: '#64748b',
-  },
-
-  value: {
-    fontSize: 27,
-    fontWeight: '800',
-    color: '#0f172a',
-    marginTop: 5,
-  },
-
-  small: {
-    fontSize: 12,
-    color: '#94a3b8',
-    marginTop: 3,
-  },
-
-  card: {
-    backgroundColor: '#ffffff',
     borderRadius: 18,
-    padding: 20,
-    marginBottom: 18,
+    padding: 16,
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 2 },
   },
 
-  cardTitle: {
-    fontSize: 18,
+  stationLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    marginBottom: 6,
+  },
+
+  currentValue: {
+    fontSize: 30,
     fontWeight: '800',
-    color: '#0f172a',
-    marginBottom: 16,
+    marginBottom: 6,
+  },
+
+  deltaBadge: {
+    fontSize: 13,
+    fontWeight: '700',
+  },
+
+  tableCard: {
+    borderRadius: 18,
+    overflow: 'hidden',
+    borderWidth: 1,
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+  },
+
+  tableTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    padding: 16,
+    paddingBottom: 12,
   },
 
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#f8fafc',
-    padding: 12,
-    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+  },
+
+  headerCell: {
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
 
   row: {
     flexDirection: 'row',
-    paddingVertical: 14,
-    paddingHorizontal: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f1f5f9',
+    paddingVertical: 13,
+    paddingHorizontal: 14,
+    borderTopWidth: 1,
   },
 
-  time: {
-    flex: 1,
+  cellText: {
     fontSize: 13,
-    color: '#64748b',
     fontWeight: '600',
   },
 
-  station: {
-    flex: 1.5,
-    textAlign: 'center',
-    fontSize: 13,
-    color: '#334155',
-    fontWeight: '700',
+  thTime: {
+    flex: 0.8,
   },
 
-  info: {
-    fontSize: 14,
-    color: '#475569',
-    marginBottom: 10,
+  thStation: {
+    flex: 1.1,
+    textAlign: 'center',
+  },
+
+  infoCard: {
+    borderRadius: 18,
+    borderWidth: 1,
+    overflow: 'hidden',
+    elevation: 2,
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 2 },
+  },
+
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderTopWidth: 1,
+    flexWrap: 'wrap',
+    gap: 4,
+  },
+
+  infoLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+
+  infoValue: {
+    fontSize: 13,
+    fontWeight: '600',
+    flexShrink: 1,
+    textAlign: 'right',
   },
 });
