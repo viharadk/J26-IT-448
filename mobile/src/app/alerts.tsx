@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 
+import HamburgerButton from '@/components/HamburgerButton';
 import { useAppTheme } from '@/context/ThemeContext';
 
 type AlertRule = {
@@ -124,13 +125,16 @@ export default function AlertsScreen() {
           { backgroundColor: colors.bgCard, borderBottomColor: colors.border },
         ]}
       >
-        <View>
-          <Text style={[styles.headerTitle, { color: colors.text }]}>
-            🔔 Alerts
-          </Text>
-          <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
-            Water-level & sensor notifications
-          </Text>
+        <View style={styles.headerLeftGroup}>
+          <HamburgerButton color={colors.text} />
+          <View>
+            <Text style={[styles.headerTitle, { color: colors.text }]}>
+              🔔 Alerts
+            </Text>
+            <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
+              Water-level & sensor notifications
+            </Text>
+          </View>
         </View>
       </View>
 
@@ -231,6 +235,12 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
+  },
+
+  headerLeftGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
 
   headerTitle: {

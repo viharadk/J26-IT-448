@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 
+import HamburgerButton from '@/components/HamburgerButton';
 import { useAppTheme } from '@/context/ThemeContext';
 import WaterMap from '../components/WaterMap';
 
@@ -235,6 +236,7 @@ export default function HomeScreen() {
       >
         <View style={styles.headerInner}>
           <View style={styles.headerLeft}>
+            <HamburgerButton color="#ffffff" />
             <Image
               source={require('@/assets/images/kelani-guard-logo.jpg')}
               style={styles.logoImage}

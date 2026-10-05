@@ -5,6 +5,7 @@ import {
   View,
 } from 'react-native';
 
+import HamburgerButton from '@/components/HamburgerButton';
 import { useAppTheme } from '@/context/ThemeContext';
 
 const readings = [
@@ -44,12 +45,17 @@ export default function HistoryScreen() {
           { backgroundColor: colors.bgCard, borderBottomColor: colors.border },
         ]}
       >
-        <Text style={[styles.headerTitle, { color: colors.text }]}>
-          📊 History
-        </Text>
-        <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
-          Historical sensor readings
-        </Text>
+        <View style={styles.headerLeftGroup}>
+          <HamburgerButton color={colors.text} />
+          <View>
+            <Text style={[styles.headerTitle, { color: colors.text }]}>
+              📊 History
+            </Text>
+            <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
+              Historical sensor readings
+            </Text>
+          </View>
+        </View>
       </View>
 
       <ScrollView
@@ -183,6 +189,12 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
+  },
+
+  headerLeftGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
 
   headerTitle: {

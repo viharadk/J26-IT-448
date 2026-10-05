@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
+import React from 'react';
 import {
-  Pressable,
   ScrollView,
   StyleSheet,
   Switch,
@@ -8,11 +8,8 @@ import {
   View,
 } from 'react-native';
 
-import {
-  ACCENT_PRESETS,
-  AccentPreset,
-  useAppTheme,
-} from '@/context/ThemeContext';
+import HamburgerButton from '@/components/HamburgerButton';
+import { useAppTheme } from '@/context/ThemeContext';
 
 function SectionCard({
   title,
@@ -45,23 +42,28 @@ function RowDivider() {
 }
 
 export default function SettingsScreen() {
-  const { colors, mode, accent, toggleMode, setAccent } = useAppTheme();
+  const { colors, mode, toggleMode } = useAppTheme();
 
   return (
     <View style={[styles.root, { backgroundColor: colors.bg }]}>
-      {/* Header */}
+      {/* Header with 3 lines at top */}
       <View
         style={[
           styles.header,
           { backgroundColor: colors.bgCard, borderBottomColor: colors.border },
         ]}
       >
-        <Text style={[styles.headerTitle, { color: colors.text }]}>
-          ⚙️ Settings
-        </Text>
-        <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
-          App preferences & customization
-        </Text>
+        <View style={styles.headerLeftGroup}>
+          <HamburgerButton color={colors.text} />
+          <View>
+            <Text style={[styles.headerTitle, { color: colors.text }]}>
+              ⚙️ Settings
+            </Text>
+            <Text style={[styles.headerSub, { color: colors.textSecondary }]}>
+              App preferences & system info
+            </Text>
+          </View>
+        </View>
       </View>
 
       <ScrollView
@@ -72,7 +74,10 @@ export default function SettingsScreen() {
         <View
           style={[
             styles.identityCard,
-            { backgroundColor: colors.accentLight, borderColor: colors.accentPrimary + '44' },
+            {
+              backgroundColor: colors.primaryLight,
+              borderColor: colors.primary + '44',
+            },
           ]}
         >
           <Image
@@ -81,16 +86,18 @@ export default function SettingsScreen() {
             contentFit="cover"
           />
           <View style={styles.identityText}>
-            <Text style={[styles.identityName, { color: colors.accentDark }]}>
+            <Text style={[styles.identityName, { color: colors.primaryDark }]}>
               Kelani Guard System
             </Text>
-            <Text style={[styles.identityVersion, { color: colors.textSecondary }]}>
-              Version 1.0.0 — Prototype
+            <Text
+              style={[styles.identityVersion, { color: colors.textSecondary }]}
+            >
+              Version 1.0.0 — Research Prototype
             </Text>
           </View>
         </View>
 
-        {/* Appearance */}
+        {/* Appearance - Accent removed as requested */}
         <SectionCard title="APPEARANCE">
           {/* Dark mode toggle */}
           <View style={styles.row}>
@@ -110,70 +117,10 @@ export default function SettingsScreen() {
               onValueChange={toggleMode}
               trackColor={{
                 false: colors.bgElement,
-                true: colors.accentPrimary,
+                true: colors.primary,
               }}
               thumbColor="#ffffff"
             />
-          </View>
-
-          <RowDivider />
-
-          {/* Accent colors */}
-          <View style={[styles.row, { flexDirection: 'column', alignItems: 'flex-start', gap: 12 }]}>
-            <View style={styles.rowLeft}>
-              <Text style={styles.rowEmoji}>🎨</Text>
-              <View>
-                <Text style={[styles.rowTitle, { color: colors.text }]}>
-                  Accent Color
-                </Text>
-                <Text style={[styles.rowSub, { color: colors.textMuted }]}>
-                  {ACCENT_PRESETS[accent].label} selected
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.accentRow}>
-              {(Object.keys(ACCENT_PRESETS) as AccentPreset[]).map((key) => {
-                const preset = ACCENT_PRESETS[key];
-                const isSelected = accent === key;
-                return (
-                  <Pressable
-                    key={key}
-                    onPress={() => setAccent(key)}
-                    style={({ pressed }) => [
-                      styles.accentButton,
-                      {
-                        backgroundColor: preset.primary,
-                        transform: [{ scale: pressed ? 0.9 : 1 }],
-                        borderWidth: isSelected ? 3 : 0,
-                        borderColor: isSelected ? colors.text : 'transparent',
-                      },
-                    ]}
-                  >
-                    {isSelected && (
-                      <Text style={styles.accentCheck}>✓</Text>
-                    )}
-                  </Pressable>
-                );
-              })}
-            </View>
-
-            <View style={styles.accentLabels}>
-              {(Object.keys(ACCENT_PRESETS) as AccentPreset[]).map((key) => (
-                <Text
-                  key={key}
-                  style={[
-                    styles.accentLabel,
-                    {
-                      color: accent === key ? colors.accentPrimary : colors.textMuted,
-                      fontWeight: accent === key ? '700' : '400',
-                    },
-                  ]}
-                >
-                  {ACCENT_PRESETS[key].label}
-                </Text>
-              ))}
-            </View>
           </View>
         </SectionCard>
 
@@ -194,7 +141,9 @@ export default function SettingsScreen() {
                     {item.label}
                   </Text>
                 </View>
-                <Text style={[styles.rowValue, { color: colors.textSecondary }]}>
+                <Text
+                  style={[styles.rowValue, { color: colors.textSecondary }]}
+                >
                   {item.value}
                 </Text>
               </View>
@@ -219,7 +168,9 @@ export default function SettingsScreen() {
                     {item.label}
                   </Text>
                 </View>
-                <Text style={[styles.rowValue, { color: colors.textSecondary }]}>
+                <Text
+                  style={[styles.rowValue, { color: colors.textSecondary }]}
+                >
                   {item.value}
                 </Text>
               </View>
@@ -232,12 +183,12 @@ export default function SettingsScreen() {
           style={[
             styles.protoNotice,
             {
-              backgroundColor: colors.accentLight,
-              borderColor: colors.accentPrimary + '44',
+              backgroundColor: colors.primaryLight,
+              borderColor: colors.primary + '44',
             },
           ]}
         >
-          <Text style={[styles.protoTitle, { color: colors.accentDark }]}>
+          <Text style={[styles.protoTitle, { color: colors.primaryDark }]}>
             🚧 Research Prototype
           </Text>
           <Text style={[styles.protoText, { color: colors.textSecondary }]}>
@@ -261,6 +212,12 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
+  },
+
+  headerLeftGroup: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
 
   headerTitle: {
@@ -370,45 +327,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     maxWidth: 140,
     textAlign: 'right',
-  },
-
-  /* Accent colors */
-  accentRow: {
-    flexDirection: 'row',
-    gap: 12,
-    paddingLeft: 40,
-  },
-
-  accentButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 3,
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 2 },
-  },
-
-  accentCheck: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '800',
-  },
-
-  accentLabels: {
-    flexDirection: 'row',
-    gap: 0,
-    paddingLeft: 40,
-    justifyContent: 'space-around',
-    width: '100%',
-  },
-
-  accentLabel: {
-    fontSize: 10,
-    width: 48,
-    textAlign: 'center',
   },
 
   /* Prototype notice */
