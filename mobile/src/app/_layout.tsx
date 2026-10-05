@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import LeftSliderNav from '@/components/LeftSliderNav';
 import { NavSliderProvider } from '@/context/NavSliderContext';
 import { ThemeProvider, useAppTheme } from '@/context/ThemeContext';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function TabLayoutInner() {
   const { colors } = useAppTheme();
@@ -37,11 +38,13 @@ function TabLayoutInner() {
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <NavSliderProvider>
-        <TabLayoutInner />
-      </NavSliderProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <NavSliderProvider>
+          <TabLayoutInner />
+        </NavSliderProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 
