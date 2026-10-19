@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Pressable,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,17 +13,17 @@ import {
 } from 'react-native';
 
 import HamburgerButton from '@/components/HamburgerButton';
+import HistorySection from '@/components/HistorySection';
+import { API_BASE_URL, SENSOR_HEIGHT_CM } from '@/constants/config';
 import { useAppTheme } from '@/context/ThemeContext';
 import WaterMap from '../components/WaterMap';
 
-// ---------------------------------------------------------------------------
-// API configuration — change the IP here if your laptop address changes
-// ---------------------------------------------------------------------------
-const API_BASE_URL = 'http://192.168.8.178:3000';
-const POLL_INTERVAL_MS = 2000;
+export { API_BASE_URL, SENSOR_HEIGHT_CM };
 
-/** Maximum measurable water level (sensor mounting height, in cm). */
-const SENSOR_HEIGHT_CM = 200;
+// ---------------------------------------------------------------------------
+// Polling configuration
+// ---------------------------------------------------------------------------
+const POLL_INTERVAL_MS = 2000;
 
 // ---------------------------------------------------------------------------
 // Types
@@ -393,6 +394,14 @@ function StatCard({
 export default function HomeScreen() {
   const { colors, mode } = useAppTheme();
   const { reading, error, loading } = useSensorReadings();
+  const [pullRefreshing, setPullRefreshing] = useState(false);
+
+  const onPullRefresh = () => {
+    setPullRefreshing(true);
+    setTimeout(() => {
+      setPullRefreshing(false);
+    }, 800);
+  };
 
   // Format timestamp in Sri Lanka time (UTC+5:30)
   const lastUpdatedLabel = reading
@@ -460,6 +469,14 @@ export default function HomeScreen() {
         style={styles.scrollView}
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={pullRefreshing}
+            onRefresh={onPullRefresh}
+            tintColor={colors.primary}
+            colors={[colors.primary]}
+          />
+        }
       >
         {/* Stats row */}
         <View style={styles.statsRow}>
@@ -518,122 +535,8 @@ export default function HomeScreen() {
           <WaterMap locations={locations} />
         </View>
 
-        {/* Section: Recent Readings */}
-        <View style={styles.sectionHeader}>
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>
-            Recent Readings
-          </Text>
-          <Pressable onPress={() => router.push('/history')}>
-            <Text style={[styles.viewLink, { color: colors.accentPrimary }]}>
-              Full History →
-            </Text>
-          </Pressable>
-        </View>
-
-        <View
-          style={[
-            styles.readingsCard,
-            { backgroundColor: colors.bgCard, borderColor: colors.border },
-          ]}
-        >
-          {/* Table header */}
-          <View
-            style={[
-              styles.tableHeader,
-              { backgroundColor: colors.bgElement },
-            ]}
-          >
-            <Text
-              style={[
-                styles.tableHeaderText,
-                styles.timeCol,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Time
-            </Text>
-            <Text
-              style={[
-                styles.tableHeaderText,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Hanwella
-            </Text>
-            <Text
-              style={[
-                styles.tableHeaderText,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Glencourse
-            </Text>
-          </View>
-
-          {/* Live row — highlighted, water level values */}
-          {reading != null && (
-            <View
-              style={[
-                styles.tableRow,
-                {
-                  borderTopColor: colors.divider,
-                  backgroundColor: colors.accentLight + '55',
-                },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.tableText,
-                  styles.timeCol,
-                  { color: colors.accentPrimary, fontWeight: '800' },
-                ]}
-              >
-                {lastUpdatedLabel}
-              </Text>
-              <Text style={[styles.tableText, { color: colors.accentPrimary, fontWeight: '700' }]}>
-                {locations[0]?.waterLevelCm != null
-                  ? `${locations[0].waterLevelCm.toFixed(1)} cm`
-                  : 'No reading'}
-              </Text>
-              <Text style={[styles.tableText, { color: colors.accentPrimary, fontWeight: '700' }]}>
-                {locations[1]?.waterLevelCm != null
-                  ? `${locations[1].waterLevelCm.toFixed(1)} cm`
-                  : 'No reading'}
-              </Text>
-            </View>
-          )}
-
-          {/* Placeholder history rows */}
-          {DEMO_HISTORY.map((row, idx) => (
-            <View
-              key={idx}
-              style={[
-                styles.tableRow,
-                {
-                  borderTopColor: colors.divider,
-                  backgroundColor:
-                    idx % 2 === 0 ? 'transparent' : colors.bgElement + '60',
-                },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.tableText,
-                  styles.timeCol,
-                  { color: colors.textSecondary },
-                ]}
-              >
-                {row.time}
-              </Text>
-              <Text style={[styles.tableText, { color: colors.textMuted }]}>
-                {row.waterLevel01 != null ? `${row.waterLevel01.toFixed(1)} cm` : '—'}
-              </Text>
-              <Text style={[styles.tableText, { color: colors.textMuted }]}>
-                {row.waterLevel02 != null ? `${row.waterLevel02.toFixed(1)} cm` : '—'}
-              </Text>
-            </View>
-          ))}
-        </View>
+        {/* Section: Past Data / History */}
+        <HistorySection />
 
         {/* Notice */}
         <View
