@@ -13,6 +13,7 @@ import Svg, {
   Line,
   LinearGradient as SvgLinearGradient,
   Path,
+  Rect,
   Stop,
   Text as SvgText,
 } from 'react-native-svg';
@@ -82,13 +83,14 @@ export default function WaterLevelChart({
   };
 
   // Build SVG Paths for Location 01 & Location 02
-  const { path01, area01, path02, area02, points01, points02 } = useMemo(() => {
+  const { path01, area01, path02, area02, points01, points02, closeIndices } = useMemo(() => {
     let p01 = '';
     let a01 = '';
     let p02 = '';
     let a02 = '';
     const pts01: { x: number; y: number; val: number; index: number }[] = [];
     const pts02: { x: number; y: number; val: number; index: number }[] = [];
+    const closeSet = new Set<number>();
 
     let firstX01: number | null = null;
     let lastX01: number | null = null;
@@ -99,6 +101,11 @@ export default function WaterLevelChart({
       const x = getX(i);
       const y1 = getY(d.waterLevel01);
       const y2 = getY(d.waterLevel02);
+
+      // Flag points as close if vertical difference is within 14px or values within 8cm
+      if (y1 != null && y2 != null && Math.abs(y1 - y2) <= 14) {
+        closeSet.add(i);
+      }
 
       if (y1 != null) {
         pts01.push({ x, y: y1, val: d.waterLevel01!, index: i });
@@ -139,6 +146,7 @@ export default function WaterLevelChart({
       area02: a02,
       points01: pts01,
       points02: pts02,
+      closeIndices: closeSet,
     };
   }, [data, containerWidth, plotWidth, plotHeight]);
 
@@ -277,8 +285,8 @@ export default function WaterLevelChart({
           </SvgText>
 
           {/* Area Fills */}
-          {area01 ? <Path d={area01} fill="url(#gradLoc01)" /> : null}
           {area02 ? <Path d={area02} fill="url(#gradLoc02)" /> : null}
+          {area01 ? <Path d={area01} fill="url(#gradLoc01)" /> : null}
 
           {/* Threshold lines: WATCH / WARNING / DANGER */}
           {thresholds && [
@@ -327,24 +335,25 @@ export default function WaterLevelChart({
             );
           })}
 
-          {/* Data Lines */}
-          {path01 ? (
-            <Path
-              d={path01}
-              fill="none"
-              stroke={loc01Color}
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          ) : null}
-
+          {/* Data Lines: Location 02 drawn first (dashed, 2.0px), Location 01 drawn on top (solid, 3.0px) */}
           {path02 ? (
             <Path
               d={path02}
               fill="none"
               stroke={loc02Color}
-              strokeWidth="2.5"
+              strokeWidth="2"
+              strokeDasharray="6,4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          ) : null}
+
+          {path01 ? (
+            <Path
+              d={path01}
+              fill="none"
+              stroke={loc01Color}
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
@@ -363,41 +372,51 @@ export default function WaterLevelChart({
             />
           )}
 
-          {/* Circles on dots (show if fewer than 35 points, or selected point) */}
-          {(data.length <= 35 || selectedIndex !== null) && (
-            <G>
-              {points01.map((pt) => {
-                const isSelected = pt.index === selectedIndex;
-                if (!isSelected && data.length > 35) return null;
-                return (
-                  <Circle
-                    key={`p01-${pt.index}`}
-                    cx={pt.x}
-                    cy={pt.y}
-                    r={isSelected ? 5.5 : 3}
-                    fill={loc01Color}
-                    stroke="#ffffff"
-                    strokeWidth={isSelected ? 2 : 1}
-                  />
-                );
-              })}
-              {points02.map((pt) => {
-                const isSelected = pt.index === selectedIndex;
-                if (!isSelected && data.length > 35) return null;
-                return (
-                  <Circle
-                    key={`p02-${pt.index}`}
-                    cx={pt.x}
-                    cy={pt.y}
-                    r={isSelected ? 5.5 : 3}
-                    fill={loc02Color}
-                    stroke="#ffffff"
-                    strokeWidth={isSelected ? 2 : 1}
-                  />
-                );
-              })}
-            </G>
-          )}
+          {/* Markers:
+              Location 02 = Square (Rect) drawn first.
+              Location 01 = Circle drawn on top.
+              Rendered when <= 35 points, when selected, or when points are close/overlapping. */}
+          <G>
+            {points02.map((pt) => {
+              const isSelected = pt.index === selectedIndex;
+              const isClose = closeIndices.has(pt.index);
+              const show = data.length <= 35 || isSelected || isClose;
+              if (!show) return null;
+
+              const size = isSelected ? 10 : 7;
+              return (
+                <Rect
+                  key={`p02-${pt.index}`}
+                  x={pt.x - size / 2}
+                  y={pt.y - size / 2}
+                  width={size}
+                  height={size}
+                  fill={loc02Color}
+                  stroke="#ffffff"
+                  strokeWidth={isSelected ? 2 : 1}
+                  rx={1}
+                />
+              );
+            })}
+            {points01.map((pt) => {
+              const isSelected = pt.index === selectedIndex;
+              const isClose = closeIndices.has(pt.index);
+              const show = data.length <= 35 || isSelected || isClose;
+              if (!show) return null;
+
+              return (
+                <Circle
+                  key={`p01-${pt.index}`}
+                  cx={pt.x}
+                  cy={pt.y}
+                  r={isSelected ? 5.5 : 3.5}
+                  fill={loc01Color}
+                  stroke="#ffffff"
+                  strokeWidth={isSelected ? 2 : 1}
+                />
+              );
+            })}
+          </G>
 
           {/* X Axis Timestamps (Sri Lanka Time) */}
           {xLabelIndices.map((idx) => {
