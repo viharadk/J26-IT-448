@@ -1,7 +1,9 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -13,10 +15,41 @@ import HamburgerButton from '@/components/HamburgerButton';
 import { useAppTheme } from '@/context/ThemeContext';
 import WaterMap from '../components/WaterMap';
 
+// ---------------------------------------------------------------------------
+// API configuration — change the IP here if your laptop address changes
+// ---------------------------------------------------------------------------
+const API_BASE_URL = 'http://192.168.8.178:3000';
+const POLL_INTERVAL_MS = 2000;
+
+/** Maximum measurable water level (sensor mounting height, in cm). */
+const SENSOR_HEIGHT_CM = 200;
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+/** Shape returned by GET /api/readings/latest */
+type SensorReading = {
+  deviceId: string;
+  /** Raw ultrasonic distance in cm (sensor → water surface) */
+  location01: number;
+  location02: number;
+  /** Water level in cm = SENSOR_HEIGHT_CM − distance. Null when sensor had no reading. */
+  waterLevel01: number | null;
+  waterLevel02: number | null;
+  receivedAt: string;
+};
+
 type LocationData = {
   id: string;
   name: string;
-  level: number;
+  /** Calculated water level in cm (null = sensor gave no reading) */
+  waterLevelCm: number | null;
+  /** Raw ultrasonic distance in cm — shown only as secondary info */
+  distanceCm: number | null;
+  /** True when values came from the live API */
+  isLive: boolean;
+  // ---- below fields are DEMO / mock until backend supplies them ----
   status: 'LOW' | 'MEDIUM' | 'HIGH';
   prediction: number;
   sensorOnline: boolean;
@@ -25,37 +58,158 @@ type LocationData = {
   longitude: number;
 };
 
-const locations: LocationData[] = [
+/** Static station config — coordinates and API field names */
+const STATION_CONFIG = [
   {
     id: 'location-01',
     name: 'Hanwella Station',
-    level: 0.72,
-    status: 'MEDIUM',
-    prediction: 0.84,
-    sensorOnline: true,
-    lastUpdated: 'Just now',
+    waterLevelKey: 'waterLevel01' as keyof SensorReading,
+    distanceKey:   'location01'   as keyof SensorReading,
     latitude: 6.9031,
     longitude: 80.0823,
   },
   {
     id: 'location-02',
     name: 'Glencourse Station',
-    level: 0.65,
+    waterLevelKey: 'waterLevel02' as keyof SensorReading,
+    distanceKey:   'location02'   as keyof SensorReading,
+    latitude: 6.9786,
+    longitude: 80.1737,
+  },
+] as const;
+
+/** Placeholder values shown before the first successful API response */
+const DEMO_LOCATIONS: LocationData[] = [
+  {
+    id: 'location-01',
+    name: 'Hanwella Station',
+    waterLevelCm: null,
+    distanceCm: null,
+    isLive: false,
+    status: 'MEDIUM',
+    prediction: 0.84,
+    sensorOnline: false,
+    lastUpdated: '—',
+    latitude: 6.9031,
+    longitude: 80.0823,
+  },
+  {
+    id: 'location-02',
+    name: 'Glencourse Station',
+    waterLevelCm: null,
+    distanceCm: null,
+    isLive: false,
     status: 'MEDIUM',
     prediction: 0.76,
-    sensorOnline: true,
-    lastUpdated: '1 min ago',
+    sensorOnline: false,
+    lastUpdated: '—',
     latitude: 6.9786,
     longitude: 80.1737,
   },
 ];
 
-const recentReadings = [
-  { time: '11:50', location01: 0.72, location02: 0.65 },
-  { time: '11:40', location01: 0.69, location02: 0.63 },
-  { time: '11:30', location01: 0.66, location02: 0.61 },
-  { time: '11:20', location01: 0.64, location02: 0.59 },
+/** Demo history rows — shown greyed-out below the live row */
+const DEMO_HISTORY = [
+  { time: '—', waterLevel01: null as number | null, waterLevel02: null as number | null },
+  { time: '—', waterLevel01: null as number | null, waterLevel02: null as number | null },
 ];
+
+// ---------------------------------------------------------------------------
+// Custom hook: useSensorReadings
+// ---------------------------------------------------------------------------
+function useSensorReadings() {
+  const [reading, setReading] = useState<SensorReading | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchLatest() {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/readings/latest`);
+        if (!res.ok) {
+          if (res.status === 404) {
+            // Backend running but ESP32 hasn't sent data yet
+            if (!cancelled) setError('Waiting for sensor data…');
+          } else {
+            if (!cancelled) setError(`Server error ${res.status}`);
+          }
+          return;
+        }
+        const data: SensorReading = await res.json();
+        if (!cancelled) {
+          setReading(data);
+          setError(null);
+        }
+      } catch {
+        if (!cancelled) {
+          setError('Cannot reach server. Check your Wi-Fi and API_BASE_URL.');
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    fetchLatest();
+    intervalRef.current = setInterval(fetchLatest, POLL_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      if (intervalRef.current != null) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  return { reading, error, loading };
+}
+
+// ---------------------------------------------------------------------------
+// Helper: calculate water level with fallback to (SENSOR_HEIGHT_CM - distance)
+// ---------------------------------------------------------------------------
+function resolveWaterLevel(
+  waterLevel: number | null | undefined,
+  distance: number | null | undefined
+): number | null {
+  if (typeof waterLevel === 'number' && !isNaN(waterLevel)) {
+    return Math.max(0, Math.min(SENSOR_HEIGHT_CM, Number(waterLevel.toFixed(2))));
+  }
+  if (typeof distance === 'number' && !isNaN(distance)) {
+    const computed = SENSOR_HEIGHT_CM - distance;
+    return Math.max(0, Math.min(SENSOR_HEIGHT_CM, Number(computed.toFixed(2))));
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Helper: build LocationData array from live reading + static config
+// ---------------------------------------------------------------------------
+function buildLocations(
+  reading: SensorReading | null,
+  now: string
+): LocationData[] {
+  return STATION_CONFIG.map((cfg) => {
+    const demo = DEMO_LOCATIONS.find((d) => d.id === cfg.id)!;
+    if (reading == null) return demo;
+
+    const rawWaterLevel = reading[cfg.waterLevelKey] as number | null | undefined;
+    const rawDistance   = reading[cfg.distanceKey]   as number | null | undefined;
+
+    // Use backend water level if present; fallback to (SENSOR_HEIGHT_CM - distance)
+    const waterLevelCm = resolveWaterLevel(rawWaterLevel, rawDistance);
+    const distanceCm   = typeof rawDistance === 'number' && !isNaN(rawDistance) ? rawDistance : null;
+    const hasReading   = waterLevelCm != null;
+
+    return {
+      ...demo,
+      waterLevelCm,
+      distanceCm,
+      isLive:       true,
+      sensorOnline: hasReading,
+      lastUpdated:  now,
+    };
+  });
+}
 
 function StatusBadge({ status }: { status: LocationData['status'] }) {
   const { colors } = useAppTheme();
@@ -79,21 +233,22 @@ function StatusBadge({ status }: { status: LocationData['status'] }) {
   );
 }
 
-function WaterLevelBar({ level }: { level: number }) {
+function WaterLevelBar({ level }: { level: number | null }) {
   const { colors } = useAppTheme();
-  const percent = Math.min(level / 2.0, 1); // max assumed 2m
+
+  // level is water level in cm; SENSOR_HEIGHT_CM is the 100 % mark
+  const safeCm  = level ?? 0;
+  const percent = Math.min(Math.max(safeCm / SENSOR_HEIGHT_CM, 0), 1);
 
   const barColor =
-    level > 1.5
+    safeCm >= SENSOR_HEIGHT_CM * 0.85
       ? colors.danger
-      : level > 1.0
+      : safeCm >= SENSOR_HEIGHT_CM * 0.60
         ? colors.warning
         : colors.accentPrimary;
 
   return (
-    <View
-      style={[styles.levelBarTrack, { backgroundColor: colors.bgElement }]}
-    >
+    <View style={[styles.levelBarTrack, { backgroundColor: colors.bgElement }]}>
       <View
         style={[
           styles.levelBarFill,
@@ -113,7 +268,7 @@ function LocationCard({ location }: { location: LocationData }) {
         styles.locationCard,
         {
           backgroundColor: colors.bgCard,
-          borderColor: colors.border,
+          borderColor: location.isLive ? colors.accentPrimary + '55' : colors.border,
           shadowColor: colors.text,
         },
       ]}
@@ -143,18 +298,30 @@ function LocationCard({ location }: { location: LocationData }) {
         <StatusBadge status={location.status} />
       </View>
 
-      {/* Level display */}
+      {/* ── Main: water level (backend-calculated) ── */}
       <View style={styles.levelRow}>
         <View>
-          <Text style={[styles.levelValue, { color: colors.accentPrimary }]}>
-            {location.level.toFixed(2)}
-            <Text style={[styles.levelUnit, { color: colors.textSecondary }]}>
-              {' '}m
+          {location.waterLevelCm != null ? (
+            <Text style={[styles.levelValue, { color: colors.accentPrimary }]}>
+              {location.waterLevelCm.toFixed(1)}
+              <Text style={[styles.levelUnit, { color: colors.textSecondary }]}>
+                {' '}cm
+              </Text>
             </Text>
-          </Text>
+          ) : (
+            <Text style={[styles.levelValue, { color: colors.textMuted, fontSize: 22 }]}>
+              No reading
+            </Text>
+          )}
           <Text style={[styles.levelLabel, { color: colors.textMuted }]}>
-            Current Water Level
+            {location.isLive ? '💧 Water Level (Live)' : '💧 Water Level'}
           </Text>
+          {/* Secondary: raw sensor distance */}
+          {location.distanceCm != null && (
+            <Text style={[styles.distanceSecondary, { color: colors.textMuted }]}>
+              Distance from sensor: {location.distanceCm.toFixed(1)} cm
+            </Text>
+          )}
         </View>
 
         <View style={styles.predictionBox}>
@@ -164,10 +331,14 @@ function LocationCard({ location }: { location: LocationData }) {
           <Text style={[styles.predictionValue, { color: colors.text }]}>
             {location.prediction.toFixed(2)} m
           </Text>
+          <Text style={[styles.demoTag, { color: colors.textMuted }]}>
+            (demo)
+          </Text>
         </View>
       </View>
 
-      <WaterLevelBar level={location.level} />
+      {/* Progress bar: water level as % of SENSOR_HEIGHT_CM */}
+      <WaterLevelBar level={location.waterLevelCm} />
 
       {/* Footer */}
       <View style={styles.cardFooter}>
@@ -221,6 +392,20 @@ function StatCard({
 
 export default function HomeScreen() {
   const { colors, mode } = useAppTheme();
+  const { reading, error, loading } = useSensorReadings();
+
+  // Format timestamp in Sri Lanka time (UTC+5:30)
+  const lastUpdatedLabel = reading
+    ? new Date(reading.receivedAt).toLocaleTimeString('en-LK', {
+        timeZone: 'Asia/Colombo',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      })
+    : '—';
+
+  const locations = buildLocations(reading, lastUpdatedLabel);
 
   const onlineSensors = locations.filter((l) => l.sensorOnline).length;
   const highAlerts = locations.filter((l) => l.status === 'HIGH').length;
@@ -253,6 +438,23 @@ export default function HomeScreen() {
           </View>
         </View>
       </LinearGradient>
+
+      {/* Loading / error banner (non-blocking) */}
+      {loading && (
+        <View style={[styles.apiBanner, { backgroundColor: colors.bgElement }]}>
+          <ActivityIndicator size="small" color={colors.accentPrimary} />
+          <Text style={[styles.apiBannerText, { color: colors.textSecondary }]}>
+            Connecting to backend…
+          </Text>
+        </View>
+      )}
+      {!loading && error != null && (
+        <View style={[styles.apiBanner, { backgroundColor: colors.dangerLight }]}>
+          <Text style={[styles.apiBannerText, { color: colors.danger }]}>
+            ⚠️ {error}
+          </Text>
+        </View>
+      )}
 
       <ScrollView
         style={styles.scrollView}
@@ -368,9 +570,43 @@ export default function HomeScreen() {
             </Text>
           </View>
 
-          {recentReadings.map((reading, idx) => (
+          {/* Live row — highlighted, water level values */}
+          {reading != null && (
             <View
-              key={reading.time}
+              style={[
+                styles.tableRow,
+                {
+                  borderTopColor: colors.divider,
+                  backgroundColor: colors.accentLight + '55',
+                },
+              ]}
+            >
+              <Text
+                style={[
+                  styles.tableText,
+                  styles.timeCol,
+                  { color: colors.accentPrimary, fontWeight: '800' },
+                ]}
+              >
+                {lastUpdatedLabel}
+              </Text>
+              <Text style={[styles.tableText, { color: colors.accentPrimary, fontWeight: '700' }]}>
+                {locations[0]?.waterLevelCm != null
+                  ? `${locations[0].waterLevelCm.toFixed(1)} cm`
+                  : 'No reading'}
+              </Text>
+              <Text style={[styles.tableText, { color: colors.accentPrimary, fontWeight: '700' }]}>
+                {locations[1]?.waterLevelCm != null
+                  ? `${locations[1].waterLevelCm.toFixed(1)} cm`
+                  : 'No reading'}
+              </Text>
+            </View>
+          )}
+
+          {/* Placeholder history rows */}
+          {DEMO_HISTORY.map((row, idx) => (
+            <View
+              key={idx}
               style={[
                 styles.tableRow,
                 {
@@ -387,13 +623,13 @@ export default function HomeScreen() {
                   { color: colors.textSecondary },
                 ]}
               >
-                {reading.time}
+                {row.time}
               </Text>
-              <Text style={[styles.tableText, { color: colors.text }]}>
-                {reading.location01.toFixed(2)} m
+              <Text style={[styles.tableText, { color: colors.textMuted }]}>
+                {row.waterLevel01 != null ? `${row.waterLevel01.toFixed(1)} cm` : '—'}
               </Text>
-              <Text style={[styles.tableText, { color: colors.text }]}>
-                {reading.location02.toFixed(2)} m
+              <Text style={[styles.tableText, { color: colors.textMuted }]}>
+                {row.waterLevel02 != null ? `${row.waterLevel02.toFixed(1)} cm` : '—'}
               </Text>
             </View>
           ))}
@@ -413,8 +649,9 @@ export default function HomeScreen() {
             ℹ️ Prototype System
           </Text>
           <Text style={[styles.noticeText, { color: colors.textSecondary }]}>
-            Live ESP32 sensor data will be connected through the backend API.
-            Current readings are prototype values.
+            Water level = {SENSOR_HEIGHT_CM} cm − sensor distance. Polled every{' '}
+            {POLL_INTERVAL_MS / 1000} s. Risk badges and 30-min forecasts are
+            demo placeholders not based on real data.
           </Text>
         </View>
       </ScrollView>
@@ -761,5 +998,32 @@ const styles = StyleSheet.create({
   noticeText: {
     fontSize: 12,
     lineHeight: 18,
+  },
+
+  /* API status banner (loading / error) */
+  apiBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+
+  apiBannerText: {
+    fontSize: 12,
+    fontWeight: '600',
+    flexShrink: 1,
+  },
+
+  /* Demo tag under prediction */
+  demoTag: {
+    fontSize: 10,
+    marginTop: 2,
+  },
+
+  /* Secondary distance label under the main water-level value */
+  distanceSecondary: {
+    fontSize: 11,
+    marginTop: 4,
   },
 });

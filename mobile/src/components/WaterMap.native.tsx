@@ -6,7 +6,8 @@ type Location = {
   name: string;
   latitude: number;
   longitude: number;
-  level: number;
+  waterLevelCm: number | null;
+  distanceCm: number | null;
   status: string;
 };
 
@@ -47,7 +48,7 @@ export default function WaterMap({ locations }: Props) {
             longitude: location.longitude,
           }}
           title={location.name}
-          description={`${location.level.toFixed(2)} m - ${location.status}`}
+          description={`Water Level: ${location.waterLevelCm != null ? `${location.waterLevelCm.toFixed(1)} cm` : 'No reading'} · ${location.status}`}
         />
       ))}
 

@@ -7,6 +7,14 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+const SENSOR_HEIGHT_CM = { location01: 200, location02: 200 };
+
+function toWaterLevel(distance, sensorHeight) {
+  if (typeof distance !== "number") return null;
+  const level = sensorHeight - distance;
+  return Math.max(0, Math.min(sensorHeight, Number(level.toFixed(2))));
+}
+
 // Latest sensor reading (kept in memory)
 let latestReading = null;
 
@@ -23,6 +31,8 @@ app.post("/api/readings", (req, res) => {
 
   latestReading = {
     ...req.body,
+    waterLevel01: toWaterLevel(req.body.location01, SENSOR_HEIGHT_CM.location01),
+    waterLevel02: toWaterLevel(req.body.location02, SENSOR_HEIGHT_CM.location02),
     receivedAt: new Date().toISOString(),
   };
 
