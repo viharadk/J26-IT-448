@@ -8,7 +8,12 @@ import {
   View,
 } from 'react-native';
 
-import { API_BASE_URL, SENSOR_HEIGHT_CM } from '@/constants/config';
+import {
+  API_BASE_URL,
+  DEFAULT_RISK_THRESHOLDS,
+  RiskThresholds,
+  SENSOR_HEIGHT_CM,
+} from '@/constants/config';
 import { useAppTheme } from '@/context/ThemeContext';
 import WaterLevelChart, { ChartDataPoint } from './WaterLevelChart';
 
@@ -88,11 +93,14 @@ interface HistorySectionProps {
   onRefresh?: () => void;
   title?: string;
   showFullTableOption?: boolean;
+  /** Pilot risk thresholds from the backend — used to draw threshold lines on the chart */
+  thresholds?: RiskThresholds;
 }
 
 export default function HistorySection({
   title = 'Past Data & History',
   showFullTableOption = true,
+  thresholds = DEFAULT_RISK_THRESHOLDS,
 }: HistorySectionProps) {
   const { colors, mode } = useAppTheme();
   const [selectedRange, setSelectedRange] = useState<TimeRange>('1h');
@@ -323,7 +331,7 @@ export default function HistorySection({
               </Text>
             </View>
 
-            <WaterLevelChart data={chartData} height={230} />
+            <WaterLevelChart data={chartData} height={230} thresholds={thresholds} />
           </View>
         )}
 

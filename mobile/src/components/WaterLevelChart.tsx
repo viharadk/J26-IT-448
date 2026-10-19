@@ -18,6 +18,7 @@ import Svg, {
 } from 'react-native-svg';
 
 import { SENSOR_HEIGHT_CM } from '@/constants/config';
+import type { RiskThresholds } from '@/constants/config';
 import { useAppTheme } from '@/context/ThemeContext';
 
 export interface ChartDataPoint {
@@ -31,11 +32,14 @@ export interface ChartDataPoint {
 interface WaterLevelChartProps {
   data: ChartDataPoint[]; // Oldest to newest (left to right)
   height?: number;
+  /** When supplied, draws horizontal watch/warning/danger lines on the chart */
+  thresholds?: RiskThresholds;
 }
 
 export default function WaterLevelChart({
   data,
   height = 230,
+  thresholds,
 }: WaterLevelChartProps) {
   const { colors, mode } = useAppTheme();
   const [containerWidth, setContainerWidth] = useState<number>(340);
@@ -275,6 +279,53 @@ export default function WaterLevelChart({
           {/* Area Fills */}
           {area01 ? <Path d={area01} fill="url(#gradLoc01)" /> : null}
           {area02 ? <Path d={area02} fill="url(#gradLoc02)" /> : null}
+
+          {/* Threshold lines: WATCH / WARNING / DANGER */}
+          {thresholds && [
+            {
+              pct: thresholds.watch,
+              color: '#ca8a04',
+              label: `Watch ${Math.round(thresholds.watch * SENSOR_HEIGHT_CM / 100)}cm`,
+            },
+            {
+              pct: thresholds.warning,
+              color: '#ea580c',
+              label: `Warn ${Math.round(thresholds.warning * SENSOR_HEIGHT_CM / 100)}cm`,
+            },
+            {
+              pct: thresholds.danger,
+              color: '#dc2626',
+              label: `Danger ${Math.round(thresholds.danger * SENSOR_HEIGHT_CM / 100)}cm`,
+            },
+          ].map(({ pct, color, label }) => {
+            const levelCm = (pct / 100) * SENSOR_HEIGHT_CM;
+            const ty = getY(levelCm);
+            if (ty == null) return null;
+            return (
+              <G key={label}>
+                <Line
+                  x1={paddingLeft}
+                  y1={ty}
+                  x2={chartWidth - paddingRight}
+                  y2={ty}
+                  stroke={color}
+                  strokeWidth="1.5"
+                  strokeDasharray="6,3"
+                  strokeOpacity={0.85}
+                />
+                <SvgText
+                  x={chartWidth - paddingRight - 2}
+                  y={ty - 3}
+                  fill={color}
+                  fontSize="8.5"
+                  fontWeight="700"
+                  textAnchor="end"
+                >
+                  {label}
+                </SvgText>
+              </G>
+            );
+          })}
 
           {/* Data Lines */}
           {path01 ? (
