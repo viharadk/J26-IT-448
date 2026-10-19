@@ -1,8 +1,11 @@
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
 import {
+  ActivityIndicator,
   Pressable,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -10,13 +13,58 @@ import {
 } from 'react-native';
 
 import HamburgerButton from '@/components/HamburgerButton';
+import HistorySection from '@/components/HistorySection';
+import {
+  API_BASE_URL,
+  computeRiskLevel,
+  DEFAULT_RISK_THRESHOLDS,
+  RiskLevel,
+  RiskThresholds,
+  SENSOR_HEIGHT_CM,
+} from '@/constants/config';
 import { useAppTheme } from '@/context/ThemeContext';
 import WaterMap from '../components/WaterMap';
+
+export { API_BASE_URL, SENSOR_HEIGHT_CM };
+
+// ---------------------------------------------------------------------------
+// Polling configuration
+// ---------------------------------------------------------------------------
+const POLL_INTERVAL_MS = 2000;
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+/** Shape returned by GET /api/readings/latest */
+type SensorReading = {
+  deviceId: string;
+  /** Raw ultrasonic distance in cm (sensor → water surface) */
+  location01: number | null;
+  location02: number | null;
+  /** Water level in cm = SENSOR_HEIGHT_CM − distance. Null when sensor had no reading. */
+  waterLevel01: number | null;
+  waterLevel02: number | null;
+  /** Risk levels computed server-side (may be null if no reading) */
+  riskLevel01?: RiskLevel;
+  riskLevel02?: RiskLevel;
+  /** Pilot thresholds from backend (% of sensor height) */
+  thresholds?: RiskThresholds;
+  receivedAt: string;
+};
 
 type LocationData = {
   id: string;
   name: string;
-  level: number;
+  /** Calculated water level in cm (null = sensor gave no reading) */
+  waterLevelCm: number | null;
+  /** Raw ultrasonic distance in cm — shown only as secondary info */
+  distanceCm: number | null;
+  /** True when values came from the live API */
+  isLive: boolean;
+  /** Pilot risk level for this location */
+  riskLevel: RiskLevel;
+  // ---- below fields are DEMO / mock until backend supplies them ----
   status: 'LOW' | 'MEDIUM' | 'HIGH';
   prediction: number;
   sensorOnline: boolean;
@@ -25,37 +73,189 @@ type LocationData = {
   longitude: number;
 };
 
-const locations: LocationData[] = [
+/** Static station config — coordinates and API field names */
+const STATION_CONFIG = [
   {
     id: 'location-01',
     name: 'Hanwella Station',
-    level: 0.72,
-    status: 'MEDIUM',
-    prediction: 0.84,
-    sensorOnline: true,
-    lastUpdated: 'Just now',
+    waterLevelKey: 'waterLevel01' as keyof SensorReading,
+    distanceKey:   'location01'   as keyof SensorReading,
     latitude: 6.9031,
     longitude: 80.0823,
   },
   {
     id: 'location-02',
     name: 'Glencourse Station',
-    level: 0.65,
+    waterLevelKey: 'waterLevel02' as keyof SensorReading,
+    distanceKey:   'location02'   as keyof SensorReading,
+    latitude: 6.9786,
+    longitude: 80.1737,
+  },
+] as const;
+
+/** Placeholder values shown before the first successful API response */
+const DEMO_LOCATIONS: LocationData[] = [
+  {
+    id: 'location-01',
+    name: 'Hanwella Station',
+    waterLevelCm: null,
+    distanceCm: null,
+    isLive: false,
+    riskLevel: null,
+    status: 'MEDIUM',
+    prediction: 0.84,
+    sensorOnline: false,
+    lastUpdated: '—',
+    latitude: 6.9031,
+    longitude: 80.0823,
+  },
+  {
+    id: 'location-02',
+    name: 'Glencourse Station',
+    waterLevelCm: null,
+    distanceCm: null,
+    isLive: false,
+    riskLevel: null,
     status: 'MEDIUM',
     prediction: 0.76,
-    sensorOnline: true,
-    lastUpdated: '1 min ago',
+    sensorOnline: false,
+    lastUpdated: '—',
     latitude: 6.9786,
     longitude: 80.1737,
   },
 ];
 
-const recentReadings = [
-  { time: '11:50', location01: 0.72, location02: 0.65 },
-  { time: '11:40', location01: 0.69, location02: 0.63 },
-  { time: '11:30', location01: 0.66, location02: 0.61 },
-  { time: '11:20', location01: 0.64, location02: 0.59 },
+/** Demo history rows — shown greyed-out below the live row */
+const DEMO_HISTORY = [
+  { time: '—', waterLevel01: null as number | null, waterLevel02: null as number | null },
+  { time: '—', waterLevel01: null as number | null, waterLevel02: null as number | null },
 ];
+
+// ---------------------------------------------------------------------------
+// Custom hook: useSensorReadings
+// ---------------------------------------------------------------------------
+function useSensorReadings() {
+  const [reading, setReading] = useState<SensorReading | null>(null);
+  const [thresholds, setThresholds] = useState<RiskThresholds>(DEFAULT_RISK_THRESHOLDS);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchLatest() {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/readings/latest`);
+        if (!res.ok) {
+          if (res.status === 404) {
+            if (!cancelled) setError('Waiting for sensor data…');
+          } else {
+            if (!cancelled) setError(`Server error ${res.status}`);
+          }
+          return;
+        }
+        const data: SensorReading = await res.json();
+        if (!cancelled) {
+          setReading(data);
+          // Use backend thresholds if present, otherwise keep defaults
+          if (data.thresholds) setThresholds(data.thresholds);
+          setError(null);
+        }
+      } catch {
+        if (!cancelled) {
+          setError('Cannot reach server. Check your Wi-Fi and API_BASE_URL.');
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    fetchLatest();
+    intervalRef.current = setInterval(fetchLatest, POLL_INTERVAL_MS);
+
+    return () => {
+      cancelled = true;
+      if (intervalRef.current != null) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  return { reading, thresholds, error, loading };
+}
+
+// ---------------------------------------------------------------------------
+// Helper: calculate water level with fallback to (SENSOR_HEIGHT_CM - distance)
+// ---------------------------------------------------------------------------
+function resolveWaterLevel(
+  waterLevel: number | null | undefined,
+  distance: number | null | undefined
+): number | null {
+  if (typeof waterLevel === 'number' && !isNaN(waterLevel)) {
+    return Math.max(0, Math.min(SENSOR_HEIGHT_CM, Number(waterLevel.toFixed(2))));
+  }
+  if (typeof distance === 'number' && !isNaN(distance)) {
+    const computed = SENSOR_HEIGHT_CM - distance;
+    return Math.max(0, Math.min(SENSOR_HEIGHT_CM, Number(computed.toFixed(2))));
+  }
+  return null;
+}
+
+// ---------------------------------------------------------------------------
+// Helper: build LocationData array from live reading + static config
+// ---------------------------------------------------------------------------
+function buildLocations(
+  reading: SensorReading | null,
+  now: string,
+  thresholds: RiskThresholds
+): LocationData[] {
+  return STATION_CONFIG.map((cfg) => {
+    const demo = DEMO_LOCATIONS.find((d) => d.id === cfg.id)!;
+    if (reading == null) return demo;
+
+    const rawWaterLevel = reading[cfg.waterLevelKey] as number | null | undefined;
+    const rawDistance   = reading[cfg.distanceKey]   as number | null | undefined;
+    const rawRiskKey    = (cfg.id === 'location-01' ? 'riskLevel01' : 'riskLevel02') as keyof SensorReading;
+
+    const waterLevelCm = resolveWaterLevel(rawWaterLevel, rawDistance);
+    const distanceCm   = typeof rawDistance === 'number' && !isNaN(rawDistance) ? rawDistance : null;
+    const hasReading   = waterLevelCm != null;
+
+    // Prefer server-computed risk level; fall back to client computation
+    const serverRisk = reading[rawRiskKey] as RiskLevel | undefined;
+    const riskLevel: RiskLevel = serverRisk !== undefined
+      ? serverRisk
+      : computeRiskLevel(waterLevelCm, SENSOR_HEIGHT_CM, thresholds);
+
+    return {
+      ...demo,
+      waterLevelCm,
+      distanceCm,
+      riskLevel,
+      isLive:       true,
+      sensorOnline: hasReading,
+      lastUpdated:  now,
+    };
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Risk level colour palette
+// ---------------------------------------------------------------------------
+const RISK_COLORS: Record<
+  NonNullable<RiskLevel>,
+  { bg: string; text: string; border: string }
+> = {
+  NORMAL:  { bg: '#dcfce7', text: '#16a34a', border: '#16a34a' },
+  WATCH:   { bg: '#fef9c3', text: '#ca8a04', border: '#ca8a04' },
+  WARNING: { bg: '#ffedd5', text: '#ea580c', border: '#ea580c' },
+  DANGER:  { bg: '#fee2e2', text: '#dc2626', border: '#dc2626' },
+};
+
+/** Bar colour mapped from risk level */
+function riskBarColor(riskLevel: RiskLevel, fallback: string): string {
+  if (!riskLevel) return fallback;
+  return RISK_COLORS[riskLevel].text;
+}
 
 function StatusBadge({ status }: { status: LocationData['status'] }) {
   const { colors } = useAppTheme();
@@ -79,21 +279,35 @@ function StatusBadge({ status }: { status: LocationData['status'] }) {
   );
 }
 
-function WaterLevelBar({ level }: { level: number }) {
-  const { colors } = useAppTheme();
-  const percent = Math.min(level / 2.0, 1); // max assumed 2m
+/** Risk badge driven by the pilot risk level system. */
+function RiskBadge({ riskLevel }: { riskLevel: RiskLevel }) {
+  if (!riskLevel) {
+    return (
+      <View style={[styles.riskBadge, { backgroundColor: '#f1f5f9' }]}>
+        <Text style={[styles.riskBadgeText, { color: '#64748b' }]}>— No reading</Text>
+      </View>
+    );
+  }
+  const c = RISK_COLORS[riskLevel];
+  const emoji = { NORMAL: '🟢', WATCH: '🟡', WARNING: '🟠', DANGER: '🔴' }[riskLevel];
+  return (
+    <View style={[styles.riskBadge, { backgroundColor: c.bg, borderColor: c.border + '66' }]}>
+      <Text style={[styles.riskBadgeText, { color: c.text }]}>
+        {emoji} {riskLevel}
+      </Text>
+    </View>
+  );
+}
 
-  const barColor =
-    level > 1.5
-      ? colors.danger
-      : level > 1.0
-        ? colors.warning
-        : colors.accentPrimary;
+function WaterLevelBar({ level, riskLevel }: { level: number | null; riskLevel: RiskLevel }) {
+  const { colors } = useAppTheme();
+
+  const safeCm  = level ?? 0;
+  const percent = Math.min(Math.max(safeCm / SENSOR_HEIGHT_CM, 0), 1);
+  const barColor = riskBarColor(riskLevel, colors.accentPrimary);
 
   return (
-    <View
-      style={[styles.levelBarTrack, { backgroundColor: colors.bgElement }]}
-    >
+    <View style={[styles.levelBarTrack, { backgroundColor: colors.bgElement }]}>
       <View
         style={[
           styles.levelBarFill,
@@ -106,6 +320,7 @@ function WaterLevelBar({ level }: { level: number }) {
 
 function LocationCard({ location }: { location: LocationData }) {
   const { colors } = useAppTheme();
+  const riskC = location.riskLevel ? RISK_COLORS[location.riskLevel] : null;
 
   return (
     <View
@@ -113,7 +328,7 @@ function LocationCard({ location }: { location: LocationData }) {
         styles.locationCard,
         {
           backgroundColor: colors.bgCard,
-          borderColor: colors.border,
+          borderColor: riskC ? riskC.border + '55' : (location.isLive ? colors.accentPrimary + '55' : colors.border),
           shadowColor: colors.text,
         },
       ]}
@@ -140,21 +355,33 @@ function LocationCard({ location }: { location: LocationData }) {
             </Text>
           </View>
         </View>
-        <StatusBadge status={location.status} />
+        {/* Risk badge (pilot system) replaces the static status badge */}
+        <RiskBadge riskLevel={location.riskLevel} />
       </View>
 
-      {/* Level display */}
+      {/* ── Main: water level ── */}
       <View style={styles.levelRow}>
         <View>
-          <Text style={[styles.levelValue, { color: colors.accentPrimary }]}>
-            {location.level.toFixed(2)}
-            <Text style={[styles.levelUnit, { color: colors.textSecondary }]}>
-              {' '}m
+          {location.waterLevelCm != null ? (
+            <Text style={[styles.levelValue, { color: riskC ? riskC.text : colors.accentPrimary }]}>
+              {location.waterLevelCm.toFixed(1)}
+              <Text style={[styles.levelUnit, { color: colors.textSecondary }]}>
+                {' '}cm
+              </Text>
             </Text>
-          </Text>
+          ) : (
+            <Text style={[styles.levelValue, { color: colors.textMuted, fontSize: 22 }]}>
+              No reading
+            </Text>
+          )}
           <Text style={[styles.levelLabel, { color: colors.textMuted }]}>
-            Current Water Level
+            {location.isLive ? '💧 Water Level (Live)' : '💧 Water Level'}
           </Text>
+          {location.distanceCm != null && (
+            <Text style={[styles.distanceSecondary, { color: colors.textMuted }]}>
+              Distance from sensor: {location.distanceCm.toFixed(1)} cm
+            </Text>
+          )}
         </View>
 
         <View style={styles.predictionBox}>
@@ -164,10 +391,14 @@ function LocationCard({ location }: { location: LocationData }) {
           <Text style={[styles.predictionValue, { color: colors.text }]}>
             {location.prediction.toFixed(2)} m
           </Text>
+          <Text style={[styles.demoTag, { color: colors.textMuted }]}>
+            (demo)
+          </Text>
         </View>
       </View>
 
-      <WaterLevelBar level={location.level} />
+      {/* Risk-coloured water level bar */}
+      <WaterLevelBar level={location.waterLevelCm} riskLevel={location.riskLevel} />
 
       {/* Footer */}
       <View style={styles.cardFooter}>
@@ -175,6 +406,52 @@ function LocationCard({ location }: { location: LocationData }) {
           🕐 {location.lastUpdated}
         </Text>
       </View>
+    </View>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Alert Banner — shown when highest risk across all locations >= WATCH
+// ---------------------------------------------------------------------------
+const RISK_ORDER: Record<NonNullable<RiskLevel>, number> = {
+  NORMAL: 0, WATCH: 1, WARNING: 2, DANGER: 3,
+};
+
+function AlertBanner({ locations }: { locations: LocationData[] }) {
+  // Find highest risk level across all locations
+  const active = locations.filter((l) => l.riskLevel && l.riskLevel !== 'NORMAL');
+  if (active.length === 0) return null;
+
+  // Sort by severity descending
+  const sorted = [...active].sort((a, b) => {
+    const ra = a.riskLevel ? RISK_ORDER[a.riskLevel] : 0;
+    const rb = b.riskLevel ? RISK_ORDER[b.riskLevel] : 0;
+    return rb - ra;
+  });
+
+  const topRisk = sorted[0].riskLevel!;
+  const names   = sorted.map((l) => l.name).join(' & ');
+  const c       = RISK_COLORS[topRisk];
+
+  const message = {
+    WATCH:   `Water level rising at ${names}`,
+    WARNING: `Warning: high water level at ${names}`,
+    DANGER:  `DANGER: very high water level at ${names}`,
+    NORMAL:  '',
+  }[topRisk];
+
+  const icon = { WATCH: '⚠️', WARNING: '🚨', DANGER: '🆘', NORMAL: '' }[topRisk];
+
+  return (
+    <View
+      style={[
+        styles.alertBanner,
+        { backgroundColor: c.bg, borderColor: c.border },
+      ]}
+    >
+      <Text style={[styles.alertBannerText, { color: c.text }]}>
+        {icon} {message}
+      </Text>
     </View>
   );
 }
@@ -221,9 +498,31 @@ function StatCard({
 
 export default function HomeScreen() {
   const { colors, mode } = useAppTheme();
+  const { reading, thresholds, error, loading } = useSensorReadings();
+  const [pullRefreshing, setPullRefreshing] = useState(false);
+
+  const onPullRefresh = () => {
+    setPullRefreshing(true);
+    setTimeout(() => {
+      setPullRefreshing(false);
+    }, 800);
+  };
+
+  // Format timestamp in Sri Lanka time (UTC+5:30)
+  const lastUpdatedLabel = reading
+    ? new Date(reading.receivedAt).toLocaleTimeString('en-LK', {
+        timeZone: 'Asia/Colombo',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      })
+    : '—';
+
+  const locations = buildLocations(reading, lastUpdatedLabel, thresholds);
 
   const onlineSensors = locations.filter((l) => l.sensorOnline).length;
-  const highAlerts = locations.filter((l) => l.status === 'HIGH').length;
+  const highAlerts    = locations.filter((l) => l.riskLevel === 'DANGER' || l.riskLevel === 'WARNING').length;
 
   return (
     <View style={[styles.root, { backgroundColor: colors.bg }]}>
@@ -254,10 +553,38 @@ export default function HomeScreen() {
         </View>
       </LinearGradient>
 
+      {/* Loading / error banner (non-blocking) */}
+      {loading && (
+        <View style={[styles.apiBanner, { backgroundColor: colors.bgElement }]}>
+          <ActivityIndicator size="small" color={colors.accentPrimary} />
+          <Text style={[styles.apiBannerText, { color: colors.textSecondary }]}>
+            Connecting to backend…
+          </Text>
+        </View>
+      )}
+      {!loading && error != null && (
+        <View style={[styles.apiBanner, { backgroundColor: colors.dangerLight }]}>
+          <Text style={[styles.apiBannerText, { color: colors.danger }]}>
+            ⚠️ {error}
+          </Text>
+        </View>
+      )}
+
+      {/* Risk alert banner — hidden when all NORMAL or no readings */}
+      {!loading && <AlertBanner locations={locations} />}
+
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={pullRefreshing}
+            onRefresh={onPullRefresh}
+            tintColor={colors.primary}
+            colors={[colors.primary]}
+          />
+        }
       >
         {/* Stats row */}
         <View style={styles.statsRow}>
@@ -316,88 +643,8 @@ export default function HomeScreen() {
           <WaterMap locations={locations} />
         </View>
 
-        {/* Section: Recent Readings */}
-        <View style={styles.sectionHeader}>
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>
-            Recent Readings
-          </Text>
-          <Pressable onPress={() => router.push('/history')}>
-            <Text style={[styles.viewLink, { color: colors.accentPrimary }]}>
-              Full History →
-            </Text>
-          </Pressable>
-        </View>
-
-        <View
-          style={[
-            styles.readingsCard,
-            { backgroundColor: colors.bgCard, borderColor: colors.border },
-          ]}
-        >
-          {/* Table header */}
-          <View
-            style={[
-              styles.tableHeader,
-              { backgroundColor: colors.bgElement },
-            ]}
-          >
-            <Text
-              style={[
-                styles.tableHeaderText,
-                styles.timeCol,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Time
-            </Text>
-            <Text
-              style={[
-                styles.tableHeaderText,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Hanwella
-            </Text>
-            <Text
-              style={[
-                styles.tableHeaderText,
-                { color: colors.textSecondary },
-              ]}
-            >
-              Glencourse
-            </Text>
-          </View>
-
-          {recentReadings.map((reading, idx) => (
-            <View
-              key={reading.time}
-              style={[
-                styles.tableRow,
-                {
-                  borderTopColor: colors.divider,
-                  backgroundColor:
-                    idx % 2 === 0 ? 'transparent' : colors.bgElement + '60',
-                },
-              ]}
-            >
-              <Text
-                style={[
-                  styles.tableText,
-                  styles.timeCol,
-                  { color: colors.textSecondary },
-                ]}
-              >
-                {reading.time}
-              </Text>
-              <Text style={[styles.tableText, { color: colors.text }]}>
-                {reading.location01.toFixed(2)} m
-              </Text>
-              <Text style={[styles.tableText, { color: colors.text }]}>
-                {reading.location02.toFixed(2)} m
-              </Text>
-            </View>
-          ))}
-        </View>
+        {/* Section: Past Data / History */}
+        <HistorySection thresholds={thresholds} />
 
         {/* Notice */}
         <View
@@ -413,8 +660,18 @@ export default function HomeScreen() {
             ℹ️ Prototype System
           </Text>
           <Text style={[styles.noticeText, { color: colors.textSecondary }]}>
-            Live ESP32 sensor data will be connected through the backend API.
-            Current readings are prototype values.
+            Water level = {SENSOR_HEIGHT_CM} cm − sensor distance. Polled every{' '}
+            {POLL_INTERVAL_MS / 1000} s. 30-min forecasts are demo placeholders.
+          </Text>
+        </View>
+
+        {/* Pilot thresholds footnote */}
+        <View style={styles.pilotFootnote}>
+          <Text style={[styles.pilotFootnoteText, { color: colors.textMuted }]}>
+            ⚠️ Pilot thresholds — not official flood warnings
+          </Text>
+          <Text style={[styles.pilotFootnoteText, { color: colors.textMuted }]}>
+            Watch ≥{thresholds.watch}% · Warning ≥{thresholds.warning}% · Danger ≥{thresholds.danger}% of {SENSOR_HEIGHT_CM} cm
           </Text>
         </View>
       </ScrollView>
@@ -761,5 +1018,77 @@ const styles = StyleSheet.create({
   noticeText: {
     fontSize: 12,
     lineHeight: 18,
+  },
+
+  /* API status banner (loading / error) */
+  apiBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+
+  apiBannerText: {
+    fontSize: 12,
+    fontWeight: '600',
+    flexShrink: 1,
+  },
+
+  /* Demo tag under prediction */
+  demoTag: {
+    fontSize: 10,
+    marginTop: 2,
+  },
+
+  /* Secondary distance label under the main water-level value */
+  distanceSecondary: {
+    fontSize: 11,
+    marginTop: 4,
+  },
+
+  /* Risk badge (pilot system) */
+  riskBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'transparent',
+  },
+
+  riskBadgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+  },
+
+  /* Alert banner — shown when any location is WATCH / WARNING / DANGER */
+  alertBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderTopWidth: 2,
+    borderBottomWidth: 2,
+  },
+
+  alertBannerText: {
+    fontSize: 13,
+    fontWeight: '800',
+    flexShrink: 1,
+  },
+
+  /* Pilot thresholds footnote */
+  pilotFootnote: {
+    alignItems: 'center',
+    paddingVertical: 6,
+    marginTop: 2,
+    marginBottom: 16,
+    gap: 2,
+  },
+
+  pilotFootnoteText: {
+    fontSize: 11,
+    fontWeight: '500',
+    textAlign: 'center',
   },
 });
