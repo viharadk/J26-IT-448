@@ -1,0 +1,450 @@
+{
+  "verification": "Authenticated Earth Engine + both Express endpoints",
+  "scenes": {
+    "success": true,
+    "dataset": "COPERNICUS/S1_GRD",
+    "queriedAt": "2026-10-19T19:00:56.862Z",
+    "dateConvention": "UTC start-inclusive, end-exclusive",
+    "studyArea": {
+      "source": "Existing Function 1 HydroBASINS hybas_10 AOI",
+      "basinIds": [
+        4101601920,
+        4101601930,
+        4101158680,
+        4100049050
+      ],
+      "areaKm2": 548.1123320266747
+    },
+    "sceneLimitPerPeriod": 100,
+    "periods": {
+      "before": {
+        "start": "2016-04-01",
+        "endExclusive": "2016-05-15",
+        "totalCount": 4,
+        "returnedCount": 4,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1460334282540,
+            "coveragePercent": 99.96905511393555,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+            "acquiredAt": "2016-04-11T00:24:42.540Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-04-11T00:24:42.000Z",
+            "timestampDifferenceSeconds": 0.54,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1460334307000,
+            "coveragePercent": 0.039261500867153507,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+            "acquiredAt": "2016-04-11T00:25:07.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-04-11T00:25:07.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1462407883430,
+            "coveragePercent": 99.9704569884052,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+            "acquiredAt": "2016-05-05T00:24:43.430Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-05T00:24:43.000Z",
+            "timestampDifferenceSeconds": 0.43,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1462407908430,
+            "coveragePercent": 0.03740052455644303,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+            "acquiredAt": "2016-05-05T00:25:08.430Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-05T00:25:08.000Z",
+            "timestampDifferenceSeconds": 0.43,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "flood": {
+        "start": "2016-05-15",
+        "endExclusive": "2016-06-01",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1463878611950,
+            "coveragePercent": 99.99999999995215,
+            "instrumentMode": "IW",
+            "orbitDirection": "ASCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 100,
+            "relativeOrbitNumberStop": 100,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "acquiredAt": "2016-05-22T00:56:51.950Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-22T12:56:51.000Z",
+            "timestampDifferenceSeconds": -43199.05,
+            "timestampWarning": "Earth Engine system:time_start differs from the UTC start time encoded in the product ID. Verify the original product metadata; neither time has been silently corrected."
+          },
+          {
+            "acquisitionTimeMillis": 1464481487650,
+            "coveragePercent": 99.99999999995215,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+            "acquiredAt": "2016-05-29T00:24:47.650Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-29T00:24:47.000Z",
+            "timestampDifferenceSeconds": 0.65,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "extended": {
+        "start": "2016-06-01",
+        "endExclusive": "2016-06-16",
+        "totalCount": 0,
+        "returnedCount": 0,
+        "truncated": false,
+        "scenes": []
+      }
+    },
+    "coverageDefinition": "100 × area(scene footprint ∩ study area) / area(study area); spherical geometry with 1 m error tolerance",
+    "caveat": "Discovery windows do not confirm inundation. Coverage is scene-footprint intersection, not valid SAR pixels, and suitable pairs still need event-date and image-quality verification."
+  },
+  "pairs": {
+    "success": true,
+    "dataset": "COPERNICUS/S1_GRD",
+    "queriedAt": "2026-10-19T19:00:56.862Z",
+    "dateConvention": "UTC start-inclusive, end-exclusive",
+    "studyArea": {
+      "source": "Existing Function 1 HydroBASINS hybas_10 AOI",
+      "basinIds": [
+        4101601920,
+        4101601930,
+        4101158680,
+        4100049050
+      ],
+      "areaKm2": 548.1123320266747
+    },
+    "windows": {
+      "before": {
+        "start": "2016-04-01",
+        "endExclusive": "2016-05-15"
+      },
+      "flood": {
+        "start": "2016-05-15",
+        "endExclusive": "2016-06-01"
+      },
+      "extended": {
+        "start": "2016-06-01",
+        "endExclusive": "2016-06-16"
+      }
+    },
+    "periods": {
+      "before": {
+        "start": "2016-04-01",
+        "endExclusive": "2016-05-15",
+        "totalCount": 4,
+        "returnedCount": 4,
+        "truncated": false
+      },
+      "flood": {
+        "start": "2016-05-15",
+        "endExclusive": "2016-06-01",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false
+      },
+      "extended": {
+        "start": "2016-06-01",
+        "endExclusive": "2016-06-16",
+        "totalCount": 0,
+        "returnedCount": 0,
+        "truncated": false
+      }
+    },
+    "minCoveragePercent": 90,
+    "pairLimit": 20,
+    "summary": {
+      "assessedCombinations": 8,
+      "metadataCompatible": 2,
+      "jointFootprintsChecked": 2,
+      "suitableFound": 2,
+      "rejectedFound": 6,
+      "incomplete": false,
+      "suitableOutputTruncated": false,
+      "rejectedOutputTruncated": false
+    },
+    "candidatePairs": [
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+        "beforeAcquiredAt": "2016-05-05T00:24:43.430Z",
+        "duringAcquiredAt": "2016-05-29T00:24:47.650Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 99.9704569884052,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": 99.9704569884052,
+        "gapDays": 24.00004884259259,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 99.9704569884052% of the study area (minimum 90%)."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+        "beforeAcquiredAt": "2016-04-11T00:24:42.540Z",
+        "duringAcquiredAt": "2016-05-29T00:24:47.650Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 99.96905511393555,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": 99.96905511393555,
+        "gapDays": 48.00005914351852,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 99.96905511393555% of the study area (minimum 90%)."
+        ]
+      }
+    ],
+    "rejectedPairs": [
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+        "beforeAcquiredAt": "2016-05-05T00:25:08.430Z",
+        "duringAcquiredAt": "2016-05-22T00:56:51.950Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 0.03740052455644303,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 17.02203148148148,
+        "status": "incompatible",
+        "reasons": [
+          "During acquisition timestamp conflicts with the product ID; verify the source timing before comparison.",
+          "The scenes have different orbit direction values.",
+          "The scenes have different relative orbit number values.",
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+        "beforeAcquiredAt": "2016-05-05T00:24:43.430Z",
+        "duringAcquiredAt": "2016-05-22T00:56:51.950Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 99.9704569884052,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 17.022320833333332,
+        "status": "incompatible",
+        "reasons": [
+          "During acquisition timestamp conflicts with the product ID; verify the source timing before comparison.",
+          "The scenes have different orbit direction values.",
+          "The scenes have different relative orbit number values."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+        "beforeAcquiredAt": "2016-05-05T00:25:08.430Z",
+        "duringAcquiredAt": "2016-05-29T00:24:47.650Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 0.03740052455644303,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 23.99975949074074,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+        "beforeAcquiredAt": "2016-04-11T00:25:07.000Z",
+        "duringAcquiredAt": "2016-05-22T00:56:51.950Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 0.039261500867153507,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 41.022048032407405,
+        "status": "incompatible",
+        "reasons": [
+          "During acquisition timestamp conflicts with the product ID; verify the source timing before comparison.",
+          "The scenes have different orbit direction values.",
+          "The scenes have different relative orbit number values.",
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+        "beforeAcquiredAt": "2016-04-11T00:24:42.540Z",
+        "duringAcquiredAt": "2016-05-22T00:56:51.950Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 99.96905511393555,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 41.02233113425926,
+        "status": "incompatible",
+        "reasons": [
+          "During acquisition timestamp conflicts with the product ID; verify the source timing before comparison.",
+          "The scenes have different orbit direction values.",
+          "The scenes have different relative orbit number values."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+        "beforeAcquiredAt": "2016-04-11T00:25:07.000Z",
+        "duringAcquiredAt": "2016-05-29T00:24:47.650Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 0.039261500867153507,
+        "duringCoveragePercent": 99.99999999995215,
+        "jointCoveragePercent": null,
+        "gapDays": 47.999776041666664,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      }
+    ],
+    "message": "Comparable observation candidates found; inundation is not established.",
+    "selectionPolicy": "Matching known orbit direction, relative orbit, instrument mode and resolution; shared polarization; both individual and joint AOI footprint coverage meet the threshold. Prefer IW/VV, then shorter acquisition gap. Extended scenes are discovery only, not substituted for flood-period observations.",
+    "bounds": {
+      "sceneLimitPerPeriod": 100,
+      "maxJointFootprintChecks": 100
+    },
+    "caveat": "Discovery windows do not confirm inundation. Coverage is scene-footprint intersection, not valid SAR pixels, and suitable pairs still need event-date and image-quality verification."
+  }
+}

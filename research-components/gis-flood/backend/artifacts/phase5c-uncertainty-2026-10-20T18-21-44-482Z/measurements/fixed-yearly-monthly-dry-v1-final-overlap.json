@@ -1,0 +1,18 @@
+{
+  "candidate": 963582.900062561,
+  "candidateOutsideDomain": 0,
+  "candidate_1": 0,
+  "candidate_2": 104154.10767364502,
+  "candidate_3": 794796.968421936,
+  "candidate_4": 64631.82396697998,
+  "class_1": 13206.856285095215,
+  "class_2": 452644.1772994995,
+  "class_3": 1665772.896614673,
+  "class_4": 281704.9197702744,
+  "domain": 2413328.849969542,
+  "nonCandidate_1": 13206.856285095215,
+  "nonCandidate_2": 348490.0696258545,
+  "nonCandidate_3": 870975.928192737,
+  "nonCandidate_4": 217073.09580329445,
+  "unexpectedClass": 0
+}

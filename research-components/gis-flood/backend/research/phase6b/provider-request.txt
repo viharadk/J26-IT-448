@@ -1,0 +1,27 @@
+Subject: Research request: dated May 2016 / May 2017 Lower Kelani flood reference geodata
+
+To the Survey Department / Hydrographic Survey Unit / IWMI / DMC data custodian,
+
+We are investigating independent historical evaluation of a research Sentinel-1 flood-candidate method in the Lower Kelani River Basin. We seek permission to access and use original reference data, with appropriate attribution. This request has not been sent automatically.
+
+2016 request:
+The Survey Department Kelaniya map describes field collection from 23 May to 2 June 2016 by the Hydrographic Survey Unit of the Sri Lanka Navy. Its linked KML is https://drive.google.com/file/d/0BwtHKWY5sCyVZzViVEdNTXZvekE/view . Anonymous access currently redirects to sign-in. Please provide the original KML/vector dataset, metadata and observation dates/times for each feature. Please clarify whether mapped boundaries describe instantaneous water extent, maximum extent, or recalled/high-water marks. The PDF states publication on 3 May 2016, while the filename says June 3 and collection extends into June; please confirm the original date rather than silently correcting it.
+
+The NSDI category "Kelani River Floods May 2016" is publicly downloadable but does not expose imagery time, field-observation time or original mapping method in the queried attributes. Please confirm its lineage and whether it is the same dataset as the Survey/Navy map. We cannot transfer metadata between these products without that confirmation. Please also advise on source feature OBJECTID 48912, which has a self-intersecting ring; we have not repaired the source geometry.
+
+2017 request:
+UN-SPIDER links to IWMI maps for 29-31 May 2017, including https://drive.google.com/drive/folders/0BwGSKucj4pXQMC1QUzY0ZlNKWlk . Please provide georeferenced Lower Kelani flood extents from independently acquired imagery such as TerraSAR-X/RADARSAT-2, if held. Our comparison Sentinel-1 acquisitions are 24 May 2017 at 00:25:12 UTC and 30 May 2017 at 00:24:30 UTC. We will report different-date uncertainty and will not assume that May 28 and May 30 describe the same flood state.
+
+For either event, please include:
+- Original vector/raster, CRS/datum, native resolution or mapping scale and georeferencing metadata.
+- Exact source imagery IDs and UTC acquisition times, or per-feature field survey times with timezone.
+- Definitions of flood-positive labels and whether explicitly observed non-flood labels exist.
+- Actual assessed/observed footprint and cloud, radar-shadow, no-data, obscured or unassessed areas.
+- Mapping/interpretation method, quality control, uncertainty and any common Sentinel-1 input dependency.
+- Licence, permitted research/export uses, citation and attribution requirements.
+
+Our original AOI is the union of HydroBASINS level-10 IDs 4101158680, 4101601930, 4101601920 and 4100049050; approximate WGS84 bounds are longitude 79.857764 to 80.212851, latitude 6.816668 to 7.045834. We can supply the exact polygon on request. We will not treat the absence of flood polygons as verified dry land.
+
+Please advise on the relevant archive custodian, access process and any restrictions or costs before data transfer.
+
+Thank you.

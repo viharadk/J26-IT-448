@@ -1,0 +1,929 @@
+{
+  "phase": "Function 2 Phase 2A",
+  "event": "Documented late-May 2017 minor Kelani flood",
+  "eventEvidence": "Irrigation Department Hydrological Annual 2016/17; Hanwella annual peak reported May 26 at 21:00, timezone unstated.",
+  "discovery": {
+    "success": true,
+    "dataset": "COPERNICUS/S1_GRD",
+    "queriedAt": "2026-10-20T03:07:21.211Z",
+    "dateConvention": "UTC start-inclusive, end-exclusive",
+    "studyArea": {
+      "source": "Existing Function 1 HydroBASINS hybas_10 AOI",
+      "basinIds": [
+        4101601920,
+        4101601930,
+        4101158680,
+        4100049050
+      ],
+      "areaKm2": 548.1123320266747
+    },
+    "sceneLimitPerPeriod": 100,
+    "periods": {
+      "before": {
+        "start": "2017-04-01",
+        "endExclusive": "2017-05-18",
+        "totalCount": 8,
+        "returnedCount": 8,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1491438285000,
+            "coveragePercent": 7.193163178873288,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170406T002445_20170406T002510_016016_01A6C7_09FF",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002445_20170406T002510_016016_01A6C7_09FF",
+            "acquiredAt": "2017-04-06T00:24:45.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-06T00:24:45.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1491438310000,
+            "coveragePercent": 92.95237750973155,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170406T002510_20170406T002535_016016_01A6C7_F61F",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002510_20170406T002535_016016_01A6C7_F61F",
+            "acquiredAt": "2017-04-06T00:25:10.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-06T00:25:10.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1492475085000,
+            "coveragePercent": 7.207817658496952,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170418T002445_20170418T002510_016191_01AC26_953A",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002445_20170418T002510_016191_01AC26_953A",
+            "acquiredAt": "2017-04-18T00:24:45.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-18T00:24:45.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1492475110650,
+            "coveragePercent": 92.93842023907828,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170418T002510_20170418T002536_016191_01AC26_41F3",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002510_20170418T002536_016191_01AC26_41F3",
+            "acquiredAt": "2017-04-18T00:25:10.650Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-18T00:25:10.000Z",
+            "timestampDifferenceSeconds": 0.65,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1493511886100,
+            "coveragePercent": 7.206031261626757,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170430T002446_20170430T002511_016366_01B177_0E6C",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002446_20170430T002511_016366_01B177_0E6C",
+            "acquiredAt": "2017-04-30T00:24:46.100Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-30T00:24:46.000Z",
+            "timestampDifferenceSeconds": 0.1,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1493511911100,
+            "coveragePercent": 92.94106265583044,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170430T002511_20170430T002536_016366_01B177_355E",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002511_20170430T002536_016366_01B177_355E",
+            "acquiredAt": "2017-04-30T00:25:11.100Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-04-30T00:25:11.000Z",
+            "timestampDifferenceSeconds": 0.1,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1494548686000,
+            "coveragePercent": 7.2623789347474546,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170512T002446_20170512T002511_016541_01B6BF_9C0C",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002446_20170512T002511_016541_01B6BF_9C0C",
+            "acquiredAt": "2017-05-12T00:24:46.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-05-12T00:24:46.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1494548711000,
+            "coveragePercent": 92.88436017597603,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170512T002511_20170512T002537_016541_01B6BF_7DB0",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002511_20170512T002537_016541_01B6BF_7DB0",
+            "acquiredAt": "2017-05-12T00:25:11.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-05-12T00:25:11.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "flood": {
+        "start": "2017-05-25",
+        "endExclusive": "2017-05-31",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1496103845000,
+            "coveragePercent": 7.1229188525693905,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "B",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+            "sceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+            "acquiredAt": "2017-05-30T00:24:05.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1B",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-05-30T00:24:05.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1496103870000,
+            "coveragePercent": 93.0219001367033,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "B",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+            "sceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+            "acquiredAt": "2017-05-30T00:24:30.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1B",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-05-30T00:24:30.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "extended": {
+        "start": "2017-05-31",
+        "endExclusive": "2017-06-07",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1496622288000,
+            "coveragePercent": 7.237071390124133,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170605T002448_20170605T002513_016891_01C197_78B6",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170605T002448_20170605T002513_016891_01C197_78B6",
+            "acquiredAt": "2017-06-05T00:24:48.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-06-05T00:24:48.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1496622313000,
+            "coveragePercent": 92.90954808029144,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20170605T002513_20170605T002538_016891_01C197_47C3",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170605T002513_20170605T002538_016891_01C197_47C3",
+            "acquiredAt": "2017-06-05T00:25:13.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2017-06-05T00:25:13.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          }
+        ]
+      }
+    },
+    "coverageDefinition": "100 × area(scene footprint ∩ study area) / area(study area); spherical geometry with 1 m error tolerance",
+    "caveat": "Discovery windows do not confirm inundation. Coverage is scene-footprint intersection, not valid SAR pixels, and suitable pairs still need event-date and image-quality verification."
+  },
+  "pairs": {
+    "success": true,
+    "dataset": "COPERNICUS/S1_GRD",
+    "queriedAt": "2026-10-20T03:07:21.211Z",
+    "dateConvention": "UTC start-inclusive, end-exclusive",
+    "studyArea": {
+      "source": "Existing Function 1 HydroBASINS hybas_10 AOI",
+      "basinIds": [
+        4101601920,
+        4101601930,
+        4101158680,
+        4100049050
+      ],
+      "areaKm2": 548.1123320266747
+    },
+    "windows": {
+      "before": {
+        "start": "2017-04-01",
+        "endExclusive": "2017-05-18"
+      },
+      "flood": {
+        "start": "2017-05-25",
+        "endExclusive": "2017-05-31"
+      },
+      "extended": {
+        "start": "2017-05-31",
+        "endExclusive": "2017-06-07"
+      }
+    },
+    "periods": {
+      "before": {
+        "start": "2017-04-01",
+        "endExclusive": "2017-05-18",
+        "totalCount": 8,
+        "returnedCount": 8,
+        "truncated": false
+      },
+      "flood": {
+        "start": "2017-05-25",
+        "endExclusive": "2017-05-31",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false
+      },
+      "extended": {
+        "start": "2017-05-31",
+        "endExclusive": "2017-06-07",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false
+      }
+    },
+    "minCoveragePercent": 90,
+    "pairLimit": 20,
+    "summary": {
+      "assessedCombinations": 16,
+      "metadataCompatible": 4,
+      "jointFootprintsChecked": 4,
+      "suitableFound": 4,
+      "rejectedFound": 12,
+      "incomplete": false,
+      "suitableOutputTruncated": false,
+      "rejectedOutputTruncated": false
+    },
+    "candidatePairs": [
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002511_20170512T002537_016541_01B6BF_7DB0",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-05-12T00:25:11.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.88436017597603,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": 92.88436017597591,
+        "gapDays": 17.999525462962964,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV, VH.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 92.88436017597591% of the study area (minimum 90%)."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002511_20170430T002536_016366_01B177_355E",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-30T00:25:11.100Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.94106265583044,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": 92.94106265583056,
+        "gapDays": 29.999524305555557,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV, VH.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 92.94106265583056% of the study area (minimum 90%)."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002510_20170418T002536_016191_01AC26_41F3",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-18T00:25:10.650Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.93842023907828,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": 92.93842023907813,
+        "gapDays": 41.99952951388889,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV, VH.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 92.93842023907813% of the study area (minimum 90%)."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002510_20170406T002535_016016_01A6C7_F61F",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-06T00:25:10.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.95237750973155,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": 92.95237750973148,
+        "gapDays": 53.99953703703704,
+        "status": "suitable",
+        "reasons": [
+          "Orbit direction, relative orbit, instrument mode and resolution match.",
+          "Shared SAR polarization: VV, VH.",
+          "Both scene footprints cover at least 90% of the study area.",
+          "Preferred IW configuration with shared VV is available.",
+          "Verified joint footprint covers 92.95237750973148% of the study area (minimum 90%)."
+        ]
+      }
+    ],
+    "rejectedPairs": [
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002511_20170512T002537_016541_01B6BF_7DB0",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-05-12T00:25:11.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.88436017597603,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 17.99923611111111,
+        "status": "incompatible",
+        "reasons": [
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002446_20170512T002511_016541_01B6BF_9C0C",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-05-12T00:24:46.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.2623789347474546,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 17.999525462962964,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%.",
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002446_20170512T002511_016541_01B6BF_9C0C",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-05-12T00:24:46.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.2623789347474546,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": null,
+        "gapDays": 17.999814814814815,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002511_20170430T002536_016366_01B177_355E",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-30T00:25:11.100Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.94106265583044,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 29.999234953703702,
+        "status": "incompatible",
+        "reasons": [
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002446_20170430T002511_016366_01B177_0E6C",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-30T00:24:46.100Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.206031261626757,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 29.999524305555557,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%.",
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002446_20170430T002511_016366_01B177_0E6C",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-30T00:24:46.100Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.206031261626757,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": null,
+        "gapDays": 29.999813657407408,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002510_20170418T002536_016191_01AC26_41F3",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-18T00:25:10.650Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.93842023907828,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 41.99924016203704,
+        "status": "incompatible",
+        "reasons": [
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002445_20170418T002510_016191_01AC26_953A",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-18T00:24:45.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.207817658496952,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 41.99953703703704,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%.",
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002445_20170418T002510_016191_01AC26_953A",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-18T00:24:45.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.207817658496952,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": null,
+        "gapDays": 41.99982638888889,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002510_20170406T002535_016016_01A6C7_F61F",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-06T00:25:10.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 92.95237750973155,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 53.99924768518518,
+        "status": "incompatible",
+        "reasons": [
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002445_20170406T002510_016016_01A6C7_09FF",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002405_20170530T002430_005820_00A340_2611",
+        "beforeAcquiredAt": "2017-04-06T00:24:45.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:05.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.193163178873288,
+        "duringCoveragePercent": 7.1229188525693905,
+        "jointCoveragePercent": null,
+        "gapDays": 53.99953703703704,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%.",
+          "During study-area footprint coverage is below 90%."
+        ]
+      },
+      {
+        "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002445_20170406T002510_016016_01A6C7_09FF",
+        "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "beforeAcquiredAt": "2017-04-06T00:24:45.000Z",
+        "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "sharedPolarizations": [
+          "VV",
+          "VH"
+        ],
+        "preferredConfiguration": true,
+        "beforeCoveragePercent": 7.193163178873288,
+        "duringCoveragePercent": 93.0219001367033,
+        "jointCoveragePercent": null,
+        "gapDays": 53.99982638888889,
+        "status": "incompatible",
+        "reasons": [
+          "Before study-area footprint coverage is below 90%."
+        ]
+      }
+    ],
+    "message": "Comparable observation candidates found; inundation is not established.",
+    "selectionPolicy": "Matching known orbit direction, relative orbit, instrument mode and resolution; shared polarization; both individual and joint AOI footprint coverage meet the threshold. Prefer IW/VV, then shorter acquisition gap. Extended scenes are discovery only, not substituted for flood-period observations.",
+    "bounds": {
+      "sceneLimitPerPeriod": 100,
+      "maxJointFootprintChecks": 100
+    },
+    "caveat": "Discovery windows do not confirm inundation. Coverage is scene-footprint intersection, not valid SAR pixels, and suitable pairs still need event-date and image-quality verification."
+  },
+  "rankedRecommendations": [
+    {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170512T002511_20170512T002537_016541_01B6BF_7DB0",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-05-12T00:25:11.000Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.88436017597603,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.88436017597591,
+      "gapDays": 17.999525462962964,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.88436017597591% of the study area (minimum 90%)."
+      ],
+      "eventCalendarDistanceDays": 4,
+      "scientificStatus": "candidate-for-event-and-pixel-validation",
+      "limitations": [
+        "Footprint coverage does not establish valid backscatter pixels or inundation.",
+        "Pre-event date does not establish a dry baseline.",
+        "May 26 is an event calendar-date reference; the hydrological report's peak clock timezone is unstated.",
+        "The 2017 Kelani event was documented as minor, unlike the severe 2016 event."
+      ]
+    },
+    {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170430T002511_20170430T002536_016366_01B177_355E",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-04-30T00:25:11.100Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.94106265583044,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.94106265583056,
+      "gapDays": 29.999524305555557,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.94106265583056% of the study area (minimum 90%)."
+      ],
+      "eventCalendarDistanceDays": 4,
+      "scientificStatus": "candidate-for-event-and-pixel-validation",
+      "limitations": [
+        "Footprint coverage does not establish valid backscatter pixels or inundation.",
+        "Pre-event date does not establish a dry baseline.",
+        "May 26 is an event calendar-date reference; the hydrological report's peak clock timezone is unstated.",
+        "The 2017 Kelani event was documented as minor, unlike the severe 2016 event."
+      ]
+    },
+    {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170418T002510_20170418T002536_016191_01AC26_41F3",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-04-18T00:25:10.650Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.93842023907828,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.93842023907813,
+      "gapDays": 41.99952951388889,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.93842023907813% of the study area (minimum 90%)."
+      ],
+      "eventCalendarDistanceDays": 4,
+      "scientificStatus": "candidate-for-event-and-pixel-validation",
+      "limitations": [
+        "Footprint coverage does not establish valid backscatter pixels or inundation.",
+        "Pre-event date does not establish a dry baseline.",
+        "May 26 is an event calendar-date reference; the hydrological report's peak clock timezone is unstated.",
+        "The 2017 Kelani event was documented as minor, unlike the severe 2016 event."
+      ]
+    },
+    {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170406T002510_20170406T002535_016016_01A6C7_F61F",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-04-06T00:25:10.000Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.95237750973155,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.95237750973148,
+      "gapDays": 53.99953703703704,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.95237750973148% of the study area (minimum 90%)."
+      ],
+      "eventCalendarDistanceDays": 4,
+      "scientificStatus": "candidate-for-event-and-pixel-validation",
+      "limitations": [
+        "Footprint coverage does not establish valid backscatter pixels or inundation.",
+        "Pre-event date does not establish a dry baseline.",
+        "May 26 is an event calendar-date reference; the hydrological report's peak clock timezone is unstated.",
+        "The 2017 Kelani event was documented as minor, unlike the severe 2016 event."
+      ]
+    }
+  ],
+  "rankPolicy": "Among Phase 1 metadata/coverage-compatible candidates: acquisition calendar-day proximity to May 26, then temporal separation. This is not validated flood extent.",
+  "incomplete": false
+}

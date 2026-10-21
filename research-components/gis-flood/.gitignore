@@ -1,0 +1,47 @@
+﻿# Local dependencies and generated Python environments
+backend/artifacts/phase5c-python-deps/
+backend/artifacts/phase6a-python-deps/
+
+# Node / Expo dependencies and caches
+**/node_modules/
+**/.expo/
+**/dist/
+**/dist-*/
+**/build/
+**/coverage/
+**/__pycache__/
+**/.pytest_cache/
+
+# Secrets and private configuration
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*credentials*.json
+**/*service-account*.json
+
+# Temporary files
+**/*.log
+**/*.tmp
+
+# Temporary historical runs and development probes
+backend/artifacts/function2-*/
+backend/artifacts/mobile-*/
+backend/artifacts/phase5c-matplotlib-cache/
+backend/artifacts/phase5a-backend-tests.txt
+backend/artifacts/phase6a-backend-tests.txt
+backend/artifacts/phase6b-backend-tests.txt
+
+# Downloaded external reference data and feasibility caches
+backend/artifacts/phase6a-reference-acquisition/
+backend/artifacts/phase6b-feasibility/
+
+# Incomplete/older Phase 5A exploratory runs
+backend/artifacts/ahp-sar-phase5a-2026-10-20T15-16-13-277Z/
+backend/artifacts/ahp-sar-phase5a-2026-10-20T15-18-14-721Z/
+backend/artifacts/ahp-sar-phase5a-2026-10-20T15-21-49-034Z/
+backend/artifacts/ahp-sar-phase5a-2026-10-20T15-23-50-692Z/

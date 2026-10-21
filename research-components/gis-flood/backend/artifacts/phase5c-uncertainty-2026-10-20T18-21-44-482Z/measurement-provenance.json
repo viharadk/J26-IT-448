@@ -1,0 +1,4439 @@
+{
+  "status": "completed",
+  "executedAt": "2026-10-20T18:25:57.916Z",
+  "scenarioCount": 12,
+  "scientificValidationStatus": "DATA_NOT_READY",
+  "accuracyMetrics": null,
+  "hypothesis": "Higher AHP susceptibility may concentrate experimental SAR responses, but support uncertainty and filtering may alter the descriptive relationship.",
+  "scenarios": [
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "raw",
+      "domainId": "native-yearly-conservative-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 1.0731410632324219,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737482076,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.009323127373970412,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0.01703643302976264
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.02931397181954,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.8013066073161627
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.8450224817504883,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.728552701973115,
+          "candidateSharePercent": 78.74290815088048,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.140806963287083
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.218454749925999,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5327268072711404
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.9117552731704712,
+          "candidateRate": 0.468172353750612
+        },
+        "higherToLowerRateRatio": 1.3514112661761253,
+        "rateDifferencePercentagePoints": 12.174017172853574
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 44.467253737482075,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.039654590288603
+      }
+    },
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "terrain",
+      "domainId": "native-yearly-conservative-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9707867079315186,
+      "nonCandidateAreaKm2": 1.442542142030394,
+      "candidateRate": 0.40226043290653885,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128414732,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5819126608585571
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7987991075668335,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218251481,
+          "candidateSharePercent": 82.28368817171553,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1921048718618656
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699869742,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5827143061632863
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.864831560256958,
+          "candidateRate": 0.4440777466034043
+        },
+        "higherToLowerRateRatio": 1.9524683961795222,
+        "rateDifferencePercentagePoints": 21.663347786525208
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 40.226043290653884,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276707115
+      }
+    },
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "final",
+      "domainId": "native-yearly-conservative-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 0.9378697991027832,
+      "nonCandidateAreaKm2": 1.4754590508667589,
+      "candidateRate": 0.38862080446045294,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.09985185403442383,
+          "nonCandidateAreaKm2": 0.3527923232650757,
+          "candidatePercent": 22.059679333587273,
+          "candidateSharePercent": 10.646664828097407,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.5676402055781377
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.7767877766952515,
+          "nonCandidateAreaKm2": 0.8889851199194216,
+          "candidatePercent": 46.63227371953923,
+          "candidateSharePercent": 82.8246924507398,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1999428024519116
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06123016837310791,
+          "nonCandidateAreaKm2": 0.22047475139716652,
+          "candidatePercent": 21.73556941179447,
+          "candidateSharePercent": 6.528642721162788,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5593002011812349
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.09985185403442383,
+          "candidateRate": 0.2143428839603327
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.8380179450683594,
+          "candidateRate": 0.43030936630844424
+        },
+        "higherToLowerRateRatio": 2.007574771589242,
+        "rateDifferencePercentagePoints": 21.596648234811155
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 38.8620804460453,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.89670430774476
+      }
+    },
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "raw",
+      "domainId": "native-yearly-monthly-dry-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 494.32594744885,
+      "candidateAreaKm2": 5.935594895981015,
+      "nonCandidateAreaKm2": 488.390352552869,
+      "candidateRate": 0.012007451614898683,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.34961626578973,
+          "candidateAreaKm2": 0.0036019896087646484,
+          "nonCandidateAreaKm2": 144.346014276181,
+          "candidatePercent": 0.0024953233004321503,
+          "candidateSharePercent": 0.060684559372533184,
+          "domainSharePercent": 29.20130270538271,
+          "enrichmentRatio": 0.00207814562195361
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.85899540282904,
+          "candidateAreaKm2": 1.2119243941116333,
+          "nonCandidateAreaKm2": 208.64707100871738,
+          "candidatePercent": 0.577494613364234,
+          "candidateSharePercent": 20.41790949938693,
+          "domainSharePercent": 42.45356661649732,
+          "enrichmentRatio": 0.4809468585721275
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678096713,
+          "candidateAreaKm2": 4.345383598930539,
+          "nonCandidateAreaKm2": 118.62194318203659,
+          "candidatePercent": 3.533770890759184,
+          "candidateSharePercent": 73.20889776141551,
+          "domainSharePercent": 24.875758073308724,
+          "enrichmentRatio": 2.9429815785179003
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.37468491333007814,
+          "nonCandidateAreaKm2": 16.77532408593391,
+          "candidatePercent": 2.184750534802391,
+          "candidateSharePercent": 6.312508179825023,
+          "domainSharePercent": 3.4693726048112357,
+          "enrichmentRatio": 1.8194955972935856
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.2086116686188,
+          "candidateAreaKm2": 1.215526383720398,
+          "candidateRate": 0.0034316680726486355
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023112,
+          "candidateAreaKm2": 4.720068512260617,
+          "candidateRate": 0.0336865419683962
+        },
+        "higherToLowerRateRatio": 9.816375376420423,
+        "rateDifferencePercentagePoints": 3.025487389574756
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -5.960464477539063e-8,
+        "candidateResidualM2": 9.313225746154785e-10
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 1.2007451614898683,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.3490203559567928
+      }
+    },
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "terrain",
+      "domainId": "native-yearly-monthly-dry-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 494.3259474488042,
+      "candidateAreaKm2": 5.284160515289487,
+      "nonCandidateAreaKm2": 489.0417869335147,
+      "candidateRate": 0.010689628053232529,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.34961626575924,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 144.34961626575924,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 29.20130270537924,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.85899540281378,
+          "candidateAreaKm2": 0.8893556043624878,
+          "nonCandidateAreaKm2": 208.96963979845128,
+          "candidatePercent": 0.42378722086961984,
+          "candidateSharePercent": 16.83059403265999,
+          "domainSharePercent": 42.45356661649816,
+          "enrichmentRatio": 0.3964471156145299
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678096713,
+          "candidateAreaKm2": 4.031225430282772,
+          "nonCandidateAreaKm2": 118.93610135068435,
+          "candidatePercent": 3.278289880582104,
+          "candidateSharePercent": 76.28885266862349,
+          "domainSharePercent": 24.875758073311026,
+          "enrichmentRatio": 3.0667950879645
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.36357948064422607,
+          "nonCandidateAreaKm2": 16.786429518619762,
+          "candidatePercent": 2.1199958592431614,
+          "candidateSharePercent": 6.88055329871651,
+          "domainSharePercent": 3.4693726048115567,
+          "enrichmentRatio": 1.983226964199262
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.208611668573,
+          "candidateAreaKm2": 0.8893556043624878,
+          "candidateRate": 0.0025108243421101315
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023112,
+          "candidateAreaKm2": 4.394804910926998,
+          "candidateRate": 0.03136517609655445
+        },
+        "higherToLowerRateRatio": 12.491983437676376,
+        "rateDifferencePercentagePoints": 2.8854351754444316
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -5.960464477539063e-8,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 1.068962805323253,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.1582940213389428
+      }
+    },
+    {
+      "domainKind": "native",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "final",
+      "domainId": "native-yearly-monthly-dry-v1-all-three-stage-supports",
+      "commonDomainAreaKm2": 494.3259474488042,
+      "candidateAreaKm2": 5.232837089302063,
+      "nonCandidateAreaKm2": 489.09311035950213,
+      "candidateRate": 0.010585802983453567,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.34961626577453,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 144.34961626577453,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 29.201302705382336,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.85899540279848,
+          "candidateAreaKm2": 0.8749479642028809,
+          "nonCandidateAreaKm2": 208.98404743859558,
+          "candidatePercent": 0.41692183007143735,
+          "candidateSharePercent": 16.72033639250134,
+          "domainSharePercent": 42.45356661649507,
+          "enrichmentRatio": 0.3938499806987893
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678096713,
+          "candidateAreaKm2": 3.9998122466278074,
+          "nonCandidateAreaKm2": 118.96751453433933,
+          "candidatePercent": 3.2527439209542113,
+          "candidateSharePercent": 76.43678139350003,
+          "domainSharePercent": 24.875758073311026,
+          "enrichmentRatio": 3.0727417901490353
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.35807687847137454,
+          "nonCandidateAreaKm2": 16.791932120792612,
+          "candidatePercent": 2.0879107322144366,
+          "candidateSharePercent": 6.84288221399863,
+          "domainSharePercent": 3.4693726048115567,
+          "enrichmentRatio": 1.9723687805998313
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.208611668573,
+          "candidateAreaKm2": 0.8749479642028809,
+          "candidateRate": 0.0024701487636939637
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023112,
+          "candidateAreaKm2": 4.357889125099182,
+          "candidateRate": 0.031101712724072705
+        },
+        "higherToLowerRateRatio": 12.591028192796738,
+        "rateDifferencePercentagePoints": 2.863156396037874
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -5.960464477539063e-8,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 1.0585802983453567,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.1648331887397747
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "raw",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 1.0731410632324219,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737482076,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.009323127373970412,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0.01703643302976264
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.02931397181954,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.8013066073161627
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.8450224817504883,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.728552701973115,
+          "candidateSharePercent": 78.74290815088048,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.140806963287083
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.218454749925999,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5327268072711404
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.9117552731704712,
+          "candidateRate": 0.468172353750612
+        },
+        "higherToLowerRateRatio": 1.3514112661761253,
+        "rateDifferencePercentagePoints": 12.174017172853574
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 44.467253737482075,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.039654590288603
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "terrain",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9707867079315186,
+      "nonCandidateAreaKm2": 1.442542142030394,
+      "candidateRate": 0.40226043290653885,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128414732,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5819126608585571
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7987991075668335,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218251481,
+          "candidateSharePercent": 82.28368817171553,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1921048718618656
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699869742,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5827143061632863
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.864831560256958,
+          "candidateRate": 0.4440777466034043
+        },
+        "higherToLowerRateRatio": 1.9524683961795222,
+        "rateDifferencePercentagePoints": 21.663347786525208
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 40.226043290653884,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276707115
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "final",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9378697990951538,
+      "nonCandidateAreaKm2": 1.4754590508667589,
+      "candidateRate": 0.38862080445852015,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.09985185403442383,
+          "nonCandidateAreaKm2": 0.3527923232650757,
+          "candidatePercent": 22.059679333587273,
+          "candidateSharePercent": 10.646664828184015,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5676402055809607
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7767877766876221,
+          "nonCandidateAreaKm2": 0.8889851199194216,
+          "candidatePercent": 46.632273719294794,
+          "candidateSharePercent": 82.8246924506001,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1999428024515897
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06123016837310791,
+          "nonCandidateAreaKm2": 0.22047475139716652,
+          "candidatePercent": 21.73556941179447,
+          "candidateSharePercent": 6.528642721215896,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5593002011840166
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.09985185403442383,
+          "candidateRate": 0.2143428839603327
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.83801794506073,
+          "candidateRate": 0.43030936630621236
+        },
+        "higherToLowerRateRatio": 2.0075747715788292,
+        "rateDifferencePercentagePoints": 21.596648234587967
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 38.862080445852015,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.896704307500325
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "raw",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 1.0731410632400513,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737657636,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.00932312737390413,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0.017036433029695378
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.029313971712691,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.8013066073129991
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.8450224817581177,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.72855270219878,
+          "candidateSharePercent": 78.74290815103163,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1408069632876539
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.21845474988179,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5327268072690372
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.9117552731781006,
+          "candidateRate": 0.4681723537526955
+        },
+        "higherToLowerRateRatio": 1.3514112661821396,
+        "rateDifferencePercentagePoints": 12.174017173061923
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 44.467253737657636,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.03965459051427
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "terrain",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 0.9707867079391479,
+      "nonCandidateAreaKm2": 1.442542142030394,
+      "candidateRate": 0.4022604329084285,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128328956,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.5819126608558235
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.7987991075744629,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218275319,
+          "candidateSharePercent": 82.28368817185476,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1921048718621918
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699816286,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.582714306160549
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.8648315602645874,
+          "candidateRate": 0.4440777466055823
+        },
+        "higherToLowerRateRatio": 1.952468396189098,
+        "rateDifferencePercentagePoints": 21.663347786743007
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 40.22604329084285,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276945495
+      }
+    },
+    {
+      "domainKind": "fixed",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "final",
+      "domainId": "fixed-intersection-all-six-supports",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 0.9635829000625611,
+      "nonCandidateAreaKm2": 1.4497459499069811,
+      "candidateRate": 0.399275424099257,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10415410767364502,
+          "nonCandidateAreaKm2": 0.3484900696258545,
+          "candidatePercent": 23.01015077561237,
+          "candidateSharePercent": 10.809044833286558,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.5762976979492785
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.794796968421936,
+          "nonCandidateAreaKm2": 0.8709759281927371,
+          "candidatePercent": 47.71340499279288,
+          "candidateSharePercent": 82.48350695828387,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1949997949518594
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06463182396697999,
+          "nonCandidateAreaKm2": 0.21707309580329445,
+          "candidatePercent": 22.943093794629547,
+          "candidateSharePercent": 6.707448208429574,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5746182311718254
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10415410767364502,
+          "candidateRate": 0.22357814014537652
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.859428792388916,
+          "candidateRate": 0.4413035081366172
+        },
+        "higherToLowerRateRatio": 1.9738222522544904,
+        "rateDifferencePercentagePoints": 21.772536799124065
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": -1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only.",
+      "candidateRatePercent": 39.9275424099257,
+      "patterns": {
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.770311198163334
+      }
+    }
+  ],
+  "globalDiagnostics": {
+    "yearly-conservative-v1": {
+      "rasterAoiAreaKm2": 545.6946936182811,
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "exclusiveLossesKm2": {
+        "missingSar": 39.536300714298214,
+        "smoothingUnsupported": 3.2648603321261835,
+        "ahpNoData": 0,
+        "ahpWorldCoverWaterExcluded": 8.376990751302502,
+        "ahpLandClassUnavailable": 0,
+        "ahpUnexpectedCode": 0,
+        "historicalUnknown": 491.9126185988881,
+        "historicalPermanentExcluded": 0.19059437169647217,
+        "terrainUnknown": 0
+      },
+      "marginalAreasKm2": {
+        "ahpNoData": 0.008352319543636546,
+        "ahpUnexpectedCode": 0,
+        "ahpValid": 537.2208182319035,
+        "ahpWorldCoverWater": 8.465523066833704,
+        "historicalPermanent": 3.626612029294691,
+        "historicalUnknown": 494.6459002501627,
+        "terrainUnknown": 0
+      },
+      "accountingToleranceM2": 1,
+      "accountingPassed": true
+    },
+    "yearly-monthly-dry-v1": {
+      "rasterAoiAreaKm2": 545.6946936182659,
+      "commonDomainAreaKm2": 494.32594744883465,
+      "exclusiveLossesKm2": {
+        "missingSar": 39.53630071429821,
+        "smoothingUnsupported": 3.264860332126184,
+        "ahpNoData": 0,
+        "ahpWorldCoverWaterExcluded": 8.376990751310132,
+        "ahpLandClassUnavailable": 0,
+        "ahpUnexpectedCode": 0,
+        "historicalUnknown": 0,
+        "historicalPermanentExcluded": 0.19059437169647217,
+        "terrainUnknown": 0
+      },
+      "marginalAreasKm2": {
+        "ahpNoData": 0.008352319543636544,
+        "ahpUnexpectedCode": 0,
+        "ahpValid": 537.2208182318808,
+        "ahpWorldCoverWater": 8.465523066841333,
+        "historicalPermanent": 3.6266120293023203,
+        "historicalUnknown": 0,
+        "terrainUnknown": 0
+      },
+      "accountingToleranceM2": 1,
+      "accountingPassed": true
+    }
+  },
+  "classLosses": {
+    "yearly-conservative-v1": [
+      {
+        "code": 1,
+        "label": "Low",
+        "ahpClassInAoiKm2": 169.79793662129072,
+        "nativeDomainKm2": 0.013206856285095214,
+        "nativeRetentionPercent": 0.007777983966054406,
+        "lossesKm2": {
+          "missingSar": 23.87333916205881,
+          "smoothingUnsupported": 1.5749811934649904,
+          "historicalUnknown": 144.33640940948177,
+          "historicalPermanentExcluded": 0,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 2,
+        "label": "Moderate",
+        "ahpClassInAoiKm2": 224.5916865328461,
+        "nativeDomainKm2": 0.4526441772994995,
+        "nativeRetentionPercent": 0.20154093158443834,
+        "lossesKm2": {
+          "missingSar": 13.663495880565447,
+          "smoothingUnsupported": 1.035875064423625,
+          "historicalUnknown": 209.40635122552953,
+          "historicalPermanentExcluded": 0.03332018502807617,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 3,
+        "label": "High",
+        "ahpClassInAoiKm2": 125.52905617988074,
+        "nativeDomainKm2": 1.665772896614673,
+        "nativeRetentionPercent": 1.3270018490600712,
+        "lossesKm2": {
+          "missingSar": 1.970049841958349,
+          "smoothingUnsupported": 0.524144640237726,
+          "historicalUnknown": 121.30155388435246,
+          "historicalPermanentExcluded": 0.0675349167175293,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 4,
+        "label": "Very High",
+        "ahpClassInAoiKm2": 17.302138897855453,
+        "nativeDomainKm2": 0.28170491977027445,
+        "nativeRetentionPercent": 1.6281508398085447,
+        "lossesKm2": {
+          "missingSar": 0.007903534210205078,
+          "smoothingUnsupported": 0.05448709443039241,
+          "historicalUnknown": 16.86830407949371,
+          "historicalPermanentExcluded": 0.0897392699508667,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      }
+    ],
+    "yearly-monthly-dry-v1": [
+      {
+        "code": 1,
+        "label": "Low",
+        "ahpClassInAoiKm2": 169.79793662129072,
+        "nativeDomainKm2": 144.34961626576685,
+        "nativeRetentionPercent": 85.01258562859772,
+        "lossesKm2": {
+          "missingSar": 23.873339162058812,
+          "smoothingUnsupported": 1.5749811934649902,
+          "historicalUnknown": 0,
+          "historicalPermanentExcluded": 0,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 2,
+        "label": "Moderate",
+        "ahpClassInAoiKm2": 224.59168653280796,
+        "nativeDomainKm2": 209.85899540279087,
+        "nativeRetentionPercent": 93.44023309257044,
+        "lossesKm2": {
+          "missingSar": 13.663495880565446,
+          "smoothingUnsupported": 1.0358750644236248,
+          "historicalUnknown": 0,
+          "historicalPermanentExcluded": 0.03332018502807617,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 3,
+        "label": "High",
+        "ahpClassInAoiKm2": 125.529056179896,
+        "nativeDomainKm2": 122.9673267809824,
+        "nativeRetentionPercent": 97.95925383582717,
+        "lossesKm2": {
+          "missingSar": 1.970049841958349,
+          "smoothingUnsupported": 0.524144640237726,
+          "historicalUnknown": 0,
+          "historicalPermanentExcluded": 0.0675349167175293,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      },
+      {
+        "code": 4,
+        "label": "Very High",
+        "ahpClassInAoiKm2": 17.302138897855453,
+        "nativeDomainKm2": 17.15000899926399,
+        "nativeRetentionPercent": 99.12074513163039,
+        "lossesKm2": {
+          "missingSar": 0.007903534210205078,
+          "smoothingUnsupported": 0.05448709443039241,
+          "historicalUnknown": 0,
+          "historicalPermanentExcluded": 0.0897392699508667,
+          "terrainUnknown": 0
+        },
+        "toleranceM2": 1,
+        "accountingPassed": true,
+        "interpretation": "Exclusive ordered losses within recognized AHP land class: SAR, smoothing, historical support, permanent water, terrain no-data. Outside-class AHP no-data/water remains globally unassigned."
+      }
+    ]
+  },
+  "controls": {
+    "fixedDomain": 2.4133288499619128,
+    "fixedOutsideConservative": 0,
+    "fixedOutsideMonthly": 0,
+    "conservativeNativeOnly": 0,
+    "monthlyNativeOnly": 491.91261859884986,
+    "nativeStageIntersectionDisagreement_0": 0,
+    "fixedOutsideSupport_0_raw": 0,
+    "fixedOutsideSupport_0_terrain": 0,
+    "fixedOutsideSupport_0_final": 0,
+    "nativeStageIntersectionDisagreement_1": 0,
+    "fixedOutsideSupport_1_raw": 0,
+    "fixedOutsideSupport_1_terrain": 0,
+    "fixedOutsideSupport_1_final": 0
+  },
+  "sourceCandidateLeaksKm2": {
+    "sourceCandidateOutsideSarSupport_0_raw": 0,
+    "sourceCandidateOutsideSarSupport_0_terrain": 0,
+    "sourceCandidateOutsideSarSupport_0_final": 0,
+    "sourceCandidateOutsideSarSupport_1_raw": 0,
+    "sourceCandidateOutsideSarSupport_1_terrain": 0,
+    "sourceCandidateOutsideSarSupport_1_final": 0
+  },
+  "responsePartitions": {
+    "raw": {
+      "fixedDomainKm2": 2.4133288499695422,
+      "bothCandidateKm2": 1.0731410632400513,
+      "conservativeOnlyCandidateKm2": 0,
+      "monthlyOnlyCandidateKm2": 0,
+      "neitherCandidateKm2": 1.340187786729491,
+      "differentResponseAreaKm2": 0,
+      "signedMonthlyMinusConservativeAreaKm2": 0,
+      "interpretation": "Experimental response partition on identical supported pixels, not a ground-truth confusion matrix or accuracy metric."
+    },
+    "terrain": {
+      "fixedDomainKm2": 2.4133288499695422,
+      "bothCandidateKm2": 0.9707867079391479,
+      "conservativeOnlyCandidateKm2": 0,
+      "monthlyOnlyCandidateKm2": 0,
+      "neitherCandidateKm2": 1.442542142030394,
+      "differentResponseAreaKm2": 0,
+      "signedMonthlyMinusConservativeAreaKm2": 0,
+      "interpretation": "Experimental response partition on identical supported pixels, not a ground-truth confusion matrix or accuracy metric."
+    },
+    "final": {
+      "fixedDomainKm2": 2.4133288499695422,
+      "bothCandidateKm2": 0.9378697991027832,
+      "conservativeOnlyCandidateKm2": 0,
+      "monthlyOnlyCandidateKm2": 0.025713100959777833,
+      "neitherCandidateKm2": 1.4497459499069811,
+      "differentResponseAreaKm2": 0.025713100959777833,
+      "signedMonthlyMinusConservativeAreaKm2": 0.025713100959777833,
+      "interpretation": "Experimental response partition on identical supported pixels, not a ground-truth confusion matrix or accuracy metric."
+    }
+  },
+  "sensitivity": {
+    "representation": [
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "nativeDomainKm2": 2.4133288499619128,
+        "fixedDomainKm2": 2.4133288499619128,
+        "fixedFractionOfNativePercent": 100,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "nativeAreaKm2": 0.013206856285095214,
+            "fixedAreaKm2": 0.013206856285095214,
+            "nativeDomainSharePercent": 0.5472464428253798,
+            "fixedDomainSharePercent": 0.5472464428253798,
+            "fixedFractionOfNativeClassPercent": 100
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "nativeAreaKm2": 0.4526441772994995,
+            "fixedAreaKm2": 0.4526441772994995,
+            "nativeDomainSharePercent": 18.756009041479913,
+            "fixedDomainSharePercent": 18.756009041479913,
+            "fixedFractionOfNativeClassPercent": 100
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "nativeAreaKm2": 1.6657728966070438,
+            "fixedAreaKm2": 1.6657728966070438,
+            "nativeDomainSharePercent": 69.02386703881376,
+            "fixedDomainSharePercent": 69.02386703881376,
+            "fixedFractionOfNativeClassPercent": 100
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "nativeAreaKm2": 0.28170491977027445,
+            "fixedAreaKm2": 0.28170491977027445,
+            "nativeDomainSharePercent": 11.672877476880961,
+            "fixedDomainSharePercent": 11.672877476880961,
+            "fixedFractionOfNativeClassPercent": 100
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "nativeDomainKm2": 494.32594744885,
+        "fixedDomainKm2": 2.4133288499695422,
+        "fixedFractionOfNativePercent": 0.48820598279827493,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "nativeAreaKm2": 144.34961626578973,
+            "fixedAreaKm2": 0.013206856285095214,
+            "nativeDomainSharePercent": 29.20130270538271,
+            "fixedDomainSharePercent": 0.5472464428236498,
+            "fixedFractionOfNativeClassPercent": 0.009149214682204308
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "nativeAreaKm2": 209.85899540282904,
+            "fixedAreaKm2": 0.4526441772994995,
+            "nativeDomainSharePercent": 42.45356661649732,
+            "fixedDomainSharePercent": 18.756009041420615,
+            "fixedFractionOfNativeClassPercent": 0.215689671262668
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "nativeAreaKm2": 122.96732678096713,
+            "fixedAreaKm2": 1.665772896614673,
+            "nativeDomainSharePercent": 24.875758073308724,
+            "fixedDomainSharePercent": 69.02386703891167,
+            "fixedFractionOfNativeClassPercent": 1.3546467506623079
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "nativeAreaKm2": 17.15000899926399,
+            "fixedAreaKm2": 0.28170491977027445,
+            "nativeDomainSharePercent": 3.4693726048112357,
+            "fixedDomainSharePercent": 11.672877476844059,
+            "fixedFractionOfNativeClassPercent": 1.6425934224428926
+          }
+        ]
+      }
+    ],
+    "decomposition": [
+      {
+        "stage": "raw",
+        "nativeCandidateAreaDifferenceKm2": 4.862453832748593,
+        "fixedResponseAreaDifferenceKm2": 7.629452625224076e-12,
+        "conservativeCandidatesOutsideFixedKm2": 0,
+        "monthlyCandidatesOutsideFixedKm2": 4.862453832740964,
+        "nonsharedSupportContributionKm2": 4.862453832740964,
+        "nonsharedShareOfSignedAreaDifferencePercent": 99.9999999998431,
+        "fixedShareOfSignedAreaDifferencePercent": 1.569053997765442e-10,
+        "nativeRateDifferencePercentagePoints": -43.266508575992205,
+        "fixedRateDifferencePercentagePoints": 1.75559566883976e-10,
+        "nativeVersusFixedRateShiftDifferencePercentagePoints": -43.266508576167766,
+        "caveat": "Area accounting separates common-support responses from responses outside it. Rate accounting is fixed-domain-anchored algebra, not a unique causal attribution or accuracy improvement."
+      },
+      {
+        "stage": "terrain",
+        "nativeCandidateAreaDifferenceKm2": 4.313373807357968,
+        "fixedResponseAreaDifferenceKm2": 7.629341602921613e-12,
+        "conservativeCandidatesOutsideFixedKm2": 0,
+        "monthlyCandidatesOutsideFixedKm2": 4.313373807350339,
+        "nonsharedSupportContributionKm2": 4.313373807350339,
+        "nonsharedShareOfSignedAreaDifferencePercent": 99.99999999982312,
+        "fixedShareOfSignedAreaDifferencePercent": 1.768764299979543e-10,
+        "nativeRateDifferencePercentagePoints": -39.15708048533063,
+        "fixedRateDifferencePercentagePoints": 1.8896550990632477e-10,
+        "nativeVersusFixedRateShiftDifferencePercentagePoints": -39.1570804855196,
+        "caveat": "Area accounting separates common-support responses from responses outside it. Rate accounting is fixed-domain-anchored algebra, not a unique causal attribution or accuracy improvement."
+      },
+      {
+        "stage": "final",
+        "nativeCandidateAreaDifferenceKm2": 4.2949672901992795,
+        "fixedResponseAreaDifferenceKm2": 0.02571310096740731,
+        "conservativeCandidatesOutsideFixedKm2": 7.629452625224076e-12,
+        "monthlyCandidatesOutsideFixedKm2": 4.2692541892395015,
+        "nonsharedSupportContributionKm2": 4.269254189231872,
+        "nonsharedShareOfSignedAreaDifferencePercent": 99.4013202143336,
+        "fixedShareOfSignedAreaDifferencePercent": 0.5986797856664063,
+        "nativeRateDifferencePercentagePoints": -37.803500147699935,
+        "fixedRateDifferencePercentagePoints": 1.0654619640736829,
+        "nativeVersusFixedRateShiftDifferencePercentagePoints": -38.86896211177362,
+        "caveat": "Area accounting separates common-support responses from responses outside it. Rate accounting is fixed-domain-anchored algebra, not a unique causal attribution or accuracy improvement."
+      }
+    ],
+    "filterChanges": [
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "domainKind": "native",
+        "fromStage": "raw",
+        "toStage": "terrain",
+        "candidateAreaRemovedKm2": 0.10235435530090331,
+        "fractionOfPriorCandidatesRemovedPercent": 9.537828604992567,
+        "candidateRateChangePercentagePoints": -4.241210446828192,
+        "groupedRatioChange": 0.6010571300033969,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0.00010005030822753907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 100,
+            "candidateRateChangePercentagePoints": -0.7575633903160759,
+            "enrichmentChange": -0.01703643302976264
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.055330592079162605,
+            "fractionOfPriorClassCandidatesRemovedPercent": 34.305941841882735,
+            "candidateRateChangePercentagePoints": -12.223860341972806,
+            "enrichmentChange": -0.21939394645760557
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.04622337418365485,
+            "fractionOfPriorClassCandidatesRemovedPercent": 5.470076262101549,
+            "candidateRateChangePercentagePoints": -2.774890519458303,
+            "enrichmentChange": 0.05129790857478267
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.0007003387298583907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.0494671584331128,
+            "candidateRateChangePercentagePoints": -0.24860720587681584,
+            "enrichmentChange": 0.04998749889214593
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "domainKind": "native",
+        "fromStage": "terrain",
+        "toStage": "final",
+        "candidateAreaRemovedKm2": 0.032916908828735325,
+        "fractionOfPriorCandidatesRemovedPercent": 3.3907457281602333,
+        "candidateRateChangePercentagePoints": -1.3639628446085905,
+        "groupedRatioChange": 0.05510637540971963,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0,
+            "fractionOfPriorClassCandidatesRemovedPercent": null,
+            "candidateRateChangePercentagePoints": 0,
+            "enrichmentChange": 0
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.006103293640136717,
+            "fractionOfPriorClassCandidatesRemovedPercent": 5.760261557921547,
+            "candidateRateChangePercentagePoints": -1.3483645534886364,
+            "enrichmentChange": -0.014272455280419427
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.022011330871582024,
+            "fractionOfPriorClassCandidatesRemovedPercent": 2.7555527620241356,
+            "candidateRateChangePercentagePoints": -1.3213884629755839,
+            "enrichmentChange": 0.007837930590046005
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.004802284317016611,
+            "fractionOfPriorClassCandidatesRemovedPercent": 7.272612361610515,
+            "candidateRateChangePercentagePoints": -1.7047214940132278,
+            "enrichmentChange": -0.02341410498205143
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "domainKind": "fixed",
+        "fromStage": "raw",
+        "toStage": "terrain",
+        "candidateAreaRemovedKm2": 0.10235435530090331,
+        "fractionOfPriorCandidatesRemovedPercent": 9.537828604992567,
+        "candidateRateChangePercentagePoints": -4.241210446828192,
+        "groupedRatioChange": 0.6010571300033969,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0.00010005030822753907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 100,
+            "candidateRateChangePercentagePoints": -0.7575633903160759,
+            "enrichmentChange": -0.01703643302976264
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.055330592079162605,
+            "fractionOfPriorClassCandidatesRemovedPercent": 34.305941841882735,
+            "candidateRateChangePercentagePoints": -12.223860341972806,
+            "enrichmentChange": -0.21939394645760557
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.04622337418365485,
+            "fractionOfPriorClassCandidatesRemovedPercent": 5.470076262101549,
+            "candidateRateChangePercentagePoints": -2.774890519458303,
+            "enrichmentChange": 0.05129790857478267
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.0007003387298583907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.0494671584331128,
+            "candidateRateChangePercentagePoints": -0.24860720587681584,
+            "enrichmentChange": 0.04998749889214593
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "domainKind": "fixed",
+        "fromStage": "terrain",
+        "toStage": "final",
+        "candidateAreaRemovedKm2": 0.03291690883636478,
+        "fractionOfPriorCandidatesRemovedPercent": 3.390745728946137,
+        "candidateRateChangePercentagePoints": -1.3639628448018692,
+        "groupedRatioChange": 0.05510637539930707,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0,
+            "fractionOfPriorClassCandidatesRemovedPercent": null,
+            "candidateRateChangePercentagePoints": 0,
+            "enrichmentChange": 0
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.006103293640136717,
+            "fractionOfPriorClassCandidatesRemovedPercent": 5.760261557921547,
+            "candidateRateChangePercentagePoints": -1.3483645534886364,
+            "enrichmentChange": -0.014272455277596352
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.022011330879211366,
+            "fractionOfPriorClassCandidatesRemovedPercent": 2.755552762979237,
+            "candidateRateChangePercentagePoints": -1.3213884632200177,
+            "enrichmentChange": 0.00783793058972404
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.004802284317016611,
+            "fractionOfPriorClassCandidatesRemovedPercent": 7.272612361610515,
+            "candidateRateChangePercentagePoints": -1.7047214940132278,
+            "enrichmentChange": -0.023414104979269768
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "domainKind": "native",
+        "fromStage": "raw",
+        "toStage": "terrain",
+        "candidateAreaRemovedKm2": 0.6514343806915281,
+        "fractionOfPriorCandidatesRemovedPercent": 10.97504786137972,
+        "candidateRateChangePercentagePoints": -0.13178235616661538,
+        "groupedRatioChange": 2.6756080612559536,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0.0036019896087646484,
+            "fractionOfPriorClassCandidatesRemovedPercent": 100,
+            "candidateRateChangePercentagePoints": -0.0024953233004321503,
+            "enrichmentChange": -0.00207814562195361
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.3225687897491455,
+            "fractionOfPriorClassCandidatesRemovedPercent": 26.61624696362312,
+            "candidateRateChangePercentagePoints": -0.15370739249461418,
+            "enrichmentChange": -0.0844997429575976
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.3141581686477668,
+            "fractionOfPriorClassCandidatesRemovedPercent": 7.2296993233252325,
+            "candidateRateChangePercentagePoints": -0.2554810101770797,
+            "enrichmentChange": 0.12381350944659975
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.011105432685852068,
+            "fractionOfPriorClassCandidatesRemovedPercent": 2.9639391101046955,
+            "candidateRateChangePercentagePoints": -0.06475467555922965,
+            "enrichmentChange": 0.16373136690567636
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "domainKind": "native",
+        "fromStage": "terrain",
+        "toStage": "final",
+        "candidateAreaRemovedKm2": 0.05132342598742401,
+        "fractionOfPriorCandidatesRemovedPercent": 0.9712692458702177,
+        "candidateRateChangePercentagePoints": -0.010382506977896222,
+        "groupedRatioChange": 0.09904475512036193,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0,
+            "fractionOfPriorClassCandidatesRemovedPercent": null,
+            "candidateRateChangePercentagePoints": 0,
+            "enrichmentChange": 0
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.014407640159606938,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.6200089243193887,
+            "candidateRateChangePercentagePoints": -0.006865390798182491,
+            "enrichmentChange": -0.0025971349157405954
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.031413183654964705,
+            "fractionOfPriorClassCandidatesRemovedPercent": 0.779246514446631,
+            "candidateRateChangePercentagePoints": -0.025545959627892856,
+            "enrichmentChange": 0.005946702184535191
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.005502602172851534,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.5134523442031105,
+            "candidateRateChangePercentagePoints": -0.03208512702872479,
+            "enrichmentChange": -0.010858183599430582
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "domainKind": "fixed",
+        "fromStage": "raw",
+        "toStage": "terrain",
+        "candidateAreaRemovedKm2": 0.10235435530090342,
+        "fractionOfPriorCandidatesRemovedPercent": 9.53782860492477,
+        "candidateRateChangePercentagePoints": -4.241210446814786,
+        "groupedRatioChange": 0.6010571300069585,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0.00010005030822753907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 100,
+            "candidateRateChangePercentagePoints": -0.7575633903160759,
+            "enrichmentChange": -0.017036433029695378
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.055330592079162605,
+            "fractionOfPriorClassCandidatesRemovedPercent": 34.305941841882735,
+            "candidateRateChangePercentagePoints": -12.223860341972806,
+            "enrichmentChange": -0.21939394645717558
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.04622337418365474,
+            "fractionOfPriorClassCandidatesRemovedPercent": 5.470076262052149,
+            "candidateRateChangePercentagePoints": -2.7748905194455915,
+            "enrichmentChange": 0.051297908574537976
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.0007003387298583907,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.0494671584331128,
+            "candidateRateChangePercentagePoints": -0.24860720587681584,
+            "enrichmentChange": 0.04998749889151177
+          }
+        ]
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "domainKind": "fixed",
+        "fromStage": "terrain",
+        "toStage": "final",
+        "candidateAreaRemovedKm2": 0.00720380787658681,
+        "fractionOfPriorCandidatesRemovedPercent": 0.7420587671497422,
+        "candidateRateChangePercentagePoints": -0.2985008809171519,
+        "groupedRatioChange": 0.021353856065392307,
+        "classes": [
+          {
+            "code": 1,
+            "label": "Low",
+            "areaRemovedKm2": 0,
+            "fractionOfPriorClassCandidatesRemovedPercent": null,
+            "candidateRateChangePercentagePoints": 0,
+            "enrichmentChange": 0
+          },
+          {
+            "code": 2,
+            "label": "Moderate",
+            "areaRemovedKm2": 0.0018010400009155214,
+            "fractionOfPriorClassCandidatesRemovedPercent": 1.6998135913579067,
+            "candidateRateChangePercentagePoints": -0.3978931114635387,
+            "enrichmentChange": -0.005614962906544951
+          },
+          {
+            "code": 3,
+            "label": "High",
+            "areaRemovedKm2": 0.004002139152526896,
+            "fractionOfPriorClassCandidatesRemovedPercent": 0.5010194821923761,
+            "candidateRateChangePercentagePoints": -0.2402571899603103,
+            "enrichmentChange": 0.002894923089667545
+          },
+          {
+            "code": 4,
+            "label": "Very High",
+            "areaRemovedKm2": 0.0014006287231445314,
+            "fractionOfPriorClassCandidatesRemovedPercent": 2.121121760715701,
+            "candidateRateChangePercentagePoints": -0.49719711117814924,
+            "enrichmentChange": -0.008096074988723556
+          }
+        ]
+      }
+    ],
+    "patterns": [
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "raw",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.039654590288603
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "terrain",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276707115
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "final",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.89670430774476
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "raw",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.3490203559567928
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "terrain",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.1582940213389428
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "final",
+        "domainKind": "native",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 1.1648331887397747
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "raw",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.039654590288603
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "terrain",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276707115
+      },
+      {
+        "referenceMethod": "yearly-conservative-v1",
+        "stage": "final",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.896704307500325
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "raw",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 27.03965459051427
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "terrain",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.513371276945495
+      },
+      {
+        "referenceMethod": "yearly-monthly-dry-v1",
+        "stage": "final",
+        "domainKind": "fixed",
+        "allClassesRepresented": true,
+        "monotonicNondecreasingAcrossClasses": false,
+        "higherGroupRateExceedsLower": true,
+        "highMinusVeryHighRatePercentagePoints": 24.770311198163334
+      }
+    ],
+    "groupedDirectionPositiveScenarios": 12,
+    "monotonicScenarios": 0,
+    "interpretation": "Scenario counts describe sensitivity controls, not independent spatial replicates or statistical significance."
+  },
+  "quality": {
+    "success": true,
+    "queriedAt": "2026-10-20T18:21:51.194Z",
+    "dataset": "COPERNICUS/S1_GRD",
+    "polarization": "VV",
+    "units": "dB",
+    "studyArea": {
+      "vectorAreaKm2": 548.1123320266747,
+      "rasterAreaKm2": 545.6946936182658,
+      "bounds": {
+        "geodesic": false,
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.85776426799337,
+              6.816667920120302
+            ],
+            [
+              80.21285142648506,
+              6.816667920120302
+            ],
+            [
+              80.21285142648506,
+              7.045834460261277
+            ],
+            [
+              79.85776426799337,
+              7.045834460261277
+            ],
+            [
+              79.85776426799337,
+              6.816667920120302
+            ]
+          ]
+        ]
+      },
+      "outline": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.07083349453231,
+              6.979166445991586
+            ],
+            [
+              80.07048122779253,
+              6.9815922414711675
+            ],
+            [
+              80.06668207780305,
+              6.985418119531972
+            ],
+            [
+              80.07082010978651,
+              6.9895829689707245
+            ],
+            [
+              80.06702097470428,
+              6.993408838688931
+            ],
+            [
+              80.06631197529099,
+              6.998255898406546
+            ],
+            [
+              80.06285172571224,
+              7.001742919107881
+            ],
+            [
+              80.0621472109575,
+              7.006589971042792
+            ],
+            [
+              80.0524530915172,
+              7.016310802961033
+            ],
+            [
+              80.04757483965683,
+              7.017019799677175
+            ],
+            [
+              80.0399230189139,
+              7.024644876376649
+            ],
+            [
+              80.02745536120494,
+              7.025353829692548
+            ],
+            [
+              80.0232593839036,
+              7.021184575968234
+            ],
+            [
+              80.01495204344684,
+              7.020480045480503
+            ],
+            [
+              80.006591267904,
+              7.028814126712579
+            ],
+            [
+              80.00174422273246,
+              7.029518645344411
+            ],
+            [
+              79.99825716240623,
+              7.032978908333319
+            ],
+            [
+              79.985785057362,
+              7.0336878758071455
+            ],
+            [
+              79.981589116084,
+              7.029518633856583
+            ],
+            [
+              79.97279130327884,
+              7.028600082808403
+            ],
+            [
+              79.96875136016794,
+              7.025469769562733
+            ],
+            [
+              79.96471140065499,
+              7.028600044538903
+            ],
+            [
+              79.96175499560819,
+              7.029732710969514
+            ],
+            [
+              79.95637729975736,
+              7.025567860154573
+            ],
+            [
+              79.94906440649055,
+              7.024430810531451
+            ],
+            [
+              79.93842051039343,
+              7.033915350676039
+            ],
+            [
+              79.93665024409376,
+              7.04081802354304
+            ],
+            [
+              79.93112097313227,
+              7.0422359952970135
+            ],
+            [
+              79.92721035396033,
+              7.045268166629158
+            ],
+            [
+              79.91249973589161,
+              7.045834460261277
+            ],
+            [
+              79.91193347640615,
+              7.043622743512629
+            ],
+            [
+              79.90890123559949,
+              7.039712156468517
+            ],
+            [
+              79.9076705269314,
+              7.025897877630815
+            ],
+            [
+              79.90058505385697,
+              7.024078548892414
+            ],
+            [
+              79.89223314447656,
+              7.014709958302604
+            ],
+            [
+              79.8911005312994,
+              7.006121740218928
+            ],
+            [
+              79.8755694964985,
+              6.989712263228577
+            ],
+            [
+              79.87410240575784,
+              6.983995644190997
+            ],
+            [
+              79.86666464017361,
+              6.983331251107107
+            ],
+            [
+              79.86666464017361,
+              6.979166480298798
+            ],
+            [
+              79.87499872676835,
+              6.979166468133664
+            ],
+            [
+              79.87499872676835,
+              6.966667574981525
+            ],
+            [
+              79.87403114400094,
+              6.962895182053704
+            ],
+            [
+              79.86887639065262,
+              6.958899848869927
+            ],
+            [
+              79.8632088558546,
+              6.957446178927181
+            ],
+            [
+              79.86193358252675,
+              6.947787786523394
+            ],
+            [
+              79.85776426799337,
+              6.942414539158463
+            ],
+            [
+              79.85890141217014,
+              6.931124125973625
+            ],
+            [
+              79.8750566583558,
+              6.914054687781672
+            ],
+            [
+              79.86887639065262,
+              6.908899948480672
+            ],
+            [
+              79.86193358252675,
+              6.9071162892817295
+            ],
+            [
+              79.86311075198769,
+              6.880165478689644
+            ],
+            [
+              79.86862217419461,
+              6.8755681716817225
+            ],
+            [
+              79.87304560678744,
+              6.874431144939364
+            ],
+            [
+              79.87695624645916,
+              6.871398880013772
+            ],
+            [
+              79.90659149665872,
+              6.870480376167719
+            ],
+            [
+              79.91214306970967,
+              6.864955544474501
+            ],
+            [
+              79.91285204481282,
+              6.860077245570939
+            ],
+            [
+              79.92254609149848,
+              6.85035641143287
+            ],
+            [
+              79.92742435121934,
+              6.8496474463016925
+            ],
+            [
+              79.9309068995158,
+              6.846187158984901
+            ],
+            [
+              79.93575848012031,
+              6.845478165370315
+            ],
+            [
+              79.93924103840529,
+              6.842017922884707
+            ],
+            [
+              79.94337908039435,
+              6.841313380626635
+            ],
+            [
+              79.94757506642613,
+              6.8454781986833515
+            ],
+            [
+              79.95587790962718,
+              6.846187175819517
+            ],
+            [
+              79.96007389303188,
+              6.842017888902582
+            ],
+            [
+              79.96421641145027,
+              6.8413133740399354
+            ],
+            [
+              79.97048145822461,
+              6.847547224297955
+            ],
+            [
+              79.97083370437379,
+              6.862498537043714
+            ],
+            [
+              79.98132600963116,
+              6.863118362261404
+            ],
+            [
+              79.98655206121944,
+              6.866935326383829
+            ],
+            [
+              79.98833121449215,
+              6.854699550488956
+            ],
+            [
+              79.99783804706185,
+              6.84645028406355
+            ],
+            [
+              80.02499846336366,
+              6.845834899044691
+            ],
+            [
+              80.0253551801797,
+              6.848256208624531
+            ],
+            [
+              80.02881539363072,
+              6.851743164451768
+            ],
+            [
+              80.02951992383457,
+              6.860759505179347
+            ],
+            [
+              80.03785401338055,
+              6.869115853123386
+            ],
+            [
+              80.0371450307432,
+              6.881592434035425
+            ],
+            [
+              80.03298022696025,
+              6.885788435024414
+            ],
+            [
+              80.033693678742,
+              6.889953243270524
+            ],
+            [
+              80.04757483965683,
+              6.90381215740926
+            ],
+            [
+              80.05833464887985,
+              6.904168889044623
+            ],
+            [
+              80.05833464887985,
+              6.90833364077837
+            ],
+            [
+              80.0624994264221,
+              6.908333674867915
+            ],
+            [
+              80.06352954823481,
+              6.90491355379579
+            ],
+            [
+              80.07839614082233,
+              6.903397455411429
+            ],
+            [
+              80.07998808925038,
+              6.8877905618047714
+            ],
+            [
+              80.08536571673419,
+              6.883978060192461
+            ],
+            [
+              80.09897045926768,
+              6.882586831226493
+            ],
+            [
+              80.10144971385974,
+              6.874355302438092
+            ],
+            [
+              80.11047050937891,
+              6.8756439530772715
+            ],
+            [
+              80.11541558833295,
+              6.879153293742774
+            ],
+            [
+              80.11731070190824,
+              6.872865994163192
+            ],
+            [
+              80.12435610882825,
+              6.864634433695267
+            ],
+            [
+              80.12626014144358,
+              6.85831148814232
+            ],
+            [
+              80.13119638879469,
+              6.854811058166308
+            ],
+            [
+              80.1365339299243,
+              6.853201298934045
+            ],
+            [
+              80.13750157607763,
+              6.849999704638893
+            ],
+            [
+              80.1441188280107,
+              6.84964296135491
+            ],
+            [
+              80.14964814599166,
+              6.844091381963645
+            ],
+            [
+              80.15000042935262,
+              6.841665604784468
+            ],
+            [
+              80.15641708197329,
+              6.8421962331251205
+            ],
+            [
+              80.16558496256998,
+              6.850530297231144
+            ],
+            [
+              80.17396362277469,
+              6.849344221289911
+            ],
+            [
+              80.17969800095429,
+              6.8426823008634985
+            ],
+            [
+              80.17826218610276,
+              6.8382678058950415
+            ],
+            [
+              80.17499811444902,
+              6.8375008352596085
+            ],
+            [
+              80.17464584883238,
+              6.835075074497906
+            ],
+            [
+              80.17084670345983,
+              6.8312491973365415
+            ],
+            [
+              80.17464584883238,
+              6.827423245985515
+            ],
+            [
+              80.17535489153656,
+              6.822576212472063
+            ],
+            [
+              80.17881512625719,
+              6.819089190986113
+            ],
+            [
+              80.17916737468663,
+              6.8166679201203015
+            ],
+            [
+              80.19409202394735,
+              6.817020200039376
+            ],
+            [
+              80.19757456882098,
+              6.820480479203263
+            ],
+            [
+              80.20000032259412,
+              6.820832713802902
+            ],
+            [
+              80.20071375143027,
+              6.836760633732796
+            ],
+            [
+              80.21249914691614,
+              6.837500866723662
+            ],
+            [
+              80.21214686588984,
+              6.839926612327601
+            ],
+            [
+              80.2083477726673,
+              6.843748055622055
+            ],
+            [
+              80.21214686588984,
+              6.847573975993987
+            ],
+            [
+              80.21285142648507,
+              6.855881253323437
+            ],
+            [
+              80.20868662104485,
+              6.860077223557859
+            ],
+            [
+              80.20798211111254,
+              6.877423191824834
+            ],
+            [
+              80.2041829172696,
+              6.881249077386513
+            ],
+            [
+              80.20798211111256,
+              6.885075006204241
+            ],
+            [
+              80.20833440936529,
+              6.891665534683072
+            ],
+            [
+              80.20200686321952,
+              6.891050166238073
+            ],
+            [
+              80.19536284708946,
+              6.886880934617197
+            ],
+            [
+              80.18965965875537,
+              6.891050188087884
+            ],
+            [
+              80.18533876649519,
+              6.89228534957852
+            ],
+            [
+              80.18132562027314,
+              6.895214960712272
+            ],
+            [
+              80.17162705093399,
+              6.896628520422884
+            ],
+            [
+              80.17021349615027,
+              6.906327088521002
+            ],
+            [
+              80.16311905680068,
+              6.914505029416218
+            ],
+            [
+              80.16188394819301,
+              6.922995203562665
+            ],
+            [
+              80.15889629639405,
+              6.927084172768471
+            ],
+            [
+              80.16188394819301,
+              6.931173205232916
+            ],
+            [
+              80.16311905680068,
+              6.935494029724458
+            ],
+            [
+              80.16728387203992,
+              6.942138134834092
+            ],
+            [
+              80.16311905680068,
+              6.947841269918759
+            ],
+            [
+              80.16157174043656,
+              6.9532412887232
+            ],
+            [
+              80.15617179680874,
+              6.954784100296
+            ],
+            [
+              80.15215864436573,
+              6.957713703065683
+            ],
+            [
+              80.13533890295606,
+              6.958948878822249
+            ],
+            [
+              80.1298541563263,
+              6.9633410910495614
+            ],
+            [
+              80.12916748406099,
+              6.975001668854654
+            ],
+            [
+              80.12499826021744,
+              6.975001666683755
+            ],
+            [
+              80.12413765527772,
+              6.978359400490238
+            ],
+            [
+              80.11788150284984,
+              6.979732798970075
+            ],
+            [
+              80.11575454926269,
+              6.971452226630719
+            ],
+            [
+              80.0909217432668,
+              6.970266125961056
+            ],
+            [
+              80.08554412134632,
+              6.9744308756529465
+            ],
+            [
+              80.08112063505207,
+              6.975567968142323
+            ],
+            [
+              80.07721002424836,
+              6.978600171128113
+            ],
+            [
+              80.07083349453231,
+              6.979166445991586
+            ]
+          ]
+        ]
+      },
+      "center": [
+        80.01242435982226,
+        6.931724505227884
+      ]
+    },
+    "scenes": {
+      "before": {
+        "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+        "acquiredAt": "2017-05-24T00:25:12.000Z",
+        "platform": "Sentinel-1A",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "bands": [
+          "VV",
+          "VH",
+          "angle"
+        ],
+        "nativeProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 10,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 272884.0792622992], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791670.4794724998]]"
+        },
+        "angleProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 16049.986471310733,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12314.450450494885], \n  PARAMETER[\"elt_0_1\", -3504.704374724999], \n  PARAMETER[\"elt_0_2\", 552850.6355311568], \n  PARAMETER[\"elt_1_0\", 2534.5374735203804], \n  PARAMETER[\"elt_1_1\", -20197.349622525042], \n  PARAMETER[\"elt_1_2\", 740834.0443787834]]"
+        },
+        "catalogueResolutionMeters": 10,
+        "footprintCoveragePercent": 92.91404030186847,
+        "validPixelAreaKm2": 506.1583929039752,
+        "validPixelCoveragePercent": 92.754868028468,
+        "validPixelCoveragePercentOfVectorAoi": 92.34574070472515
+      },
+      "later": {
+        "sceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "acquiredAt": "2017-05-30T00:24:30.000Z",
+        "platform": "Sentinel-1B",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "bands": [
+          "VV",
+          "VH",
+          "angle"
+        ],
+        "nativeProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 10,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 265388.61267608486], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791721.7580159548]]"
+        },
+        "angleProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 16056.140522573407,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12324.295331789064], \n  PARAMETER[\"elt_0_1\", -3506.206818356528], \n  PARAMETER[\"elt_0_2\", 552977.844927478], \n  PARAMETER[\"elt_1_0\", 2536.9335330903996], \n  PARAMETER[\"elt_1_1\", -20196.25691597676], \n  PARAMETER[\"elt_1_2\", 740837.2638111713]]"
+        },
+        "catalogueResolutionMeters": 10,
+        "footprintCoveragePercent": 93.0219001367033,
+        "validPixelAreaKm2": 506.71273526993355,
+        "validPixelCoveragePercent": 92.85645273736131,
+        "validPixelCoveragePercentOfVectorAoi": 92.44687733923737
+      }
+    },
+    "common": {
+      "validPixelAreaKm2": 506.1583929039752,
+      "validPixelCoveragePercent": 92.754868028468,
+      "validPixelCoveragePercentOfVectorAoi": 92.34574070472515,
+      "jointFootprintCoveragePercent": 92.91404030186871,
+      "angleValidAreaKm2": 506.1583929039752
+    },
+    "alignment": {
+      "sameNativeGrid": false,
+      "analysisProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 10,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 272884.0792622992], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791670.4794724998]]"
+      },
+      "strategy": "Both VV bands and binary masks are evaluated on the exact before-VV CRS and affine transform; explicit nearest-neighbor reprojection, no smoothing.",
+      "nativeGridMatchProvesRegistration": false,
+      "caveat": "Grid alignment is not measured subpixel co-registration, independent 10 m spatial accuracy or radiometric equivalence."
+    },
+    "statistics": {
+      "angleChange_count": 5066295,
+      "angleChange_max": 0.004459381103515625,
+      "angleChange_mean": 0.004282531648911759,
+      "angleChange_min": 0.00411224365234375,
+      "angleChange_p2": 0.0041351318359375,
+      "angleChange_p25": 0.004211425781250001,
+      "angleChange_p50": 0.0042724609375,
+      "angleChange_p75": 0.004360198974609376,
+      "angleChange_p98": 0.004428863525390626,
+      "angleChange_stdDev": 0.00008712941293056736,
+      "beforeAngle_count": 5066295,
+      "beforeAngle_max": 41.9929313659668,
+      "beforeAngle_mean": 41.001737267525655,
+      "beforeAngle_min": 39.643009185791016,
+      "beforeAngle_p2": 39.77342789179541,
+      "beforeAngle_p25": 40.52341055698432,
+      "beforeAngle_p50": 41.08588023509415,
+      "beforeAngle_p75": 41.492172216897586,
+      "beforeAngle_p98": 41.8826538292092,
+      "beforeAngle_stdDev": 0.603113270433481,
+      "before_count": 5066295,
+      "before_max": 28.603178971711436,
+      "before_mean": -7.503128360106614,
+      "before_min": -40.64632672076952,
+      "before_p2": -14.737122957002095,
+      "before_p25": -9.244797543499882,
+      "before_p50": -7.250307106580748,
+      "before_p75": -5.755584452551366,
+      "before_p98": -0.26019971219440285,
+      "before_stdDev": 3.389989197781119,
+      "change_count": 5066295,
+      "change_max": 31.190631467824765,
+      "change_mean": 0.09216845857949996,
+      "change_min": -27.82434533566165,
+      "change_p2": -6.871429727872055,
+      "change_p25": -1.6234627380895885,
+      "change_p50": 0.12498192389604262,
+      "change_p75": 1.8736688612500358,
+      "change_p98": 5.871769941602862,
+      "change_stdDev": 3.035979128286671,
+      "laterAngle_count": 5066295,
+      "laterAngle_max": 41.9970703125,
+      "laterAngle_mean": 41.00601979917456,
+      "laterAngle_min": 39.647430419921875,
+      "laterAngle_p2": 39.77343319424565,
+      "laterAngle_p25": 40.52341036529746,
+      "laterAngle_p50": 41.101499522908505,
+      "laterAngle_p75": 41.507798605482925,
+      "laterAngle_p98": 41.898224234524186,
+      "laterAngle_stdDev": 0.6030326174256987,
+      "later_count": 5066295,
+      "later_max": 29.036185507514393,
+      "later_mean": -7.410959901527121,
+      "later_min": -36.238755826765306,
+      "later_p2": -18.250474645960992,
+      "later_p25": -9.243045691025639,
+      "later_p50": -7.249924690500794,
+      "later_p75": -5.256580550701411,
+      "later_p98": 0.7407397325282178,
+      "later_stdDev": 3.9196781481642597
+    },
+    "samples": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.98052757219989,
+            6.944145334928304
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004261016845703125,
+          "before": -11.3574275558988,
+          "beforeAngle": 41.23994445800781,
+          "change": 4.76683259887317,
+          "later": -6.590594957025631,
+          "laterAngle": 41.244205474853516
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.08263680031256,
+            6.939560090105646
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004360198974609375,
+          "before": -10.120904618572927,
+          "beforeAngle": 40.59543228149414,
+          "change": -1.5393291398829412,
+          "later": -11.660233758455869,
+          "laterAngle": 40.59979248046875
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.88212050639235,
+            6.991134781983635
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004192352294921875,
+          "before": -8.267910053445599,
+          "beforeAngle": 41.89970397949219,
+          "change": 1.3816840590691033,
+          "later": -6.886225994376495,
+          "laterAngle": 41.90389633178711
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.98267273683473,
+            6.8721548826031436
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00421905517578125,
+          "before": -4.109586892057276,
+          "beforeAngle": 41.138389587402344,
+          "change": -2.416165526975127,
+          "later": -6.525752419032403,
+          "laterAngle": 41.142608642578125
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.92667404240918,
+            6.903507399616067
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004177093505859375,
+          "before": 3.337656635189435,
+          "beforeAngle": 41.524085998535156,
+          "change": -0.580435983071955,
+          "later": 2.75722065211748,
+          "laterAngle": 41.528263092041016
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.9634762489186,
+            6.9186932024036985
+          ]
+        },
+        "properties": {
+          "angleChange": 0.0042266845703125,
+          "before": -1.7105831376079736,
+          "beforeAngle": 41.31570816040039,
+          "change": 1.6875212962302706,
+          "later": -0.023061841377703084,
+          "laterAngle": 41.3199348449707
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.11859092954919,
+            6.97761696003127
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00441741943359375,
+          "before": -7.372407613022485,
+          "beforeAngle": 40.41099166870117,
+          "change": -3.44160473622334,
+          "later": -10.814012349245825,
+          "laterAngle": 40.415409088134766
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.8811162779142,
+            6.956583213021242
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00417327880859375,
+          "before": -5.125728274260615,
+          "beforeAngle": 41.86697006225586,
+          "change": -0.5244288820247398,
+          "later": -5.6501571562853545,
+          "laterAngle": 41.87114334106445
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.03544106648984,
+            6.868827022723645
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004268646240234375,
+          "before": -7.700497793663002,
+          "beforeAngle": 40.805721282958984,
+          "change": -0.5428739578033479,
+          "later": -8.24337175146635,
+          "laterAngle": 40.80998992919922
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.01676044740869,
+            6.930926157136793
+          ]
+        },
+        "properties": {
+          "angleChange": 0.0042877197265625,
+          "before": -8.159235504828185,
+          "beforeAngle": 40.99892807006836,
+          "change": -2.3275025537199436,
+          "later": -10.486738058548129,
+          "laterAngle": 41.00321578979492
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.01085187926334,
+            6.855842990084029
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004241943359375,
+          "before": -12.319349338760318,
+          "beforeAngle": 40.941951751708984,
+          "change": 2.49955151503789,
+          "later": -9.819797823722428,
+          "laterAngle": 40.94619369506836
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.97395008035957,
+            6.888326099486147
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004215240478515625,
+          "before": -6.915754002940631,
+          "beforeAngle": 41.21324920654297,
+          "change": 0.3083070417646834,
+          "later": -6.607446961175947,
+          "laterAngle": 41.217464447021484
+        }
+      }
+    ],
+    "computation": {
+      "domain": "Stored COPERNICUS/S1_GRD decibels; no linear-power averaging or ratio conversion.",
+      "change": "later_dB - before_dB on common valid pixels; a log-ratio display, not a flood classifier.",
+      "masks": "Original VV data masks > 0, nearest-neighbor aligned; common mask is their intersection clipped to the original AOI. No intensity threshold, speckle filter or flood/permanent-water mask is applied.",
+      "areaDenominator": "Valid-pixel percentages use AOI raster pixel area on the common grid; vector-AOI percentages are also reported. Footprint percentages use vector AOI area. Vector geometry and raster pixel-area calculation/discretization differ; neither denominator is silently substituted.",
+      "statisticsSupport": "All VV and change statistics use the same common valid pixel support; angle statistics additionally require both angle masks. Percentiles are EE reducer estimates.",
+      "maxPixels": 50000000,
+      "tileScale": 4
+    },
+    "comparability": {
+      "spatialComparisonReady": true,
+      "crossPlatformCalibrated": false,
+      "floodDetectionValidated": false,
+      "caveats": [
+        "Sentinel-1A versus Sentinel-1B radiometric equivalence has not been validated.",
+        "Compare incidence-angle distributions and stable targets before interpreting change.",
+        "Speckle, wet soil, land cover, urban geometry and acquisition differences can alter backscatter.",
+        "Masks establish available samples, not that every sample is free of border noise or other artifacts.",
+        "Single-scene overlap omits part of the AOI; no AOI-wide flood-area claim is supported."
+      ]
+    },
+    "limitation": "Research prototype: May 30 follows the documented event peak. Residual water is unverified. These are backscatter observations and exploratory radar change, not confirmed flood extent, depth, classification or detection accuracy.",
+    "pairAssessment": {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-05-24T00:25:12.000Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.91404030186847,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.91404030186871,
+      "gapDays": 5.999513888888889,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.91404030186871% of the study area (minimum 90%)."
+      ],
+      "meaning": "Metadata/pixel comparison only; flood conditions are not established."
+    }
+  },
+  "spatialMetadata": {
+    "ahpEvaluationProjection": {
+      "type": "Projection",
+      "crs": "EPSG:4326",
+      "transform": [
+        0.0002694945852358564,
+        0,
+        -180.0001388888889,
+        0,
+        -0.0002694945852358564,
+        60.00013888888889
+      ]
+    },
+    "aoiGeoJson": {
+      "type": "MultiPolygon",
+      "coordinates": [
+        [
+          [
+            [
+              79.85776426799337,
+              6.942414539158462
+            ],
+            [
+              79.85890141217014,
+              6.931124125973624
+            ],
+            [
+              79.8750566583558,
+              6.914054687781671
+            ],
+            [
+              79.86887639065262,
+              6.908899948480673
+            ],
+            [
+              79.86193358252675,
+              6.907116289281729
+            ],
+            [
+              79.86311075198769,
+              6.880165478689644
+            ],
+            [
+              79.86862217419461,
+              6.8755681716817225
+            ],
+            [
+              79.87304560678744,
+              6.874431144939363
+            ],
+            [
+              79.87695624645914,
+              6.871398880013772
+            ],
+            [
+              79.8833327935238,
+              6.870832639712913
+            ],
+            [
+              79.90659149665872,
+              6.870480376167719
+            ],
+            [
+              79.91214306970967,
+              6.864955544474502
+            ],
+            [
+              79.91285204481282,
+              6.860077245570939
+            ],
+            [
+              79.92254609149848,
+              6.85035641143287
+            ],
+            [
+              79.92742435121934,
+              6.849647446301693
+            ],
+            [
+              79.9309068995158,
+              6.846187158984901
+            ],
+            [
+              79.93575848012031,
+              6.845478165370316
+            ],
+            [
+              79.93924103840529,
+              6.842017922884708
+            ],
+            [
+              79.94337908039435,
+              6.841313380626635
+            ],
+            [
+              79.94757506642611,
+              6.845478198683352
+            ],
+            [
+              79.95587790962718,
+              6.846187175819517
+            ],
+            [
+              79.96007389303188,
+              6.842017888902584
+            ],
+            [
+              79.96421641145027,
+              6.8413133740399354
+            ],
+            [
+              79.97048145822461,
+              6.847547224297955
+            ],
+            [
+              79.97083370437379,
+              6.862498537043713
+            ],
+            [
+              79.97026739565848,
+              6.87720914218508
+            ],
+            [
+              79.96723521297316,
+              6.881124222824191
+            ],
+            [
+              79.96609819198036,
+              6.8840806002850385
+            ],
+            [
+              79.97026739565848,
+              6.889458279910115
+            ],
+            [
+              79.97140000941175,
+              6.910545371338883
+            ],
+            [
+              79.97443221799452,
+              6.91445602316735
+            ],
+            [
+              79.97556930103032,
+              6.9237844639299695
+            ],
+            [
+              79.96862204953676,
+              6.925568038873615
+            ],
+            [
+              79.96471140065499,
+              6.928600261228476
+            ],
+            [
+              79.95899482562014,
+              6.930067345202797
+            ],
+            [
+              79.95833488153043,
+              6.93750064903952
+            ],
+            [
+              79.9579781459973,
+              6.944091173371864
+            ],
+            [
+              79.95451784667912,
+              6.9475737067061205
+            ],
+            [
+              79.9538133066237,
+              6.960045824234652
+            ],
+            [
+              79.9579781459973,
+              6.964241879323633
+            ],
+            [
+              79.958687176713,
+              6.968379946337971
+            ],
+            [
+              79.95451784667912,
+              6.9725759245075345
+            ],
+            [
+              79.95416562004559,
+              6.975001691925141
+            ],
+            [
+              79.95204309585,
+              6.975657192500018
+            ],
+            [
+              79.9479540416361,
+              6.978510997360119
+            ],
+            [
+              79.92704537247636,
+              6.979821922356134
+            ],
+            [
+              79.92166767700598,
+              6.983576488307985
+            ],
+            [
+              79.91999998039108,
+              6.962257581987038
+            ],
+            [
+              79.91462227963856,
+              6.966012120221799
+            ],
+            [
+              79.87916799481242,
+              6.966667620493852
+            ],
+            [
+              79.87499872676835,
+              6.966667574981525
+            ],
+            [
+              79.87403114400094,
+              6.962895182053704
+            ],
+            [
+              79.86887639065262,
+              6.958899848869926
+            ],
+            [
+              79.8632088558546,
+              6.957446178927179
+            ],
+            [
+              79.86193358252675,
+              6.947787786523394
+            ],
+            [
+              79.85776426799337,
+              6.942414539158462
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              79.9538133066237,
+              6.960045824234652
+            ],
+            [
+              79.95451784667912,
+              6.9475737067061205
+            ],
+            [
+              79.9579781459973,
+              6.944091173371864
+            ],
+            [
+              79.95833488153043,
+              6.93750064903952
+            ],
+            [
+              79.95899482562014,
+              6.930067345202797
+            ],
+            [
+              79.96471140065499,
+              6.928600261228476
+            ],
+            [
+              79.96862204953676,
+              6.925568038873615
+            ],
+            [
+              79.97556930103032,
+              6.9237844639299695
+            ],
+            [
+              79.97443221799452,
+              6.91445602316735
+            ],
+            [
+              79.97140000941175,
+              6.910545371338883
+            ],
+            [
+              79.97026739565848,
+              6.889458279910115
+            ],
+            [
+              79.96609819198036,
+              6.8840806002850385
+            ],
+            [
+              79.96723521297316,
+              6.881124222824191
+            ],
+            [
+              79.97026739565848,
+              6.87720914218508
+            ],
+            [
+              79.97083370437379,
+              6.862498537043713
+            ],
+            [
+              79.98132600963116,
+              6.863118362261405
+            ],
+            [
+              79.98655206121944,
+              6.866935326383829
+            ],
+            [
+              79.98833121449215,
+              6.854699550488956
+            ],
+            [
+              79.99783804706185,
+              6.846450284063551
+            ],
+            [
+              80.02499846336364,
+              6.845834899044692
+            ],
+            [
+              80.0253551801797,
+              6.848256208624531
+            ],
+            [
+              80.02881539363072,
+              6.851743164451769
+            ],
+            [
+              80.02951992383457,
+              6.860759505179347
+            ],
+            [
+              80.03785401338055,
+              6.869115853123386
+            ],
+            [
+              80.0371450307432,
+              6.881592434035425
+            ],
+            [
+              80.03298022696025,
+              6.885788435024414
+            ],
+            [
+              80.033693678742,
+              6.889953243270524
+            ],
+            [
+              80.04757483965683,
+              6.903812157409259
+            ],
+            [
+              80.05833464887984,
+              6.904168889044621
+            ],
+            [
+              80.05833464887984,
+              6.90833364077837
+            ],
+            [
+              80.0624994264221,
+              6.908333674867915
+            ],
+            [
+              80.06312370796688,
+              6.919922874850151
+            ],
+            [
+              80.07018693221211,
+              6.921737670723665
+            ],
+            [
+              80.07139982935925,
+              6.93824526457745
+            ],
+            [
+              80.06713692403062,
+              6.9437478016444985
+            ],
+            [
+              80.07036528295589,
+              6.947917088963791
+            ],
+            [
+              80.06723505455213,
+              6.951957075355014
+            ],
+            [
+              80.06609797841335,
+              6.956376024572771
+            ],
+            [
+              80.06296768063395,
+              6.96041598661976
+            ],
+            [
+              80.06609797841335,
+              6.9644558823283385
+            ],
+            [
+              80.06723505455213,
+              6.968879350680049
+            ],
+            [
+              80.07026724124462,
+              6.97278997737576
+            ],
+            [
+              80.07083349453231,
+              6.979166445991586
+            ],
+            [
+              80.07048122779253,
+              6.981592241471167
+            ],
+            [
+              80.06668207780305,
+              6.985418119531972
+            ],
+            [
+              80.07082010978651,
+              6.989582968970724
+            ],
+            [
+              80.06702097470428,
+              6.99340883868893
+            ],
+            [
+              80.06631197529099,
+              6.998255898406547
+            ],
+            [
+              80.06285172571224,
+              7.001742919107881
+            ],
+            [
+              80.0624994264221,
+              7.004168667575612
+            ],
+            [
+              80.0621472109575,
+              7.006589971042792
+            ],
+            [
+              80.0524530915172,
+              7.016310802961032
+            ],
+            [
+              80.04757483965683,
+              7.017019799677175
+            ],
+            [
+              80.0399230189139,
+              7.024644876376649
+            ],
+            [
+              80.02745536120494,
+              7.025353829692549
+            ],
+            [
+              80.0232593839036,
+              7.021184575968234
+            ],
+            [
+              80.01495204344684,
+              7.020480045480504
+            ],
+            [
+              80.006591267904,
+              7.02881412671258
+            ],
+            [
+              80.00174422273246,
+              7.029518645344411
+            ],
+            [
+              79.99825716240623,
+              7.032978908333319
+            ],
+            [
+              79.985785057362,
+              7.033687875807145
+            ],
+            [
+              79.981589116084,
+              7.029518633856583
+            ],
+            [
+              79.97499849966103,
+              7.029166396872868
+            ],
+            [
+              79.97552918801792,
+              7.02274969225654
+            ],
+            [
+              79.97969845283356,
+              7.017608415954257
+            ],
+            [
+              79.97863712366123,
+              7.01442012039866
+            ],
+            [
+              79.97539536404727,
+              7.010415835488618
+            ],
+            [
+              79.97969845283356,
+              7.005105103629845
+            ],
+            [
+              79.97863712366123,
+              7.001916807627325
+            ],
+            [
+              79.97539536404727,
+              6.997916958709557
+            ],
+            [
+              79.97969845283356,
+              6.992606212573191
+            ],
+            [
+              79.97825367307402,
+              6.9882675155112075
+            ],
+            [
+              79.97275110363866,
+              6.986969938361008
+            ],
+            [
+              79.96891634830551,
+              6.983861901968282
+            ],
+            [
+              79.9644170877018,
+              6.982805094372122
+            ],
+            [
+              79.95641298256677,
+              6.975527871570999
+            ],
+            [
+              79.95416562004559,
+              6.975001691925141
+            ],
+            [
+              79.95451784667912,
+              6.9725759245075345
+            ],
+            [
+              79.958687176713,
+              6.968379946337971
+            ],
+            [
+              79.9579781459973,
+              6.964241879323633
+            ],
+            [
+              79.9538133066237,
+              6.960045824234652
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              80.0624994264221,
+              6.908333674867915
+            ],
+            [
+              80.06352954823481,
+              6.90491355379579
+            ],
+            [
+              80.07839614082233,
+              6.903397455411429
+            ],
+            [
+              80.07998808925038,
+              6.8877905618047714
+            ],
+            [
+              80.08536571673419,
+              6.883978060192461
+            ],
+            [
+              80.09897045926768,
+              6.882586831226493
+            ],
+            [
+              80.10144971385974,
+              6.874355302438092
+            ],
+            [
+              80.11047050937891,
+              6.8756439530772715
+            ],
+            [
+              80.11541558833295,
+              6.879153293742775
+            ],
+            [
+              80.11731070190824,
+              6.872865994163193
+            ],
+            [
+              80.12435610882825,
+              6.864634433695268
+            ],
+            [
+              80.12626014144358,
+              6.85831148814232
+            ],
+            [
+              80.13119638879469,
+              6.854811058166307
+            ],
+            [
+              80.1365339299243,
+              6.853201298934044
+            ],
+            [
+              80.13750157607763,
+              6.849999704638894
+            ],
+            [
+              80.1441188280107,
+              6.84964296135491
+            ],
+            [
+              80.14964814599166,
+              6.844091381963645
+            ],
+            [
+              80.15000042935262,
+              6.841665604784468
+            ],
+            [
+              80.15641708197329,
+              6.84219623312512
+            ],
+            [
+              80.16558496256998,
+              6.850530297231142
+            ],
+            [
+              80.17396362277469,
+              6.849344221289911
+            ],
+            [
+              80.17969800095428,
+              6.842682300863498
+            ],
+            [
+              80.17826218610276,
+              6.83826780589504
+            ],
+            [
+              80.17499811444902,
+              6.837500835259608
+            ],
+            [
+              80.17464584883238,
+              6.835075074497905
+            ],
+            [
+              80.17084670345983,
+              6.831249197336541
+            ],
+            [
+              80.17464584883238,
+              6.827423245985515
+            ],
+            [
+              80.17535489153656,
+              6.822576212472063
+            ],
+            [
+              80.17881512625719,
+              6.819089190986113
+            ],
+            [
+              80.17916737468663,
+              6.816667920120302
+            ],
+            [
+              80.19409202394735,
+              6.817020200039375
+            ],
+            [
+              80.19757456882098,
+              6.820480479203263
+            ],
+            [
+              80.20000032259412,
+              6.8208327138029015
+            ],
+            [
+              80.20071375143027,
+              6.836760633732797
+            ],
+            [
+              80.21249914691614,
+              6.837500866723662
+            ],
+            [
+              80.21214686588984,
+              6.8399266123276
+            ],
+            [
+              80.2083477726673,
+              6.843748055622056
+            ],
+            [
+              80.21214686588984,
+              6.847573975993985
+            ],
+            [
+              80.21285142648506,
+              6.855881253323436
+            ],
+            [
+              80.20868662104485,
+              6.86007722355786
+            ],
+            [
+              80.20798211111254,
+              6.877423191824834
+            ],
+            [
+              80.2041829172696,
+              6.881249077386513
+            ],
+            [
+              80.20798211111256,
+              6.88507500620424
+            ],
+            [
+              80.20833440936529,
+              6.891665534683072
+            ],
+            [
+              80.20200686321951,
+              6.891050166238073
+            ],
+            [
+              80.19799373474324,
+              6.88811606714493
+            ],
+            [
+              80.19536284708946,
+              6.8868809346171975
+            ],
+            [
+              80.18965965875537,
+              6.891050188087884
+            ],
+            [
+              80.18533876649519,
+              6.892285349578521
+            ],
+            [
+              80.18132562027314,
+              6.895214960712271
+            ],
+            [
+              80.17162705093399,
+              6.896628520422885
+            ],
+            [
+              80.17021349615027,
+              6.906327088521002
+            ],
+            [
+              80.16311905680068,
+              6.914505029416217
+            ],
+            [
+              80.16188394819301,
+              6.922995203562664
+            ],
+            [
+              80.15889629639405,
+              6.92708417276847
+            ],
+            [
+              80.16188394819301,
+              6.931173205232915
+            ],
+            [
+              80.16311905680068,
+              6.935494029724458
+            ],
+            [
+              80.16604873839813,
+              6.9395072596614185
+            ],
+            [
+              80.1672838720399,
+              6.942138134834093
+            ],
+            [
+              80.16311905680068,
+              6.94784126991876
+            ],
+            [
+              80.16157174043656,
+              6.953241288723199
+            ],
+            [
+              80.15617179680874,
+              6.954784100295999
+            ],
+            [
+              80.15215864436571,
+              6.957713703065682
+            ],
+            [
+              80.13533890295606,
+              6.958948878822249
+            ],
+            [
+              80.12985415632629,
+              6.9633410910495614
+            ],
+            [
+              80.12916748406099,
+              6.975001668854654
+            ],
+            [
+              80.12499826021744,
+              6.975001666683755
+            ],
+            [
+              80.12413765527772,
+              6.978359400490238
+            ],
+            [
+              80.11788150284984,
+              6.979732798970075
+            ],
+            [
+              80.11575454926269,
+              6.971452226630719
+            ],
+            [
+              80.0909217432668,
+              6.970266125961056
+            ],
+            [
+              80.08554412134632,
+              6.974430875652946
+            ],
+            [
+              80.08112063505207,
+              6.975567968142323
+            ],
+            [
+              80.07721002424836,
+              6.978600171128113
+            ],
+            [
+              80.07083349453231,
+              6.979166445991586
+            ],
+            [
+              80.07026724124462,
+              6.97278997737576
+            ],
+            [
+              80.06723505455213,
+              6.968879350680049
+            ],
+            [
+              80.06609797841335,
+              6.9644558823283385
+            ],
+            [
+              80.06296768063395,
+              6.96041598661976
+            ],
+            [
+              80.06609797841335,
+              6.956376024572771
+            ],
+            [
+              80.06723505455213,
+              6.951957075355014
+            ],
+            [
+              80.07036528295589,
+              6.947917088963791
+            ],
+            [
+              80.06713692403062,
+              6.9437478016444985
+            ],
+            [
+              80.07139982935925,
+              6.93824526457745
+            ],
+            [
+              80.07018693221211,
+              6.921737670723665
+            ],
+            [
+              80.06312370796688,
+              6.919922874850151
+            ],
+            [
+              80.0624994264221,
+              6.908333674867915
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              79.86666464017361,
+              6.979166480298798
+            ],
+            [
+              79.87499872676835,
+              6.979166468133663
+            ],
+            [
+              79.87499872676835,
+              6.966667574981525
+            ],
+            [
+              79.87916799481242,
+              6.966667620493852
+            ],
+            [
+              79.91462227963856,
+              6.966012120221799
+            ],
+            [
+              79.91999998039108,
+              6.962257581987038
+            ],
+            [
+              79.92166767700598,
+              6.983576488307985
+            ],
+            [
+              79.92704537247636,
+              6.979821922356134
+            ],
+            [
+              79.9479540416361,
+              6.978510997360119
+            ],
+            [
+              79.95204309585,
+              6.975657192500018
+            ],
+            [
+              79.95416562004559,
+              6.975001691925141
+            ],
+            [
+              79.95641298256677,
+              6.975527871570999
+            ],
+            [
+              79.9644170877018,
+              6.982805094372122
+            ],
+            [
+              79.96891634830551,
+              6.983861901968282
+            ],
+            [
+              79.97275110363866,
+              6.986969938361008
+            ],
+            [
+              79.97825367307402,
+              6.9882675155112075
+            ],
+            [
+              79.97969845283356,
+              6.992606212573191
+            ],
+            [
+              79.97539536404727,
+              6.997916958709557
+            ],
+            [
+              79.97863712366123,
+              7.001916807627325
+            ],
+            [
+              79.97969845283356,
+              7.005105103629845
+            ],
+            [
+              79.97539536404727,
+              7.010415835488618
+            ],
+            [
+              79.97863712366123,
+              7.01442012039866
+            ],
+            [
+              79.97969845283356,
+              7.017608415954257
+            ],
+            [
+              79.97552918801792,
+              7.02274969225654
+            ],
+            [
+              79.97499849966103,
+              7.029166396872868
+            ],
+            [
+              79.97279130327884,
+              7.028600082808403
+            ],
+            [
+              79.96875136016794,
+              7.025469769562732
+            ],
+            [
+              79.96471140065499,
+              7.028600044538904
+            ],
+            [
+              79.96175499560819,
+              7.029732710969514
+            ],
+            [
+              79.95637729975736,
+              7.025567860154573
+            ],
+            [
+              79.94906440649055,
+              7.02443081053145
+            ],
+            [
+              79.93842051039343,
+              7.03391535067604
+            ],
+            [
+              79.93665024409376,
+              7.040818023543039
+            ],
+            [
+              79.93112097313227,
+              7.0422359952970135
+            ],
+            [
+              79.92721035396033,
+              7.045268166629158
+            ],
+            [
+              79.91249973589161,
+              7.045834460261277
+            ],
+            [
+              79.91193347640615,
+              7.043622743512629
+            ],
+            [
+              79.90890123559949,
+              7.039712156468515
+            ],
+            [
+              79.9076705269314,
+              7.025897877630815
+            ],
+            [
+              79.90058505385697,
+              7.0240785488924145
+            ],
+            [
+              79.89223314447656,
+              7.014709958302603
+            ],
+            [
+              79.8911005312994,
+              7.006121740218929
+            ],
+            [
+              79.8755694964985,
+              6.9897122632285775
+            ],
+            [
+              79.87410240575784,
+              6.983995644190997
+            ],
+            [
+              79.86666464017361,
+              6.983331251107107
+            ],
+            [
+              79.86666464017361,
+              6.979166480298798
+            ]
+          ]
+        ]
+      ]
+    },
+    "aoiVectorAreaKm2": 548.1123320266825,
+    "basinIds": [
+      4101601920,
+      4101601930,
+      4101158680,
+      4100049050
+    ]
+  },
+  "ahp": {
+    "weights": {
+      "elevation": 0.4,
+      "slope": 0.2,
+      "waterDistance": 0.3,
+      "landcover": 0.1
+    },
+    "calculation": {
+      "method": "AHP - Geometric Mean Approximation",
+      "factorWeights": [
+        {
+          "factor": "Elevation",
+          "weight": 0.4,
+          "percentage": 40
+        },
+        {
+          "factor": "Slope",
+          "weight": 0.2,
+          "percentage": 20
+        },
+        {
+          "factor": "Distance to Water",
+          "weight": 0.3,
+          "percentage": 30
+        },
+        {
+          "factor": "Land Cover",
+          "weight": 0.1,
+          "percentage": 10
+        }
+      ],
+      "comparisonMatrix": [
+        [
+          1,
+          2,
+          1.3333333333333333,
+          4
+        ],
+        [
+          0.5,
+          1,
+          0.6666666666666666,
+          2
+        ],
+        [
+          0.75,
+          1.5,
+          1,
+          3
+        ],
+        [
+          0.25,
+          0.5,
+          0.3333333333333333,
+          1
+        ]
+      ],
+      "lambdaMax": 4,
+      "consistencyIndex": 0,
+      "consistencyRatio": 0,
+      "consistencyAcceptable": true,
+      "researchStatus": "Demonstration judgments - Not literature validated"
+    },
+    "methodology": {
+      "name": "AHP-Weighted GIS Multi-Criteria Analysis",
+      "status": "Preliminary - Not Validated",
+      "weightStatus": "Demonstration AHP judgments - Not literature validated",
+      "classificationThresholds": {
+        "low": "index <= 2.0",
+        "moderate": "2.0 < index <= 3.0",
+        "high": "3.0 < index <= 4.0",
+        "veryHigh": "index > 4.0"
+      }
+    },
+    "classes": [
+      {
+        "code": 1,
+        "label": "Low"
+      },
+      {
+        "code": 2,
+        "label": "Moderate"
+      },
+      {
+        "code": 3,
+        "label": "High"
+      },
+      {
+        "code": 4,
+        "label": "Very High"
+      }
+    ],
+    "image": "Original landHazardClass, evaluated at existing analysisProjection.atScale(30), nearest-neighbor aligned to before-VV."
+  },
+  "parameters": {
+    "sceneIds": {
+      "before": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+      "later": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A"
+    },
+    "rawCandidateSettings": {
+      "smoothingRadiusMeters": 30,
+      "laterWaterThresholdDb": -15,
+      "decreaseThresholdDb": -3,
+      "beforeNonWaterThresholdDb": -15,
+      "slopeFilterApplied": false
+    },
+    "filters": {
+      "terrainFilter": "slope-v1",
+      "maxSlopeDegrees": 5,
+      "clusterFilter": "connected-v1",
+      "minConnectedPixels": 8
+    },
+    "references": {
+      "yearly-conservative-v1": {
+        "annualAssetId": "JRC/GSW1_4/YearlyHistory/2016",
+        "annualClassDefinitions": {
+          "0": "no observations",
+          "1": "not water",
+          "2": "seasonal water",
+          "3": "permanent water"
+        },
+        "annualDataset": "JRC/GSW1_4/YearlyHistory",
+        "annualOriginalProjection": {
+          "crs": "EPSG:4326",
+          "nominalScaleMeters": 29.999999999999996,
+          "transform": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 0.0002694945852358564], \n  PARAMETER[\"elt_0_2\", -180.00001488697754], \n  PARAMETER[\"elt_1_1\", -0.0002694945852358564], \n  PARAMETER[\"elt_1_2\", 78.00008729939917]]"
+        },
+        "annualYear": 2016,
+        "currentWaterStateVerified": false,
+        "eligibilityInferred": false,
+        "futureObservationsUsed": false,
+        "inference": "Only observed annual classes 1, 2 and 3 support analysis; all other states remain unknown.",
+        "maximumWaterMonthsForFallback": null,
+        "method": "yearly-conservative-v1",
+        "minimumNonWaterMonths": null,
+        "monthlyDataset": null,
+        "monthlyEndExclusive": null,
+        "monthlyImageCount": 0,
+        "monthlyImageIds": [],
+        "monthlyStart": null,
+        "nativeScaleMeters": 30,
+        "processingCaveat": "No post-cutoff image entries are used. JRC v1.4 is a retrospective processed archive, not a product claimed to have been available contemporaneously in 2017.",
+        "resampling": "nearest neighbor on before-VV grid",
+        "seasonalWater": "Annual class 2 remains separately identified and potentially eligible; seasonal refilling can be a false candidate.",
+        "version": "phase4b-v1"
+      },
+      "yearly-monthly-dry-v1": {
+        "annualAssetId": "JRC/GSW1_4/YearlyHistory/2016",
+        "annualClassDefinitions": {
+          "0": "no observations",
+          "1": "not water",
+          "2": "seasonal water",
+          "3": "permanent water"
+        },
+        "annualDataset": "JRC/GSW1_4/YearlyHistory",
+        "annualOriginalProjection": {
+          "crs": "EPSG:4326",
+          "nominalScaleMeters": 29.999999999999996,
+          "transform": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 0.0002694945852358564], \n  PARAMETER[\"elt_0_2\", -180.00001488697754], \n  PARAMETER[\"elt_1_1\", -0.0002694945852358564], \n  PARAMETER[\"elt_1_2\", 78.00008729939917]]"
+        },
+        "annualYear": 2016,
+        "currentWaterStateVerified": false,
+        "eligibilityInferred": true,
+        "futureObservationsUsed": false,
+        "inference": "Only unknown annual pixels with >=3 observed monthly class-1 detections and zero observed monthly class-2 detections gain inferred eligibility. This is historical non-water evidence, not proof of event-date dry land or absence of permanent water.",
+        "maximumWaterMonthsForFallback": 0,
+        "method": "yearly-monthly-dry-v1",
+        "minimumNonWaterMonths": 3,
+        "monthlyDataset": "JRC/GSW1_4/MonthlyHistory",
+        "monthlyEndExclusive": "2017-05-01",
+        "monthlyImageCount": 16,
+        "monthlyImageIds": [
+          "2016_01",
+          "2016_02",
+          "2016_03",
+          "2016_04",
+          "2016_05",
+          "2016_06",
+          "2016_07",
+          "2016_08",
+          "2016_09",
+          "2016_10",
+          "2016_11",
+          "2016_12",
+          "2017_01",
+          "2017_02",
+          "2017_03",
+          "2017_04"
+        ],
+        "monthlyStart": "2016-01-01",
+        "nativeScaleMeters": 30,
+        "processingCaveat": "No post-cutoff image entries are used. JRC v1.4 is a retrospective processed archive, not a product claimed to have been available contemporaneously in 2017.",
+        "resampling": "nearest neighbor on before-VV grid",
+        "seasonalWater": "Annual class 2 remains separately identified and potentially eligible; seasonal refilling can be a false candidate.",
+        "version": "phase4b-v1"
+      }
+    }
+  },
+  "methodology": {
+    "fixedMask": "Exact intersection of both methods and all three stage-valid classification supports. Candidate self-masks are never used as supported-negative masks.",
+    "nativeMask": "Each method uses its own reference eligibility, with common support across its three stages; known terrain required at all stages to control comparison.",
+    "connectivityContext": "Existing components are computed on each original method support before restriction to fixed measurement domain. No refiltering on the small matched domain.",
+    "area": "ee.Image.pixelArea geographic sums, original AOI, exact before-VV Projection including affine origin; maxPixels=1e9, tileScale=4; no scale override or bestEffort.",
+    "grid": {
+      "crs": "EPSG:32644",
+      "nominalScaleMeters": 10,
+      "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 272884.0792622992], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791670.4794724998]]"
+    },
+    "toleranceM2": 1,
+    "classLosses": "Ordered exclusive class-level losses partition recognized AHP land classes. Global AHP no-data and WorldCover water are unassigned to hazard classes.",
+    "sourceCandidateCheck": "Candidate support is checked BEFORE AHP/fixed restriction against actual SAR stage-valid support. Candidates valid outside an evaluation domain are excluded from its statistics, not reclassified as unknown or dry.",
+    "statistics": "Descriptive geographic areas and rates only; no independent pixel replicates, significance tests, causal hydrologic explanation or flood accuracy."
+  },
+  "caveats": [
+    "This is preliminary spatial agreement, not independent validation. No independent event flood labels are used.",
+    "AHP susceptibility and event-date experimental SAR responses represent different concepts. Supported non-candidates are not confirmed dry or flood-free.",
+    "Sentinel-1 May 30 observations are after the approximate May 2017 event peak; peak inundation cannot be inferred.",
+    "The pair uses Sentinel-1A and Sentinel-1B; cross-platform consistency and subpixel co-registration have not been independently verified.",
+    "Historical JRC water support has major limitations: sparse annual observations, seasonal water eligibility, retrospective processing, and optional monthly non-water inference do not establish event-date land or water.",
+    "AHP uses demonstration judgments and preliminary class cutoffs. WorldCover 2021 and historical global water occurrence are not contemporaneous 2017 inputs; this is retrospective susceptibility comparison.",
+    "The 10 m evaluation grid does not create independent 10 m measurements from 30 m SRTM/JRC inputs. Spatially dependent pixels provide no significance or causal evidence.",
+    "Slope and connected-component screening can remove real flood responses. Agreement changes or expanded support do not imply improved accuracy.",
+    "Neither function currently establishes verified flood prediction accuracy."
+  ],
+  "provenance": {
+    "baselineFile": "artifacts\\ahp-sar-phase5a-2026-10-20T17-06-07-296Z\\results.json",
+    "baselineSha256": "a1e22a79077f18664599ad42936cc754886b39b210a18621d2cb988aae1a6b48",
+    "baselineExecutedAt": "2026-10-20T17:08:15.816Z",
+    "sourceHashes": {
+      "services/hazardService.js": "090125a4b2ebf6f1642abb48d1a1855a927ac3a1aff4a22e6752c0000c8cbb69",
+      "services/ahpService.js": "842d69956820879f168efdf3b7e3d1ddac1892b70d11f30845d2daa3e1e79714",
+      "controllers/floodController.js": "c91caf773b9e6446120bac990cd9cac8ae9a4d61276ff1de6653bc1175b2e789",
+      "services/sarPreviewService.js": "055bebc3425d701d84f4e7ee519bfc7925b9dd6f0f855817ef4702efea8ffd23",
+      "services/sarPixelQuality.js": "c374431a50adcc0b986fbc57444af94be2747dfb36c51a3eb2040f9c3f4e6303",
+      "services/sarCandidateService.js": "c1c532e64ad6b270b1ecb647ede39204f732b6abfccfd7e3f3b0bee3708b18dd",
+      "services/sarFiltering.js": "87860f05d7e2e35175e19fcf63ff652679439381a7b52161c89d7b390f820e7d",
+      "services/sarWaterReferenceService.js": "3f0f62cdfc455d48748169471871cb9ad30fb031efdbb3edd6e717286df3dafd",
+      "services/ahpSarResearchService.js": "c53458203f349fda4c5b207601078b2373e36800190a0e3941270d28e35fbcec",
+      "scripts/run-ahp-sar-research.js": "00adb00686fa805e3dc857765e599ca8104056a4ad757f9c9dbec63a7e0181bb",
+      "tests/ahpSarResearch.test.js": "b9a97c3a4bd49ebe47049fc6ea4e895ab499480df0f893d833e92ece14b7b5d1",
+      "research/phase5c/uncertaintyService.js": "a02c6a6e5ea2441b2ec7b3b39a363a7a9c317fe43ef50fcb9444333df559ffd6",
+      "scripts/run-phase5c-uncertainty.js": "e871f07d6a6f38e05e50fa5027107bf741dc164cc2dc25273a400525437bf28e"
+    },
+    "independentValidationEvidence": {
+      "phase6a": "artifacts/phase6a-reference-acquisition/phase6a-status.json",
+      "phase6b": "artifacts/phase6b-feasibility/feasibility-results.json"
+    },
+    "command": "node scripts/run-phase5c-uncertainty.js"
+  },
+  "priorRunComparison": {
+    "status": "REPRODUCED_WITHIN_TOLERANCE",
+    "toleranceM2": 1,
+    "differences": []
+  }
+}

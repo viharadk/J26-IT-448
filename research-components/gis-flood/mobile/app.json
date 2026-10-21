@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Kelani FloodWatch",
+    "slug": "kelani-floodwatch",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "backgroundColor": "#081525",
+    "ios": { "supportsTablet": true },
+    "android": { "package": "lk.research.kelanifloodwatch" }
+  }
+}

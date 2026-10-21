@@ -1,0 +1,140 @@
+{
+  "verifiedAt": "2026-10-20T05:08:25.192Z",
+  "function1Health": {
+    "success": true,
+    "component": "GIS-Based Flood Risk Simulation",
+    "function1": "Flood Hazard Estimation",
+    "function2": "Scenario-Based Flood Risk Simulation",
+    "status": "Flood API is working"
+  },
+  "analysis": {
+    "success": true,
+    "generatedAt": "2026-10-20T05:08:25.188Z",
+    "renewAfterSeconds": 600,
+    "label": "Experimental SAR-Derived Flood Candidates — Unvalidated",
+    "sceneIds": {
+      "before": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+      "later": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A"
+    },
+    "polarization": "VV",
+    "qualityQueriedAt": "2026-10-20T05:08:22.729Z",
+    "areas": {
+      "observedAnnualSupportAreaKm2": 8.2476323216939,
+      "annualNotWaterAreaKm2": 1.0419303021392823,
+      "annualSeasonalWaterAreaKm2": 3.579089990259926,
+      "monthlyInferredEligibleAreaKm2": 494.6459002501245,
+      "candidateObservedAnnualAreaKm2": 1.3317917940063477,
+      "candidateMonthlyInferredAreaKm2": 4.966511202598752,
+      "rasterAoiAreaKm2": 545.6946936182428,
+      "commonSarAreaKm2": 506.1583929039524,
+      "validAnalysisAreaKm2": 502.8935325718184,
+      "candidateAreaKm2": 6.298302996605099,
+      "candidatePercentOfValid": 1.2524128048327279,
+      "excludedPermanentWaterAreaKm2": 3.626612029294691,
+      "eligibleNonPermanentAreaKm2": 499.26692054252374,
+      "missingSarAreaKm2": 39.53630071429044,
+      "smoothingEdgeExcludedAreaKm2": 3.2648603321340084,
+      "ancillaryUnknownAreaKm2": 0,
+      "denominator": "Valid analysis area = observed annual support plus separately reported inferred monthly non-water eligibility, on complete common-SAR neighborhoods. Candidates exclude observed annual permanent water. Unknown/unobserved reference pixels remain excluded; inferred support is not verified event-date land."
+    },
+    "candidateCoordinates": [
+      [
+        80.05221425962502,
+        6.944384480605719
+      ]
+    ],
+    "waterReference": {
+      "annualAssetId": "JRC/GSW1_4/YearlyHistory/2016",
+      "annualClassDefinitions": {
+        "0": "no observations",
+        "1": "not water",
+        "2": "seasonal water",
+        "3": "permanent water"
+      },
+      "annualDataset": "JRC/GSW1_4/YearlyHistory",
+      "annualOriginalProjection": {
+        "crs": "EPSG:4326",
+        "nominalScaleMeters": 29.999999999999996,
+        "transform": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 0.0002694945852358564], \n  PARAMETER[\"elt_0_2\", -180.00001488697754], \n  PARAMETER[\"elt_1_1\", -0.0002694945852358564], \n  PARAMETER[\"elt_1_2\", 78.00008729939917]]"
+      },
+      "annualYear": 2016,
+      "currentWaterStateVerified": false,
+      "eligibilityInferred": true,
+      "futureObservationsUsed": false,
+      "inference": "Only unknown annual pixels with >=3 observed monthly class-1 detections and zero observed monthly class-2 detections gain inferred eligibility. This is historical non-water evidence, not proof of event-date dry land or absence of permanent water.",
+      "maximumWaterMonthsForFallback": 0,
+      "method": "yearly-monthly-dry-v1",
+      "minimumNonWaterMonths": 3,
+      "monthlyDataset": "JRC/GSW1_4/MonthlyHistory",
+      "monthlyEndExclusive": "2017-05-01",
+      "monthlyImageCount": 16,
+      "monthlyImageIds": [
+        "2016_01",
+        "2016_02",
+        "2016_03",
+        "2016_04",
+        "2016_05",
+        "2016_06",
+        "2016_07",
+        "2016_08",
+        "2016_09",
+        "2016_10",
+        "2016_11",
+        "2016_12",
+        "2017_01",
+        "2017_02",
+        "2017_03",
+        "2017_04"
+      ],
+      "monthlyStart": "2016-01-01",
+      "nativeScaleMeters": 30,
+      "processingCaveat": "No post-cutoff image entries are used. JRC v1.4 is a retrospective processed archive, not a product claimed to have been available contemporaneously in 2017.",
+      "resampling": "nearest neighbor on before-VV grid",
+      "seasonalWater": "Annual class 2 remains separately identified and potentially eligible; seasonal refilling can be a false candidate.",
+      "version": "phase4b-v1"
+    },
+    "supportWarning": "Experimental results cover 502.894 km² of 545.695 km² raster AOI. 0.000 km² has unknown historical-water support. 494.646 km² is inferred eligibility from historical monthly non-water detections, not verified event-date land. Do not interpret this as AOI-wide flood extent.",
+    "layer": {
+      "label": "Experimental SAR-Derived Flood Candidates — Unvalidated",
+      "tileUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/46db11b2cd5d4fea6a74ff4458901cdd-866ca44dd07a4bb2417cf5c2ec3c6adb/tiles/{z}/{x}/{y}",
+      "visualization": {
+        "min": 1,
+        "max": 1,
+        "palette": [
+          "ff4fd8"
+        ]
+      },
+      "units": "binary experimental response",
+      "mask": "Candidate pixels only; transparent remainder is not classified dry."
+    },
+    "methodology": {
+      "version": "exploratory-v2-monthly-dry",
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "settings": {
+        "smoothingRadiusMeters": 30,
+        "laterWaterThresholdDb": -15,
+        "decreaseThresholdDb": -3,
+        "beforeNonWaterThresholdDb": -15,
+        "slopeFilterApplied": false
+      },
+      "waterDataset": "JRC/GSW1_4/YearlyHistory",
+      "waterReferenceYear": 2016,
+      "waterAttribution": "Source: EC JRC/Google; Pekel et al., Nature 540, 418–422 (2016), doi:10.1038/nature20584",
+      "summary": "VV dB → 10^(dB/10) → 30 m radius circular mean → 10*log10(mean power). Require later < -15 dB AND later-before < -3 dB AND before >= -15 dB; common complete neighborhoods; prior-year waterClass 3 excluded. No slope filter. Only unknown annual pixels with >=3 observed monthly class-1 detections and zero observed monthly class-2 detections gain inferred eligibility. This is historical non-water evidence, not proof of event-date dry land or absence of permanent water.",
+      "thresholdRationale": "-3 dB is approximately a halving of radar power; -15 dB is an exploratory dark-surface screen. The conjunction screens newly darkened surfaces, not all negative changes. Neither threshold is empirically calibrated for Lower Kelani.",
+      "maxPixels": 50000000,
+      "tileScale": 4,
+      "floodValidation": "none"
+    },
+    "limitations": [
+      "This mask identifies an exploratory threshold response, not confirmed flood extent, depth, peak inundation or detection accuracy.",
+      "The -15 dB and -3 dB thresholds are explicit exploratory defaults, not locally calibrated or transferred validation from another polarization or event.",
+      "S1A/S1B calibration, subpixel co-registration, baseline wetness and later historical water conditions remain unverified. In the 2017 research example, May 30 follows the documented event peak.",
+      "Urban double-bounce, vegetation, rough water, wet soil, speckle and radar shadow can cause omissions and false candidates. No slope, connectivity or terrain-shadow filter is applied.",
+      "Prior-year JRC water classes are 30 m Landsat-derived observations resampled by nearest neighbor; permanent-water omission and seasonal water remain possible. Unknown reference pixels are excluded.",
+      "A 30 m radius mean in linear power reduces speckle but blurs boundaries. The 10 m analysis grid does not establish independent 10 m mapping accuracy. Missing pixels are unobserved, never classified dry.",
+      "Optional monthly support is inferred eligibility from observed historical non-water months, not verified event-date land or confirmed absence of permanent water. Expanded support or candidate area does not imply better flood accuracy.",
+      "Annual classifications retain priority. Seasonal class 2 remains eligible and can produce seasonal-refilling false positives; zero water detections in the fallback window is not proof that water never occurred."
+    ]
+  }
+}

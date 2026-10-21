@@ -1,0 +1,311 @@
+{
+  "phase": "Function 2 Phase 2A",
+  "discovery": {
+    "success": true,
+    "dataset": "COPERNICUS/S1_GRD",
+    "queriedAt": "2026-10-20T03:04:48.447Z",
+    "dateConvention": "UTC start-inclusive, end-exclusive",
+    "studyArea": {
+      "source": "Existing Function 1 HydroBASINS hybas_10 AOI",
+      "basinIds": [
+        4101601920,
+        4101601930,
+        4101158680,
+        4100049050
+      ],
+      "areaKm2": 548.1123320266825
+    },
+    "sceneLimitPerPeriod": 100,
+    "periods": {
+      "januaryToMarch": {
+        "start": "2016-01-01",
+        "endExclusive": "2016-04-01",
+        "totalCount": 4,
+        "returnedCount": 4,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1452039882380,
+            "coveragePercent": 99.96827286916104,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160106T002442_20160106T002507_009366_00D8D6_A00B",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160106T002442_20160106T002507_009366_00D8D6_A00B",
+            "acquiredAt": "2016-01-06T00:24:42.380Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-01-06T00:24:42.000Z",
+            "timestampDifferenceSeconds": 0.38,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1452039907380,
+            "coveragePercent": 0.0403108967713185,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160106T002507_20160106T002521_009366_00D8D6_0D0C",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160106T002507_20160106T002521_009366_00D8D6_0D0C",
+            "acquiredAt": "2016-01-06T00:25:07.380Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-01-06T00:25:07.000Z",
+            "timestampDifferenceSeconds": 0.38,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1458260681720,
+            "coveragePercent": 99.96791914332418,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20160318T002441_20160318T002506_010416_00F713_41E6",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20160318T002441_20160318T002506_010416_00F713_41E6",
+            "acquiredAt": "2016-03-18T00:24:41.720Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-03-18T00:24:41.000Z",
+            "timestampDifferenceSeconds": 0.72,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1458260706000,
+            "coveragePercent": 0.04086144765340723,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV",
+              "VH"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SDV_20160318T002506_20160318T002521_010416_00F713_0965",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20160318T002506_20160318T002521_010416_00F713_0965",
+            "acquiredAt": "2016-03-18T00:25:06.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-03-18T00:25:06.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "aprilToPreEvent": {
+        "start": "2016-04-01",
+        "endExclusive": "2016-05-15",
+        "totalCount": 4,
+        "returnedCount": 4,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1460334282540,
+            "coveragePercent": 99.96905511393419,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002442_20160411T002507_010766_01014C_374D",
+            "acquiredAt": "2016-04-11T00:24:42.540Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-04-11T00:24:42.000Z",
+            "timestampDifferenceSeconds": 0.54,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1460334307000,
+            "coveragePercent": 0.03926150086713853,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160411T002507_20160411T002521_010766_01014C_C586",
+            "acquiredAt": "2016-04-11T00:25:07.000Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-04-11T00:25:07.000Z",
+            "timestampDifferenceSeconds": 0,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1462407883430,
+            "coveragePercent": 99.97045698840388,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+            "acquiredAt": "2016-05-05T00:24:43.430Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-05T00:24:43.000Z",
+            "timestampDifferenceSeconds": 0.43,
+            "timestampWarning": null
+          },
+          {
+            "acquisitionTimeMillis": 1462407908430,
+            "coveragePercent": 0.03740052455643602,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002508_20160505T002522_011116_010C15_BC81",
+            "acquiredAt": "2016-05-05T00:25:08.430Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-05T00:25:08.000Z",
+            "timestampDifferenceSeconds": 0.43,
+            "timestampWarning": null
+          }
+        ]
+      },
+      "eventDiscovery": {
+        "start": "2016-05-15",
+        "endExclusive": "2016-06-01",
+        "totalCount": 2,
+        "returnedCount": 2,
+        "truncated": false,
+        "scenes": [
+          {
+            "acquisitionTimeMillis": 1463878611950,
+            "coveragePercent": 99.99999999995076,
+            "instrumentMode": "IW",
+            "orbitDirection": "ASCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 100,
+            "relativeOrbitNumberStop": 100,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "acquiredAt": "2016-05-22T00:56:51.950Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-22T12:56:51.000Z",
+            "timestampDifferenceSeconds": -43199.05,
+            "timestampWarning": "Earth Engine system:time_start differs from the UTC start time encoded in the product ID. Verify the original product metadata; neither time has been silently corrected."
+          },
+          {
+            "acquisitionTimeMillis": 1464481487650,
+            "coveragePercent": 99.99999999995076,
+            "instrumentMode": "IW",
+            "orbitDirection": "DESCENDING",
+            "platformNumber": "A",
+            "polarizations": [
+              "VV"
+            ],
+            "relativeOrbitNumber": 19,
+            "relativeOrbitNumberStop": 19,
+            "resolutionClass": "H",
+            "resolutionMeters": 10,
+            "sceneIndex": "S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+            "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+            "acquiredAt": "2016-05-29T00:24:47.650Z",
+            "acquisitionTimeSource": "system:time_start",
+            "platform": "Sentinel-1A",
+            "preferredConfiguration": true,
+            "productStartUtcFromId": "2016-05-29T00:24:47.000Z",
+            "timestampDifferenceSeconds": 0.65,
+            "timestampWarning": null
+          }
+        ]
+      }
+    },
+    "coverageDefinition": "100 × area(scene footprint ∩ study area) / area(study area); spherical geometry with 1 m error tolerance",
+    "caveat": "Discovery windows do not confirm inundation. Coverage is scene-footprint intersection, not valid SAR pixels, and suitable pairs still need event-date and image-quality verification."
+  },
+  "targetSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+  "target": {
+    "acquisitionTimeMillis": 1463878611950,
+    "coveragePercent": 99.99999999995076,
+    "instrumentMode": "IW",
+    "orbitDirection": "ASCENDING",
+    "platformNumber": "A",
+    "polarizations": [
+      "VV"
+    ],
+    "relativeOrbitNumber": 100,
+    "relativeOrbitNumberStop": 100,
+    "resolutionClass": "H",
+    "resolutionMeters": 10,
+    "sceneIndex": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+    "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+    "acquiredAt": "2016-05-22T00:56:51.950Z",
+    "acquisitionTimeSource": "system:time_start",
+    "platform": "Sentinel-1A",
+    "preferredConfiguration": true,
+    "productStartUtcFromId": "2016-05-22T12:56:51.000Z",
+    "timestampDifferenceSeconds": -43199.05,
+    "timestampWarning": "Earth Engine system:time_start differs from the UTC start time encoded in the product ID. Verify the original product metadata; neither time has been silently corrected."
+  },
+  "matchingPreEventScenes": [],
+  "adequatePreEventScenes": [],
+  "incomplete": false,
+  "caution": "Matching metadata and footprint are not proof of dry baseline or floodwater. Original timestamp warnings are preserved."
+}

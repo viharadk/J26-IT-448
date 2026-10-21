@@ -1,0 +1,1090 @@
+{
+  "success": true,
+  "queriedAt": "2026-10-20T04:29:14.625Z",
+  "dataset": "COPERNICUS/S1_GRD",
+  "polarization": "VV",
+  "units": "dB",
+  "studyArea": {
+    "vectorAreaKm2": 548.1123320266747,
+    "rasterAreaKm2": 545.6947089673757,
+    "bounds": {
+      "geodesic": false,
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            79.85776426799337,
+            6.816667920120302
+          ],
+          [
+            80.21285142648506,
+            6.816667920120302
+          ],
+          [
+            80.21285142648506,
+            7.045834460261277
+          ],
+          [
+            79.85776426799337,
+            7.045834460261277
+          ],
+          [
+            79.85776426799337,
+            6.816667920120302
+          ]
+        ]
+      ]
+    },
+    "outline": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            80.07083349453231,
+            6.979166445991586
+          ],
+          [
+            80.07048122779253,
+            6.9815922414711675
+          ],
+          [
+            80.06668207780305,
+            6.985418119531972
+          ],
+          [
+            80.07082010978651,
+            6.9895829689707245
+          ],
+          [
+            80.06702097470428,
+            6.993408838688931
+          ],
+          [
+            80.06631197529099,
+            6.998255898406546
+          ],
+          [
+            80.06285172571224,
+            7.001742919107881
+          ],
+          [
+            80.0621472109575,
+            7.006589971042792
+          ],
+          [
+            80.0524530915172,
+            7.016310802961033
+          ],
+          [
+            80.04757483965683,
+            7.017019799677175
+          ],
+          [
+            80.0399230189139,
+            7.024644876376649
+          ],
+          [
+            80.02745536120494,
+            7.025353829692548
+          ],
+          [
+            80.0232593839036,
+            7.021184575968234
+          ],
+          [
+            80.01495204344684,
+            7.020480045480503
+          ],
+          [
+            80.006591267904,
+            7.028814126712579
+          ],
+          [
+            80.00174422273246,
+            7.029518645344411
+          ],
+          [
+            79.99825716240623,
+            7.032978908333319
+          ],
+          [
+            79.985785057362,
+            7.0336878758071455
+          ],
+          [
+            79.981589116084,
+            7.029518633856583
+          ],
+          [
+            79.97279130327884,
+            7.028600082808403
+          ],
+          [
+            79.96875136016794,
+            7.025469769562733
+          ],
+          [
+            79.96471140065499,
+            7.028600044538903
+          ],
+          [
+            79.96175499560819,
+            7.029732710969514
+          ],
+          [
+            79.95637729975736,
+            7.025567860154573
+          ],
+          [
+            79.94906440649055,
+            7.024430810531451
+          ],
+          [
+            79.93842051039343,
+            7.033915350676039
+          ],
+          [
+            79.93665024409376,
+            7.04081802354304
+          ],
+          [
+            79.93112097313227,
+            7.0422359952970135
+          ],
+          [
+            79.92721035396033,
+            7.045268166629158
+          ],
+          [
+            79.91249973589161,
+            7.045834460261277
+          ],
+          [
+            79.91193347640615,
+            7.043622743512629
+          ],
+          [
+            79.90890123559949,
+            7.039712156468517
+          ],
+          [
+            79.9076705269314,
+            7.025897877630815
+          ],
+          [
+            79.90058505385697,
+            7.024078548892414
+          ],
+          [
+            79.89223314447656,
+            7.014709958302604
+          ],
+          [
+            79.8911005312994,
+            7.006121740218928
+          ],
+          [
+            79.8755694964985,
+            6.989712263228577
+          ],
+          [
+            79.87410240575784,
+            6.983995644190997
+          ],
+          [
+            79.86666464017361,
+            6.983331251107107
+          ],
+          [
+            79.86666464017361,
+            6.979166480298798
+          ],
+          [
+            79.87499872676835,
+            6.979166468133664
+          ],
+          [
+            79.87499872676835,
+            6.966667574981525
+          ],
+          [
+            79.87403114400094,
+            6.962895182053704
+          ],
+          [
+            79.86887639065262,
+            6.958899848869927
+          ],
+          [
+            79.8632088558546,
+            6.957446178927181
+          ],
+          [
+            79.86193358252675,
+            6.947787786523394
+          ],
+          [
+            79.85776426799337,
+            6.942414539158463
+          ],
+          [
+            79.85890141217014,
+            6.931124125973625
+          ],
+          [
+            79.8750566583558,
+            6.914054687781672
+          ],
+          [
+            79.86887639065262,
+            6.908899948480672
+          ],
+          [
+            79.86193358252675,
+            6.9071162892817295
+          ],
+          [
+            79.86311075198769,
+            6.880165478689644
+          ],
+          [
+            79.86862217419461,
+            6.8755681716817225
+          ],
+          [
+            79.87304560678744,
+            6.874431144939364
+          ],
+          [
+            79.87695624645916,
+            6.871398880013772
+          ],
+          [
+            79.90659149665872,
+            6.870480376167719
+          ],
+          [
+            79.91214306970967,
+            6.864955544474501
+          ],
+          [
+            79.91285204481282,
+            6.860077245570939
+          ],
+          [
+            79.92254609149848,
+            6.85035641143287
+          ],
+          [
+            79.92742435121934,
+            6.8496474463016925
+          ],
+          [
+            79.9309068995158,
+            6.846187158984901
+          ],
+          [
+            79.93575848012031,
+            6.845478165370315
+          ],
+          [
+            79.93924103840529,
+            6.842017922884707
+          ],
+          [
+            79.94337908039435,
+            6.841313380626635
+          ],
+          [
+            79.94757506642613,
+            6.8454781986833515
+          ],
+          [
+            79.95587790962718,
+            6.846187175819517
+          ],
+          [
+            79.96007389303188,
+            6.842017888902582
+          ],
+          [
+            79.96421641145027,
+            6.8413133740399354
+          ],
+          [
+            79.97048145822461,
+            6.847547224297955
+          ],
+          [
+            79.97083370437379,
+            6.862498537043714
+          ],
+          [
+            79.98132600963116,
+            6.863118362261404
+          ],
+          [
+            79.98655206121944,
+            6.866935326383829
+          ],
+          [
+            79.98833121449215,
+            6.854699550488956
+          ],
+          [
+            79.99783804706185,
+            6.84645028406355
+          ],
+          [
+            80.02499846336366,
+            6.845834899044691
+          ],
+          [
+            80.0253551801797,
+            6.848256208624531
+          ],
+          [
+            80.02881539363072,
+            6.851743164451768
+          ],
+          [
+            80.02951992383457,
+            6.860759505179347
+          ],
+          [
+            80.03785401338055,
+            6.869115853123386
+          ],
+          [
+            80.0371450307432,
+            6.881592434035425
+          ],
+          [
+            80.03298022696025,
+            6.885788435024414
+          ],
+          [
+            80.033693678742,
+            6.889953243270524
+          ],
+          [
+            80.04757483965683,
+            6.90381215740926
+          ],
+          [
+            80.05833464887985,
+            6.904168889044623
+          ],
+          [
+            80.05833464887985,
+            6.90833364077837
+          ],
+          [
+            80.0624994264221,
+            6.908333674867915
+          ],
+          [
+            80.06352954823481,
+            6.90491355379579
+          ],
+          [
+            80.07839614082233,
+            6.903397455411429
+          ],
+          [
+            80.07998808925038,
+            6.8877905618047714
+          ],
+          [
+            80.08536571673419,
+            6.883978060192461
+          ],
+          [
+            80.09897045926768,
+            6.882586831226493
+          ],
+          [
+            80.10144971385974,
+            6.874355302438092
+          ],
+          [
+            80.11047050937891,
+            6.8756439530772715
+          ],
+          [
+            80.11541558833295,
+            6.879153293742774
+          ],
+          [
+            80.11731070190824,
+            6.872865994163192
+          ],
+          [
+            80.12435610882825,
+            6.864634433695267
+          ],
+          [
+            80.12626014144358,
+            6.85831148814232
+          ],
+          [
+            80.13119638879469,
+            6.854811058166308
+          ],
+          [
+            80.1365339299243,
+            6.853201298934045
+          ],
+          [
+            80.13750157607763,
+            6.849999704638893
+          ],
+          [
+            80.1441188280107,
+            6.84964296135491
+          ],
+          [
+            80.14964814599166,
+            6.844091381963645
+          ],
+          [
+            80.15000042935262,
+            6.841665604784468
+          ],
+          [
+            80.15641708197329,
+            6.8421962331251205
+          ],
+          [
+            80.16558496256998,
+            6.850530297231144
+          ],
+          [
+            80.17396362277469,
+            6.849344221289911
+          ],
+          [
+            80.17969800095429,
+            6.8426823008634985
+          ],
+          [
+            80.17826218610276,
+            6.8382678058950415
+          ],
+          [
+            80.17499811444902,
+            6.8375008352596085
+          ],
+          [
+            80.17464584883238,
+            6.835075074497906
+          ],
+          [
+            80.17084670345983,
+            6.8312491973365415
+          ],
+          [
+            80.17464584883238,
+            6.827423245985515
+          ],
+          [
+            80.17535489153656,
+            6.822576212472063
+          ],
+          [
+            80.17881512625719,
+            6.819089190986113
+          ],
+          [
+            80.17916737468663,
+            6.8166679201203015
+          ],
+          [
+            80.19409202394735,
+            6.817020200039376
+          ],
+          [
+            80.19757456882098,
+            6.820480479203263
+          ],
+          [
+            80.20000032259412,
+            6.820832713802902
+          ],
+          [
+            80.20071375143027,
+            6.836760633732796
+          ],
+          [
+            80.21249914691614,
+            6.837500866723662
+          ],
+          [
+            80.21214686588984,
+            6.839926612327601
+          ],
+          [
+            80.2083477726673,
+            6.843748055622055
+          ],
+          [
+            80.21214686588984,
+            6.847573975993987
+          ],
+          [
+            80.21285142648507,
+            6.855881253323437
+          ],
+          [
+            80.20868662104485,
+            6.860077223557859
+          ],
+          [
+            80.20798211111254,
+            6.877423191824834
+          ],
+          [
+            80.2041829172696,
+            6.881249077386513
+          ],
+          [
+            80.20798211111256,
+            6.885075006204241
+          ],
+          [
+            80.20833440936529,
+            6.891665534683072
+          ],
+          [
+            80.20200686321952,
+            6.891050166238073
+          ],
+          [
+            80.19536284708946,
+            6.886880934617197
+          ],
+          [
+            80.18965965875537,
+            6.891050188087884
+          ],
+          [
+            80.18533876649519,
+            6.89228534957852
+          ],
+          [
+            80.18132562027314,
+            6.895214960712272
+          ],
+          [
+            80.17162705093399,
+            6.896628520422884
+          ],
+          [
+            80.17021349615027,
+            6.906327088521002
+          ],
+          [
+            80.16311905680068,
+            6.914505029416218
+          ],
+          [
+            80.16188394819301,
+            6.922995203562665
+          ],
+          [
+            80.15889629639405,
+            6.927084172768471
+          ],
+          [
+            80.16188394819301,
+            6.931173205232916
+          ],
+          [
+            80.16311905680068,
+            6.935494029724458
+          ],
+          [
+            80.16728387203992,
+            6.942138134834092
+          ],
+          [
+            80.16311905680068,
+            6.947841269918759
+          ],
+          [
+            80.16157174043656,
+            6.9532412887232
+          ],
+          [
+            80.15617179680874,
+            6.954784100296
+          ],
+          [
+            80.15215864436573,
+            6.957713703065683
+          ],
+          [
+            80.13533890295606,
+            6.958948878822249
+          ],
+          [
+            80.1298541563263,
+            6.9633410910495614
+          ],
+          [
+            80.12916748406099,
+            6.975001668854654
+          ],
+          [
+            80.12499826021744,
+            6.975001666683755
+          ],
+          [
+            80.12413765527772,
+            6.978359400490238
+          ],
+          [
+            80.11788150284984,
+            6.979732798970075
+          ],
+          [
+            80.11575454926269,
+            6.971452226630719
+          ],
+          [
+            80.0909217432668,
+            6.970266125961056
+          ],
+          [
+            80.08554412134632,
+            6.9744308756529465
+          ],
+          [
+            80.08112063505207,
+            6.975567968142323
+          ],
+          [
+            80.07721002424836,
+            6.978600171128113
+          ],
+          [
+            80.07083349453231,
+            6.979166445991586
+          ]
+        ]
+      ]
+    },
+    "center": [
+      80.01242435982226,
+      6.931724505227884
+    ]
+  },
+  "scenes": {
+    "before": {
+      "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+      "acquiredAt": "2016-05-05T00:24:43.430Z",
+      "platform": "Sentinel-1A",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "polarizations": [
+        "VV"
+      ],
+      "bands": [
+        "VV",
+        "angle"
+      ],
+      "nativeProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 10,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 303315.99858461844], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 939670.2497884132]]"
+      },
+      "angleProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 16045.064959290865,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12312.978023974807], \n  PARAMETER[\"elt_0_1\", -4093.028835415258], \n  PARAMETER[\"elt_0_2\", 584514.4781489207], \n  PARAMETER[\"elt_1_0\", 2508.4252627308015], \n  PARAMETER[\"elt_1_1\", -20074.514234878006], \n  PARAMETER[\"elt_1_2\", 889359.0328848282]]"
+      },
+      "catalogueResolutionMeters": 10,
+      "footprintCoveragePercent": 99.9704569884052,
+      "validPixelAreaKm2": 545.5235696800787,
+      "validPixelCoveragePercent": 99.96863827255704,
+      "validPixelCoveragePercentOfVectorAoi": 99.52769492760291
+    },
+    "later": {
+      "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+      "acquiredAt": "2016-05-29T00:24:47.650Z",
+      "platform": "Sentinel-1A",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "polarizations": [
+        "VV"
+      ],
+      "bands": [
+        "VV",
+        "angle"
+      ],
+      "nativeProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 10,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 299930.29652767326], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 921295.5323613142]]"
+      },
+      "angleProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 16051.162842734473,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12321.887440194492], \n  PARAMETER[\"elt_0_1\", -4161.90596521087], \n  PARAMETER[\"elt_0_2\", 580767.5312472307], \n  PARAMETER[\"elt_1_0\", 2513.9158643169794], \n  PARAMETER[\"elt_1_1\", -20060.00690818997], \n  PARAMETER[\"elt_1_2\", 870907.3691676448]]"
+      },
+      "catalogueResolutionMeters": 10,
+      "footprintCoveragePercent": 99.99999999995215,
+      "validPixelAreaKm2": 545.6947089673757,
+      "validPixelCoveragePercent": 100,
+      "validPixelCoveragePercentOfVectorAoi": 99.55891832421291
+    }
+  },
+  "common": {
+    "validPixelAreaKm2": 545.5235696800787,
+    "validPixelCoveragePercent": 99.96863827255704,
+    "validPixelCoveragePercentOfVectorAoi": 99.52769492760291,
+    "jointFootprintCoveragePercent": 99.9704569884052,
+    "angleValidAreaKm2": 545.5235696800787
+  },
+  "alignment": {
+    "sameNativeGrid": false,
+    "analysisProjection": {
+      "crs": "EPSG:32644",
+      "nominalScaleMeters": 10,
+      "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 303315.99858461844], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 939670.2497884132]]"
+    },
+    "strategy": "Both VV bands and binary masks are evaluated on the exact before-VV CRS and affine transform; explicit nearest-neighbor reprojection, no smoothing.",
+    "nativeGridMatchProvesRegistration": false,
+    "caveat": "Grid alignment is not measured subpixel co-registration, independent 10 m spatial accuracy or radiometric equivalence."
+  },
+  "statistics": {
+    "angleChange_count": 5461104,
+    "angleChange_max": -0.0150299072265625,
+    "angleChange_mean": -0.02227143080067838,
+    "angleChange_min": -0.02645111083984375,
+    "angleChange_p2": -0.026215509253088447,
+    "angleChange_p25": -0.025179134155706804,
+    "angleChange_p50": -0.02328679778808305,
+    "angleChange_p75": -0.01968574483098546,
+    "angleChange_p98": -0.01541318944750644,
+    "angleChange_stdDev": 0.003317822670938167,
+    "beforeAngle_count": 5461104,
+    "beforeAngle_max": 42.05378341674805,
+    "beforeAngle_mean": 41.083255966814406,
+    "beforeAngle_min": 39.69137954711914,
+    "beforeAngle_p2": 39.835939720658594,
+    "beforeAngle_p25": 40.64842782191659,
+    "beforeAngle_p50": 41.179686729456996,
+    "beforeAngle_p75": 41.554655130538514,
+    "beforeAngle_p98": 41.945091492969965,
+    "beforeAngle_stdDev": 0.5898224612344376,
+    "before_count": 5461104,
+    "before_max": 29.84306162013042,
+    "before_mean": -7.3270609703042755,
+    "before_min": -37.06404275423842,
+    "before_p2": -14.739055949399148,
+    "before_p25": -9.244094669105339,
+    "before_p50": -7.250231336131648,
+    "before_p75": -5.256708544096306,
+    "before_p98": -0.2602169880953433,
+    "before_stdDev": 3.4026233571188365,
+    "change_count": 5461104,
+    "change_max": 33.843909080454665,
+    "change_mean": -0.07812396644727604,
+    "change_min": -34.7981135145102,
+    "change_p2": -6.735669427550705,
+    "change_p25": -1.744616969714683,
+    "change_p50": 0.24968850811832052,
+    "change_p75": 1.7451074140153227,
+    "change_p98": 5.734576271838565,
+    "change_stdDev": 3.0232554150550675,
+    "laterAngle_count": 5461104,
+    "laterAngle_max": 42.02927017211914,
+    "laterAngle_mean": 41.060984536013756,
+    "laterAngle_min": 39.67288589477539,
+    "laterAngle_p2": 39.804683669083246,
+    "laterAngle_p25": 40.632831496566304,
+    "laterAngle_p50": 41.1640694958947,
+    "laterAngle_p75": 41.539039378860835,
+    "laterAngle_p98": 41.92947595359423,
+    "laterAngle_stdDev": 0.5901109144174189,
+    "later_count": 5461104,
+    "later_max": 31.100920756639997,
+    "later_mean": -7.4051849367515485,
+    "later_min": -45.15370627594457,
+    "later_p2": -18.251838989084916,
+    "later_p25": -9.243564300149773,
+    "later_p50": -7.24916429651787,
+    "later_p75": -5.2565227337180005,
+    "later_p98": 0.24322372999119335,
+    "later_stdDev": 3.8558921715425862
+  },
+  "samples": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.9192857354612,
+          6.896614871674933
+        ]
+      },
+      "properties": {
+        "angleChange": -0.017574310302734375,
+        "before": -6.435662634362783,
+        "beforeAngle": 41.60661315917969,
+        "change": -1.4732433709319022,
+        "later": -7.908906005294686,
+        "laterAngle": 41.58903884887695
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.15753063158868,
+          6.877195640791094
+        ]
+      },
+      "properties": {
+        "angleChange": -0.02130126953125,
+        "before": -8.888176976138052,
+        "beforeAngle": 40.102806091308594,
+        "change": 1.2933081799586867,
+        "later": -7.594868796179365,
+        "laterAngle": 40.081504821777344
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.14471535663387,
+          6.907383284586601
+        ]
+      },
+      "properties": {
+        "angleChange": -0.024074554443359375,
+        "before": -9.149919966374576,
+        "beforeAngle": 40.230125427246094,
+        "change": 0.13819956813790135,
+        "later": -9.011720398236674,
+        "laterAngle": 40.206050872802734
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.02504443324078,
+          6.916288715927822
+        ]
+      },
+      "properties": {
+        "angleChange": -0.022144317626953125,
+        "before": -10.550391443777919,
+        "beforeAngle": 40.98949432373047,
+        "change": 4.881275768921299,
+        "later": -5.66911567485662,
+        "laterAngle": 40.967350006103516
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.02487954606877,
+          6.908419474296549
+        ]
+      },
+      "properties": {
+        "angleChange": -0.0213165283203125,
+        "before": -2.6637574772361186,
+        "beforeAngle": 40.97847366333008,
+        "change": -0.5844401419848948,
+        "later": -3.2481976192210134,
+        "laterAngle": 40.957157135009766
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.95695289499025,
+          7.01156402240596
+        ]
+      },
+      "properties": {
+        "angleChange": -0.025054931640625,
+        "before": -6.837672741094362,
+        "beforeAngle": 41.53933334350586,
+        "change": 1.1850304852643987,
+        "later": -5.652642255829964,
+        "laterAngle": 41.514278411865234
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.07192786666779,
+          6.962782385089028
+        ]
+      },
+      "properties": {
+        "angleChange": -0.026058197021484375,
+        "before": -7.155755299326222,
+        "beforeAngle": 40.76519775390625,
+        "change": 2.1839481714253433,
+        "later": -4.971807127900878,
+        "laterAngle": 40.739139556884766
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.06910198108245,
+          6.97281657091062
+        ]
+      },
+      "properties": {
+        "angleChange": -0.0260162353515625,
+        "before": -8.904300414488969,
+        "beforeAngle": 40.795894622802734,
+        "change": 0.19263688148379643,
+        "later": -8.711663533005172,
+        "laterAngle": 40.76987838745117
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.98416507169692,
+          6.944331955599325
+        ]
+      },
+      "properties": {
+        "angleChange": -0.023868560791015625,
+        "before": -9.236054924847636,
+        "beforeAngle": 41.28300094604492,
+        "change": -13.398288250637165,
+        "later": -22.6343431754848,
+        "laterAngle": 41.259132385253906
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17853519424897,
+          6.819976580434124
+        ]
+      },
+      "properties": {
+        "angleChange": -0.0164794921875,
+        "before": -9.470480629443296,
+        "beforeAngle": 39.87861633300781,
+        "change": 0.5667991735095566,
+        "later": -8.90368145593374,
+        "laterAngle": 39.86213684082031
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.88306775745588,
+          6.980734017339378
+        ]
+      },
+      "properties": {
+        "angleChange": -0.0246124267578125,
+        "before": -8.911230121053704,
+        "beforeAngle": 41.95110321044922,
+        "change": -1.1583070702828362,
+        "later": -10.06953719133654,
+        "laterAngle": 41.926490783691406
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.0732114090214,
+          6.908154114110106
+        ]
+      },
+      "properties": {
+        "angleChange": -0.022480010986328125,
+        "before": -17.921886259642797,
+        "beforeAngle": 40.67861557006836,
+        "change": 0.10879440517475913,
+        "later": -17.813091854468038,
+        "laterAngle": 40.65613555908203
+      }
+    }
+  ],
+  "computation": {
+    "domain": "Stored COPERNICUS/S1_GRD decibels; no linear-power averaging or ratio conversion.",
+    "change": "later_dB - before_dB on common valid pixels; a log-ratio display, not a flood classifier.",
+    "masks": "Original VV data masks > 0, nearest-neighbor aligned; common mask is their intersection clipped to the original AOI. No intensity threshold, speckle filter or flood/permanent-water mask is applied.",
+    "areaDenominator": "Valid-pixel percentages use AOI raster pixel area on the common grid; vector-AOI percentages are also reported. Footprint percentages use vector AOI area. Vector geometry and raster pixel-area calculation/discretization differ; neither denominator is silently substituted.",
+    "statisticsSupport": "All VV and change statistics use the same common valid pixel support; angle statistics additionally require both angle masks. Percentiles are EE reducer estimates.",
+    "maxPixels": 50000000,
+    "tileScale": 4
+  },
+  "comparability": {
+    "spatialComparisonReady": true,
+    "crossPlatformCalibrated": false,
+    "floodDetectionValidated": false,
+    "caveats": [
+      "Sentinel-1A versus Sentinel-1B radiometric equivalence has not been validated.",
+      "Compare incidence-angle distributions and stable targets before interpreting change.",
+      "Speckle, wet soil, land cover, urban geometry and acquisition differences can alter backscatter.",
+      "Masks establish available samples, not that every sample is free of border noise or other artifacts.",
+      "Single-scene overlap omits part of the AOI; no AOI-wide flood-area claim is supported."
+    ]
+  },
+  "limitation": "Selected historical observations; event timing and residual water require independent evidence. Radar change is exploratory, not confirmed flood extent, depth or detection accuracy.",
+  "pairAssessment": {
+    "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160505T002443_20160505T002508_011116_010C15_9581",
+    "duringSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SSV_20160529T002447_20160529T002512_011466_011780_25E3",
+    "beforeAcquiredAt": "2016-05-05T00:24:43.430Z",
+    "duringAcquiredAt": "2016-05-29T00:24:47.650Z",
+    "orbitDirection": "DESCENDING",
+    "relativeOrbitNumber": 19,
+    "instrumentMode": "IW",
+    "sharedPolarizations": [
+      "VV"
+    ],
+    "preferredConfiguration": true,
+    "beforeCoveragePercent": 99.9704569884052,
+    "duringCoveragePercent": 99.99999999995215,
+    "jointCoveragePercent": 99.9704569884052,
+    "gapDays": 24.00004884259259,
+    "status": "suitable",
+    "reasons": [
+      "Orbit direction, relative orbit, instrument mode and resolution match.",
+      "Shared SAR polarization: VV.",
+      "Both scene footprints cover at least 90% of the study area.",
+      "Preferred IW configuration with shared VV is available.",
+      "Verified joint footprint covers 99.9704569884052% of the study area (minimum 90%)."
+    ],
+    "meaning": "Metadata/pixel comparison only; flood conditions are not established."
+  }
+}

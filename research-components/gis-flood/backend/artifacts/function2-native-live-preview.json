@@ -1,0 +1,1149 @@
+{
+  "success": true,
+  "generatedAt": "2026-10-20T04:20:26.456Z",
+  "renewAfterSeconds": 600,
+  "quality": {
+    "success": true,
+    "queriedAt": "2026-10-20T04:20:21.353Z",
+    "dataset": "COPERNICUS/S1_GRD",
+    "polarization": "VV",
+    "units": "dB",
+    "studyArea": {
+      "vectorAreaKm2": 548.1123320266747,
+      "rasterAreaKm2": 545.6946936182658,
+      "bounds": {
+        "geodesic": false,
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.85776426799337,
+              6.816667920120302
+            ],
+            [
+              80.21285142648506,
+              6.816667920120302
+            ],
+            [
+              80.21285142648506,
+              7.045834460261277
+            ],
+            [
+              79.85776426799337,
+              7.045834460261277
+            ],
+            [
+              79.85776426799337,
+              6.816667920120302
+            ]
+          ]
+        ]
+      },
+      "outline": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.07083349453231,
+              6.979166445991586
+            ],
+            [
+              80.07048122779253,
+              6.9815922414711675
+            ],
+            [
+              80.06668207780305,
+              6.985418119531972
+            ],
+            [
+              80.07082010978651,
+              6.9895829689707245
+            ],
+            [
+              80.06702097470428,
+              6.993408838688931
+            ],
+            [
+              80.06631197529099,
+              6.998255898406546
+            ],
+            [
+              80.06285172571224,
+              7.001742919107881
+            ],
+            [
+              80.0621472109575,
+              7.006589971042792
+            ],
+            [
+              80.0524530915172,
+              7.016310802961033
+            ],
+            [
+              80.04757483965683,
+              7.017019799677175
+            ],
+            [
+              80.0399230189139,
+              7.024644876376649
+            ],
+            [
+              80.02745536120494,
+              7.025353829692548
+            ],
+            [
+              80.0232593839036,
+              7.021184575968234
+            ],
+            [
+              80.01495204344684,
+              7.020480045480503
+            ],
+            [
+              80.006591267904,
+              7.028814126712579
+            ],
+            [
+              80.00174422273246,
+              7.029518645344411
+            ],
+            [
+              79.99825716240623,
+              7.032978908333319
+            ],
+            [
+              79.985785057362,
+              7.0336878758071455
+            ],
+            [
+              79.981589116084,
+              7.029518633856583
+            ],
+            [
+              79.97279130327884,
+              7.028600082808403
+            ],
+            [
+              79.96875136016794,
+              7.025469769562733
+            ],
+            [
+              79.96471140065499,
+              7.028600044538903
+            ],
+            [
+              79.96175499560819,
+              7.029732710969514
+            ],
+            [
+              79.95637729975736,
+              7.025567860154573
+            ],
+            [
+              79.94906440649055,
+              7.024430810531451
+            ],
+            [
+              79.93842051039343,
+              7.033915350676039
+            ],
+            [
+              79.93665024409376,
+              7.04081802354304
+            ],
+            [
+              79.93112097313227,
+              7.0422359952970135
+            ],
+            [
+              79.92721035396033,
+              7.045268166629158
+            ],
+            [
+              79.91249973589161,
+              7.045834460261277
+            ],
+            [
+              79.91193347640615,
+              7.043622743512629
+            ],
+            [
+              79.90890123559949,
+              7.039712156468517
+            ],
+            [
+              79.9076705269314,
+              7.025897877630815
+            ],
+            [
+              79.90058505385697,
+              7.024078548892414
+            ],
+            [
+              79.89223314447656,
+              7.014709958302604
+            ],
+            [
+              79.8911005312994,
+              7.006121740218928
+            ],
+            [
+              79.8755694964985,
+              6.989712263228577
+            ],
+            [
+              79.87410240575784,
+              6.983995644190997
+            ],
+            [
+              79.86666464017361,
+              6.983331251107107
+            ],
+            [
+              79.86666464017361,
+              6.979166480298798
+            ],
+            [
+              79.87499872676835,
+              6.979166468133664
+            ],
+            [
+              79.87499872676835,
+              6.966667574981525
+            ],
+            [
+              79.87403114400094,
+              6.962895182053704
+            ],
+            [
+              79.86887639065262,
+              6.958899848869927
+            ],
+            [
+              79.8632088558546,
+              6.957446178927181
+            ],
+            [
+              79.86193358252675,
+              6.947787786523394
+            ],
+            [
+              79.85776426799337,
+              6.942414539158463
+            ],
+            [
+              79.85890141217014,
+              6.931124125973625
+            ],
+            [
+              79.8750566583558,
+              6.914054687781672
+            ],
+            [
+              79.86887639065262,
+              6.908899948480672
+            ],
+            [
+              79.86193358252675,
+              6.9071162892817295
+            ],
+            [
+              79.86311075198769,
+              6.880165478689644
+            ],
+            [
+              79.86862217419461,
+              6.8755681716817225
+            ],
+            [
+              79.87304560678744,
+              6.874431144939364
+            ],
+            [
+              79.87695624645916,
+              6.871398880013772
+            ],
+            [
+              79.90659149665872,
+              6.870480376167719
+            ],
+            [
+              79.91214306970967,
+              6.864955544474501
+            ],
+            [
+              79.91285204481282,
+              6.860077245570939
+            ],
+            [
+              79.92254609149848,
+              6.85035641143287
+            ],
+            [
+              79.92742435121934,
+              6.8496474463016925
+            ],
+            [
+              79.9309068995158,
+              6.846187158984901
+            ],
+            [
+              79.93575848012031,
+              6.845478165370315
+            ],
+            [
+              79.93924103840529,
+              6.842017922884707
+            ],
+            [
+              79.94337908039435,
+              6.841313380626635
+            ],
+            [
+              79.94757506642613,
+              6.8454781986833515
+            ],
+            [
+              79.95587790962718,
+              6.846187175819517
+            ],
+            [
+              79.96007389303188,
+              6.842017888902582
+            ],
+            [
+              79.96421641145027,
+              6.8413133740399354
+            ],
+            [
+              79.97048145822461,
+              6.847547224297955
+            ],
+            [
+              79.97083370437379,
+              6.862498537043714
+            ],
+            [
+              79.98132600963116,
+              6.863118362261404
+            ],
+            [
+              79.98655206121944,
+              6.866935326383829
+            ],
+            [
+              79.98833121449215,
+              6.854699550488956
+            ],
+            [
+              79.99783804706185,
+              6.84645028406355
+            ],
+            [
+              80.02499846336366,
+              6.845834899044691
+            ],
+            [
+              80.0253551801797,
+              6.848256208624531
+            ],
+            [
+              80.02881539363072,
+              6.851743164451768
+            ],
+            [
+              80.02951992383457,
+              6.860759505179347
+            ],
+            [
+              80.03785401338055,
+              6.869115853123386
+            ],
+            [
+              80.0371450307432,
+              6.881592434035425
+            ],
+            [
+              80.03298022696025,
+              6.885788435024414
+            ],
+            [
+              80.033693678742,
+              6.889953243270524
+            ],
+            [
+              80.04757483965683,
+              6.90381215740926
+            ],
+            [
+              80.05833464887985,
+              6.904168889044623
+            ],
+            [
+              80.05833464887985,
+              6.90833364077837
+            ],
+            [
+              80.0624994264221,
+              6.908333674867915
+            ],
+            [
+              80.06352954823481,
+              6.90491355379579
+            ],
+            [
+              80.07839614082233,
+              6.903397455411429
+            ],
+            [
+              80.07998808925038,
+              6.8877905618047714
+            ],
+            [
+              80.08536571673419,
+              6.883978060192461
+            ],
+            [
+              80.09897045926768,
+              6.882586831226493
+            ],
+            [
+              80.10144971385974,
+              6.874355302438092
+            ],
+            [
+              80.11047050937891,
+              6.8756439530772715
+            ],
+            [
+              80.11541558833295,
+              6.879153293742774
+            ],
+            [
+              80.11731070190824,
+              6.872865994163192
+            ],
+            [
+              80.12435610882825,
+              6.864634433695267
+            ],
+            [
+              80.12626014144358,
+              6.85831148814232
+            ],
+            [
+              80.13119638879469,
+              6.854811058166308
+            ],
+            [
+              80.1365339299243,
+              6.853201298934045
+            ],
+            [
+              80.13750157607763,
+              6.849999704638893
+            ],
+            [
+              80.1441188280107,
+              6.84964296135491
+            ],
+            [
+              80.14964814599166,
+              6.844091381963645
+            ],
+            [
+              80.15000042935262,
+              6.841665604784468
+            ],
+            [
+              80.15641708197329,
+              6.8421962331251205
+            ],
+            [
+              80.16558496256998,
+              6.850530297231144
+            ],
+            [
+              80.17396362277469,
+              6.849344221289911
+            ],
+            [
+              80.17969800095429,
+              6.8426823008634985
+            ],
+            [
+              80.17826218610276,
+              6.8382678058950415
+            ],
+            [
+              80.17499811444902,
+              6.8375008352596085
+            ],
+            [
+              80.17464584883238,
+              6.835075074497906
+            ],
+            [
+              80.17084670345983,
+              6.8312491973365415
+            ],
+            [
+              80.17464584883238,
+              6.827423245985515
+            ],
+            [
+              80.17535489153656,
+              6.822576212472063
+            ],
+            [
+              80.17881512625719,
+              6.819089190986113
+            ],
+            [
+              80.17916737468663,
+              6.8166679201203015
+            ],
+            [
+              80.19409202394735,
+              6.817020200039376
+            ],
+            [
+              80.19757456882098,
+              6.820480479203263
+            ],
+            [
+              80.20000032259412,
+              6.820832713802902
+            ],
+            [
+              80.20071375143027,
+              6.836760633732796
+            ],
+            [
+              80.21249914691614,
+              6.837500866723662
+            ],
+            [
+              80.21214686588984,
+              6.839926612327601
+            ],
+            [
+              80.2083477726673,
+              6.843748055622055
+            ],
+            [
+              80.21214686588984,
+              6.847573975993987
+            ],
+            [
+              80.21285142648507,
+              6.855881253323437
+            ],
+            [
+              80.20868662104485,
+              6.860077223557859
+            ],
+            [
+              80.20798211111254,
+              6.877423191824834
+            ],
+            [
+              80.2041829172696,
+              6.881249077386513
+            ],
+            [
+              80.20798211111256,
+              6.885075006204241
+            ],
+            [
+              80.20833440936529,
+              6.891665534683072
+            ],
+            [
+              80.20200686321952,
+              6.891050166238073
+            ],
+            [
+              80.19536284708946,
+              6.886880934617197
+            ],
+            [
+              80.18965965875537,
+              6.891050188087884
+            ],
+            [
+              80.18533876649519,
+              6.89228534957852
+            ],
+            [
+              80.18132562027314,
+              6.895214960712272
+            ],
+            [
+              80.17162705093399,
+              6.896628520422884
+            ],
+            [
+              80.17021349615027,
+              6.906327088521002
+            ],
+            [
+              80.16311905680068,
+              6.914505029416218
+            ],
+            [
+              80.16188394819301,
+              6.922995203562665
+            ],
+            [
+              80.15889629639405,
+              6.927084172768471
+            ],
+            [
+              80.16188394819301,
+              6.931173205232916
+            ],
+            [
+              80.16311905680068,
+              6.935494029724458
+            ],
+            [
+              80.16728387203992,
+              6.942138134834092
+            ],
+            [
+              80.16311905680068,
+              6.947841269918759
+            ],
+            [
+              80.16157174043656,
+              6.9532412887232
+            ],
+            [
+              80.15617179680874,
+              6.954784100296
+            ],
+            [
+              80.15215864436573,
+              6.957713703065683
+            ],
+            [
+              80.13533890295606,
+              6.958948878822249
+            ],
+            [
+              80.1298541563263,
+              6.9633410910495614
+            ],
+            [
+              80.12916748406099,
+              6.975001668854654
+            ],
+            [
+              80.12499826021744,
+              6.975001666683755
+            ],
+            [
+              80.12413765527772,
+              6.978359400490238
+            ],
+            [
+              80.11788150284984,
+              6.979732798970075
+            ],
+            [
+              80.11575454926269,
+              6.971452226630719
+            ],
+            [
+              80.0909217432668,
+              6.970266125961056
+            ],
+            [
+              80.08554412134632,
+              6.9744308756529465
+            ],
+            [
+              80.08112063505207,
+              6.975567968142323
+            ],
+            [
+              80.07721002424836,
+              6.978600171128113
+            ],
+            [
+              80.07083349453231,
+              6.979166445991586
+            ]
+          ]
+        ]
+      },
+      "center": [
+        80.01242435982226,
+        6.931724505227884
+      ]
+    },
+    "scenes": {
+      "before": {
+        "sceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+        "acquiredAt": "2017-05-24T00:25:12.000Z",
+        "platform": "Sentinel-1A",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "bands": [
+          "VV",
+          "VH",
+          "angle"
+        ],
+        "nativeProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 10,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 272884.0792622992], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791670.4794724998]]"
+        },
+        "angleProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 16049.986471310733,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12314.450450494885], \n  PARAMETER[\"elt_0_1\", -3504.704374724999], \n  PARAMETER[\"elt_0_2\", 552850.6355311568], \n  PARAMETER[\"elt_1_0\", 2534.5374735203804], \n  PARAMETER[\"elt_1_1\", -20197.349622525042], \n  PARAMETER[\"elt_1_2\", 740834.0443787834]]"
+        },
+        "catalogueResolutionMeters": 10,
+        "footprintCoveragePercent": 92.91404030186847,
+        "validPixelAreaKm2": 506.1583929039752,
+        "validPixelCoveragePercent": 92.754868028468,
+        "validPixelCoveragePercentOfVectorAoi": 92.34574070472515
+      },
+      "later": {
+        "sceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+        "acquiredAt": "2017-05-30T00:24:30.000Z",
+        "platform": "Sentinel-1B",
+        "orbitDirection": "DESCENDING",
+        "relativeOrbitNumber": 19,
+        "instrumentMode": "IW",
+        "polarizations": [
+          "VV",
+          "VH"
+        ],
+        "bands": [
+          "VV",
+          "VH",
+          "angle"
+        ],
+        "nativeProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 10,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 265388.61267608486], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791721.7580159548]]"
+        },
+        "angleProjection": {
+          "crs": "EPSG:32644",
+          "nominalScaleMeters": 16056.140522573407,
+          "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", -12324.295331789064], \n  PARAMETER[\"elt_0_1\", -3506.206818356528], \n  PARAMETER[\"elt_0_2\", 552977.844927478], \n  PARAMETER[\"elt_1_0\", 2536.9335330903996], \n  PARAMETER[\"elt_1_1\", -20196.25691597676], \n  PARAMETER[\"elt_1_2\", 740837.2638111713]]"
+        },
+        "catalogueResolutionMeters": 10,
+        "footprintCoveragePercent": 93.0219001367033,
+        "validPixelAreaKm2": 506.71273526993355,
+        "validPixelCoveragePercent": 92.85645273736131,
+        "validPixelCoveragePercentOfVectorAoi": 92.44687733923737
+      }
+    },
+    "common": {
+      "validPixelAreaKm2": 506.1583929039752,
+      "validPixelCoveragePercent": 92.754868028468,
+      "validPixelCoveragePercentOfVectorAoi": 92.34574070472515,
+      "jointFootprintCoveragePercent": 92.91404030186871,
+      "angleValidAreaKm2": 506.1583929039752
+    },
+    "alignment": {
+      "sameNativeGrid": false,
+      "analysisProjection": {
+        "crs": "EPSG:32644",
+        "nominalScaleMeters": 10,
+        "transformWkt": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 10.0], \n  PARAMETER[\"elt_0_2\", 272884.0792622992], \n  PARAMETER[\"elt_1_1\", -10.0], \n  PARAMETER[\"elt_1_2\", 791670.4794724998]]"
+      },
+      "strategy": "Both VV bands and binary masks are evaluated on the exact before-VV CRS and affine transform; explicit nearest-neighbor reprojection, no smoothing.",
+      "nativeGridMatchProvesRegistration": false,
+      "caveat": "Grid alignment is not measured subpixel co-registration, independent 10 m spatial accuracy or radiometric equivalence."
+    },
+    "statistics": {
+      "angleChange_count": 5066295,
+      "angleChange_max": 0.004459381103515625,
+      "angleChange_mean": 0.0042825316489117585,
+      "angleChange_min": 0.00411224365234375,
+      "angleChange_p2": 0.004135131835937501,
+      "angleChange_p25": 0.004211425781250001,
+      "angleChange_p50": 0.0042724609375,
+      "angleChange_p75": 0.004360198974609376,
+      "angleChange_p98": 0.004428863525390626,
+      "angleChange_stdDev": 0.00008712941293056736,
+      "beforeAngle_count": 5066295,
+      "beforeAngle_max": 41.9929313659668,
+      "beforeAngle_mean": 41.001737267525634,
+      "beforeAngle_min": 39.643009185791016,
+      "beforeAngle_p2": 39.77342789179539,
+      "beforeAngle_p25": 40.5234105569843,
+      "beforeAngle_p50": 41.08588023509415,
+      "beforeAngle_p75": 41.492172216897586,
+      "beforeAngle_p98": 41.8826538292092,
+      "beforeAngle_stdDev": 0.603113270433793,
+      "before_count": 5066295,
+      "before_max": 28.603178971711436,
+      "before_mean": -7.503128360106611,
+      "before_min": -40.64632672076952,
+      "before_p2": -14.73712295700209,
+      "before_p25": -9.244797543499878,
+      "before_p50": -7.250307106580746,
+      "before_p75": -5.755584452551368,
+      "before_p98": -0.26019971219440274,
+      "before_stdDev": 3.3899891977811225,
+      "change_count": 5066295,
+      "change_max": 31.190631467824762,
+      "change_mean": 0.09216845857949996,
+      "change_min": -27.82434533566165,
+      "change_p2": -6.871429727872055,
+      "change_p25": -1.623462738089588,
+      "change_p50": 0.12498192389604255,
+      "change_p75": 1.873668861250035,
+      "change_p98": 5.871769941602861,
+      "change_stdDev": 3.0359791282866713,
+      "laterAngle_count": 5066295,
+      "laterAngle_max": 41.9970703125,
+      "laterAngle_mean": 41.00601979917454,
+      "laterAngle_min": 39.647430419921875,
+      "laterAngle_p2": 39.77343319424564,
+      "laterAngle_p25": 40.52341036529746,
+      "laterAngle_p50": 41.10149952290851,
+      "laterAngle_p75": 41.507798605482925,
+      "laterAngle_p98": 41.898224234524186,
+      "laterAngle_stdDev": 0.6030326174255426,
+      "later_count": 5066295,
+      "later_max": 29.036185507514393,
+      "later_mean": -7.410959901527119,
+      "later_min": -36.238755826765306,
+      "later_p2": -18.250474645960995,
+      "later_p25": -9.243045691025637,
+      "later_p50": -7.249924690500798,
+      "later_p75": -5.256580550701411,
+      "later_p98": 0.7407397325282181,
+      "later_stdDev": 3.9196781481642597
+    },
+    "samples": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.98052757219989,
+            6.944145334928304
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004261016845703125,
+          "before": -11.3574275558988,
+          "beforeAngle": 41.23994445800781,
+          "change": 4.76683259887317,
+          "later": -6.590594957025631,
+          "laterAngle": 41.244205474853516
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.08263680031256,
+            6.939560090105646
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004360198974609375,
+          "before": -10.120904618572927,
+          "beforeAngle": 40.59543228149414,
+          "change": -1.5393291398829412,
+          "later": -11.660233758455869,
+          "laterAngle": 40.59979248046875
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.88212050639235,
+            6.991134781983635
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004192352294921875,
+          "before": -8.267910053445599,
+          "beforeAngle": 41.89970397949219,
+          "change": 1.3816840590691033,
+          "later": -6.886225994376495,
+          "laterAngle": 41.90389633178711
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.98267273683473,
+            6.8721548826031436
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00421905517578125,
+          "before": -4.109586892057276,
+          "beforeAngle": 41.138389587402344,
+          "change": -2.416165526975127,
+          "later": -6.525752419032403,
+          "laterAngle": 41.142608642578125
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.92667404240918,
+            6.903507399616067
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004177093505859375,
+          "before": 3.337656635189435,
+          "beforeAngle": 41.524085998535156,
+          "change": -0.580435983071955,
+          "later": 2.75722065211748,
+          "laterAngle": 41.528263092041016
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.9634762489186,
+            6.9186932024036985
+          ]
+        },
+        "properties": {
+          "angleChange": 0.0042266845703125,
+          "before": -1.7105831376079736,
+          "beforeAngle": 41.31570816040039,
+          "change": 1.6875212962302706,
+          "later": -0.02306184137770308,
+          "laterAngle": 41.3199348449707
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.11859092954919,
+            6.97761696003127
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00441741943359375,
+          "before": -7.372407613022485,
+          "beforeAngle": 40.41099166870117,
+          "change": -3.44160473622334,
+          "later": -10.814012349245825,
+          "laterAngle": 40.415409088134766
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.8811162779142,
+            6.956583213021242
+          ]
+        },
+        "properties": {
+          "angleChange": 0.00417327880859375,
+          "before": -5.125728274260615,
+          "beforeAngle": 41.86697006225586,
+          "change": -0.5244288820247389,
+          "later": -5.650157156285354,
+          "laterAngle": 41.87114334106445
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.03544106648984,
+            6.868827022723645
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004268646240234375,
+          "before": -7.700497793663002,
+          "beforeAngle": 40.805721282958984,
+          "change": -0.5428739578033479,
+          "later": -8.24337175146635,
+          "laterAngle": 40.80998992919922
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.01676044740869,
+            6.930926157136793
+          ]
+        },
+        "properties": {
+          "angleChange": 0.0042877197265625,
+          "before": -8.159235504828185,
+          "beforeAngle": 40.99892807006836,
+          "change": -2.3275025537199436,
+          "later": -10.486738058548129,
+          "laterAngle": 41.00321578979492
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.01085187926334,
+            6.855842990084029
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004241943359375,
+          "before": -12.319349338760318,
+          "beforeAngle": 40.941951751708984,
+          "change": 2.49955151503789,
+          "later": -9.819797823722428,
+          "laterAngle": 40.94619369506836
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.97395008035957,
+            6.888326099486147
+          ]
+        },
+        "properties": {
+          "angleChange": 0.004215240478515625,
+          "before": -6.915754002940631,
+          "beforeAngle": 41.21324920654297,
+          "change": 0.3083070417646834,
+          "later": -6.607446961175947,
+          "laterAngle": 41.217464447021484
+        }
+      }
+    ],
+    "computation": {
+      "domain": "Stored COPERNICUS/S1_GRD decibels; no linear-power averaging or ratio conversion.",
+      "change": "later_dB - before_dB on common valid pixels; a log-ratio display, not a flood classifier.",
+      "masks": "Original VV data masks > 0, nearest-neighbor aligned; common mask is their intersection clipped to the original AOI. No intensity threshold, speckle filter or flood/permanent-water mask is applied.",
+      "areaDenominator": "Valid-pixel percentages use AOI raster pixel area on the common grid; vector-AOI percentages are also reported. Footprint percentages use vector AOI area. Vector geometry and raster pixel-area calculation/discretization differ; neither denominator is silently substituted.",
+      "statisticsSupport": "All VV and change statistics use the same common valid pixel support; angle statistics additionally require both angle masks. Percentiles are EE reducer estimates.",
+      "maxPixels": 50000000,
+      "tileScale": 4
+    },
+    "comparability": {
+      "spatialComparisonReady": true,
+      "crossPlatformCalibrated": false,
+      "floodDetectionValidated": false,
+      "caveats": [
+        "Sentinel-1A versus Sentinel-1B radiometric equivalence has not been validated.",
+        "Compare incidence-angle distributions and stable targets before interpreting change.",
+        "Speckle, wet soil, land cover, urban geometry and acquisition differences can alter backscatter.",
+        "Masks establish available samples, not that every sample is free of border noise or other artifacts.",
+        "Single-scene overlap omits part of the AOI; no AOI-wide flood-area claim is supported."
+      ]
+    },
+    "limitation": "Research prototype: May 30 follows the documented event peak. Residual water is unverified. These are backscatter observations and exploratory radar change, not confirmed flood extent, depth, classification or detection accuracy.",
+    "pairAssessment": {
+      "beforeSceneId": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+      "duringSceneId": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A",
+      "beforeAcquiredAt": "2017-05-24T00:25:12.000Z",
+      "duringAcquiredAt": "2017-05-30T00:24:30.000Z",
+      "orbitDirection": "DESCENDING",
+      "relativeOrbitNumber": 19,
+      "instrumentMode": "IW",
+      "sharedPolarizations": [
+        "VV",
+        "VH"
+      ],
+      "preferredConfiguration": true,
+      "beforeCoveragePercent": 92.91404030186847,
+      "duringCoveragePercent": 93.0219001367033,
+      "jointCoveragePercent": 92.91404030186871,
+      "gapDays": 5.999513888888889,
+      "status": "suitable",
+      "reasons": [
+        "Orbit direction, relative orbit, instrument mode and resolution match.",
+        "Shared SAR polarization: VV, VH.",
+        "Both scene footprints cover at least 90% of the study area.",
+        "Preferred IW configuration with shared VV is available.",
+        "Verified joint footprint covers 92.91404030186871% of the study area (minimum 90%)."
+      ],
+      "meaning": "Metadata/pixel comparison only; flood conditions are not established."
+    }
+  },
+  "layers": {
+    "before": {
+      "label": "Before VV backscatter",
+      "tileUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/8e729265112070807faafac59c358950-b0580f68253ade1ced02f0f5f7250ef6/tiles/{z}/{x}/{y}",
+      "thumbnailUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/thumbnails/9dae3fed56845278b01b2f70b781fbef-929474ba58db291db79a338733d18de9:getPixels",
+      "visualization": {
+        "min": -25,
+        "max": 0,
+        "palette": [
+          "000000",
+          "ffffff"
+        ]
+      },
+      "units": "dB",
+      "mask": "Common valid AOI pixels"
+    },
+    "later": {
+      "label": "Later VV backscatter",
+      "tileUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/6357ebb4a14b6c5c22282bf006f84209-0782171385938720f51b4d20e58cf3f4/tiles/{z}/{x}/{y}",
+      "thumbnailUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/thumbnails/0967fc7f957c4ec36ca41d72ddcd2275-98a388ff822243689f301e4cf4e3771d:getPixels",
+      "visualization": {
+        "min": -25,
+        "max": 0,
+        "palette": [
+          "000000",
+          "ffffff"
+        ]
+      },
+      "units": "dB",
+      "mask": "Common valid AOI pixels"
+    },
+    "change": {
+      "label": "Exploratory VV radar change (later − before), not flood extent",
+      "tileUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/bd409b246f368491153e8be388c66aea-71eb68efa0e3a9d37435d6a9b99bb118/tiles/{z}/{x}/{y}",
+      "thumbnailUrl": "https://earthengine.googleapis.com/v1/projects/earthengine-legacy/thumbnails/939ecaaf0acb79273ff3c22b4a09e93b-288fcb52a39f763a4830a6e5a8cf1dd6:getPixels",
+      "visualization": {
+        "min": -6,
+        "max": 6,
+        "palette": [
+          "2166ac",
+          "f7f7f7",
+          "b2182b"
+        ]
+      },
+      "units": "dB",
+      "mask": "Common valid AOI pixels"
+    }
+  },
+  "limitation": "Research prototype: May 30 follows the documented event peak. Residual water is unverified. These are backscatter observations and exploratory radar change, not confirmed flood extent, depth, classification or detection accuracy."
+}

@@ -1,0 +1,33 @@
+{
+  "annualAssetId": "JRC/GSW1_4/YearlyHistory/2016",
+  "annualClassDefinitions": {
+    "0": "no observations",
+    "1": "not water",
+    "2": "seasonal water",
+    "3": "permanent water"
+  },
+  "annualDataset": "JRC/GSW1_4/YearlyHistory",
+  "annualOriginalProjection": {
+    "crs": "EPSG:4326",
+    "nominalScaleMeters": 29.999999999999996,
+    "transform": "PARAM_MT[\"Affine\", \n  PARAMETER[\"num_row\", 3], \n  PARAMETER[\"num_col\", 3], \n  PARAMETER[\"elt_0_0\", 0.0002694945852358564], \n  PARAMETER[\"elt_0_2\", -180.00001488697754], \n  PARAMETER[\"elt_1_1\", -0.0002694945852358564], \n  PARAMETER[\"elt_1_2\", 78.00008729939917]]"
+  },
+  "annualYear": 2016,
+  "currentWaterStateVerified": false,
+  "eligibilityInferred": false,
+  "futureObservationsUsed": false,
+  "inference": "Only observed annual classes 1, 2 and 3 support analysis; all other states remain unknown.",
+  "maximumWaterMonthsForFallback": null,
+  "method": "yearly-conservative-v1",
+  "minimumNonWaterMonths": null,
+  "monthlyDataset": null,
+  "monthlyEndExclusive": null,
+  "monthlyImageCount": 0,
+  "monthlyImageIds": [],
+  "monthlyStart": null,
+  "nativeScaleMeters": 30,
+  "processingCaveat": "No post-cutoff image entries are used. JRC v1.4 is a retrospective processed archive, not a product claimed to have been available contemporaneously in 2017.",
+  "resampling": "nearest neighbor on before-VV grid",
+  "seasonalWater": "Annual class 2 remains separately identified and potentially eligible; seasonal refilling can be a false candidate.",
+  "version": "phase4b-v1"
+}

@@ -1,0 +1,15 @@
+{
+  "conservativeNativeOnly": 0,
+  "fixedDomain": 2413328.8499619127,
+  "fixedOutsideConservative": 0,
+  "fixedOutsideMonthly": 0,
+  "fixedOutsideSupport_0_final": 0,
+  "fixedOutsideSupport_0_raw": 0,
+  "fixedOutsideSupport_0_terrain": 0,
+  "fixedOutsideSupport_1_final": 0,
+  "fixedOutsideSupport_1_raw": 0,
+  "fixedOutsideSupport_1_terrain": 0,
+  "monthlyNativeOnly": 491912618.59884983,
+  "nativeStageIntersectionDisagreement_0": 0,
+  "nativeStageIntersectionDisagreement_1": 0
+}

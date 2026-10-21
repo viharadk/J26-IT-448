@@ -1,0 +1,332 @@
+{
+  "queriedAt": "2026-10-20T03:08:11.721Z",
+  "productIndex": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+  "sources": {
+    "copernicus": {
+      "url": "https://catalogue.dataspace.copernicus.eu/odata/v1/Products?%24filter=Name+eq+%27S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.SAFE%27&%24expand=Attributes&%24top=2",
+      "ok": true,
+      "status": 200,
+      "record": {
+        "product": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.SAFE",
+        "catalogueId": "8354b92d-75eb-5e7c-bbc3-d0b4ed96d58f",
+        "start": "2016-05-22T12:56:51.949493Z",
+        "end": "2016-05-22T12:57:20.974269Z",
+        "orbitDirection": "ASCENDING",
+        "relativeOrbitNumber": 100,
+        "instrumentMode": "IW",
+        "polarization": "VV",
+        "platform": "A"
+      },
+      "data": {
+        "@odata.context": "$metadata#Products(Attributes())",
+        "value": [
+          {
+            "@odata.mediaContentType": "application/octet-stream",
+            "Id": "8354b92d-75eb-5e7c-bbc3-d0b4ed96d58f",
+            "Name": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.SAFE",
+            "ContentType": "application/octet-stream",
+            "ContentLength": 986538780,
+            "OriginDate": "2019-02-12T14:51:39.478000Z",
+            "PublicationDate": "2017-10-08T02:28:41.214000Z",
+            "ModificationDate": "2025-10-18T02:00:49.695296Z",
+            "Online": true,
+            "EvictionDate": "9999-12-31T23:59:59.999999Z",
+            "S3Path": "/eodata/Sentinel-1/SAR/GRD/2016/05/22/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.SAFE",
+            "Checksum": [
+              {
+                "Value": "c5035d4986f831f2346cef5b92c409b3",
+                "Algorithm": "MD5",
+                "ChecksumDate": "2025-10-18T02:00:47.364908Z"
+              },
+              {
+                "Value": "ae435c9486dd4b9afc4e90e572bd1321680f764114d5ed4d2945120ed7df8f8d",
+                "Algorithm": "BLAKE3",
+                "ChecksumDate": "2025-10-18T02:00:49.211925Z"
+              }
+            ],
+            "ContentDate": {
+              "Start": "2016-05-22T12:56:51.949493Z",
+              "End": "2016-05-22T12:57:20.974269Z"
+            },
+            "Footprint": "geography'SRID=4326;POLYGON ((78.21064 6.875325, 80.442017 7.330577, 80.795532 5.579461, 78.572517 5.119426, 78.21064 6.875325))'",
+            "GeoFootprint": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    78.21064,
+                    6.875325
+                  ],
+                  [
+                    80.442017,
+                    7.330577
+                  ],
+                  [
+                    80.795532,
+                    5.579461
+                  ],
+                  [
+                    78.572517,
+                    5.119426
+                  ],
+                  [
+                    78.21064,
+                    6.875325
+                  ]
+                ]
+              ]
+            },
+            "Attributes": [
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "timeliness",
+                "Value": "Fast-24h",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.IntegerAttribute",
+                "Name": "orbitNumber",
+                "Value": 11372,
+                "ValueType": "Integer"
+              },
+              {
+                "@odata.type": "#OData.CSC.IntegerAttribute",
+                "Name": "sliceNumber",
+                "Value": 1,
+                "ValueType": "Integer"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "productClass",
+                "Value": "S",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "orbitDirection",
+                "Value": "ASCENDING",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "operationalMode",
+                "Value": "IW",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "processingLevel",
+                "Value": "LEVEL1",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "swathIdentifier",
+                "Value": "IW",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "platformShortName",
+                "Value": "SENTINEL-1",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "instrumentShortName",
+                "Value": "SAR",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.IntegerAttribute",
+                "Name": "relativeOrbitNumber",
+                "Value": 100,
+                "ValueType": "Integer"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "polarisationChannels",
+                "Value": "VV",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "platformSerialIdentifier",
+                "Value": "A",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.StringAttribute",
+                "Name": "productType",
+                "Value": "IW_GRDH_1S",
+                "ValueType": "String"
+              },
+              {
+                "@odata.type": "#OData.CSC.DateTimeOffsetAttribute",
+                "Name": "beginningDateTime",
+                "Value": "2016-05-22T12:56:51.949493Z",
+                "ValueType": "DateTimeOffset"
+              },
+              {
+                "@odata.type": "#OData.CSC.DateTimeOffsetAttribute",
+                "Name": "endingDateTime",
+                "Value": "2016-05-22T12:57:20.974269Z",
+                "ValueType": "DateTimeOffset"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "asf": {
+      "url": "https://api.daac.asf.alaska.edu/services/search/param?granule_list=S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75&output=json",
+      "ok": true,
+      "status": 200,
+      "record": {
+        "product": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+        "processingLevel": "GRD_HS",
+        "start": "2016-05-22T12:56:51Z",
+        "end": "2016-05-22T12:57:20Z",
+        "orbitDirection": "ASCENDING",
+        "relativeOrbitNumber": 100,
+        "instrumentMode": "IW",
+        "polarization": "VV",
+        "platform": "Sentinel-1A"
+      },
+      "data": [
+        [
+          {
+            "absoluteOrbit": 11372,
+            "beamMode": "IW",
+            "beamModeType": "IW",
+            "browse": "https://datapool.asf.alaska.edu/BROWSE/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.jpg",
+            "centerLat": "6.2273",
+            "centerLon": "79.5043",
+            "collectionName": null,
+            "configurationName": "Interferometric Wide. 250 km swath, 5 m x 20 m spatial resolution and burst synchronization for interferometry. IW is considered to be the standard mode over land masses.",
+            "doppler": "0",
+            "downloadUrl": "https://datapool.asf.alaska.edu/METADATA_GRD_HS/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.iso.xml",
+            "farEndLat": "7.330577",
+            "farEndLon": "80.442017",
+            "farStartLat": "5.579461",
+            "farStartLon": "80.795532",
+            "faradayRotation": null,
+            "fileName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.iso.xml",
+            "finalFrame": "125",
+            "firstFrame": "125",
+            "flightDirection": "ASCENDING",
+            "flightLine": null,
+            "frameNumber": 14,
+            "granuleName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "granuleType": "SENTINEL_1A_FRAME",
+            "groupID": "S1A_IWSV_0015_0021_011372_100",
+            "insarGrouping": null,
+            "insarStackSize": null,
+            "lookDirection": "R",
+            "md5sum": "38730eedf22f0470bc20d6877923e582",
+            "missionName": null,
+            "nearEndLat": "6.875325",
+            "nearEndLon": "78.21064",
+            "nearStartLat": "5.119426",
+            "nearStartLon": "78.572517",
+            "offNadirAngle": null,
+            "pgeVersion": "002.71",
+            "platform": "Sentinel-1A",
+            "pointingAngle": null,
+            "polarization": "VV",
+            "processingDate": "2016-05-22T12:56:51Z",
+            "processingDescription": "Sentinel-1A ISO 19115-compliant XML metadata file",
+            "processingLevel": "METADATA_GRD_HS",
+            "processingType": "METADATA_GRD_HS",
+            "processingTypeDisplay": "XML Metadata (GRD-HS)",
+            "productName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "product_file_id": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75-METADATA_GRD_HS",
+            "relativeOrbit": 100,
+            "sceneDate": "2016-05-22T12:57:20.000000",
+            "sceneId": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "sensor": "C-SAR",
+            "sizeMB": 0.05518531799316406,
+            "startTime": "2016-05-22T12:56:51Z",
+            "stopTime": "2016-05-22T12:57:20Z",
+            "stringFootprint": "POLYGON ((78.21064 6.875325, 78.572517 5.119426, 80.795532 5.579461, 80.442017 7.330577, 78.21064 6.875325))",
+            "subswath": null,
+            "thumbnailUrl": "https://datapool.asf.alaska.edu/THUMBNAIL/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75_thumb.jpg",
+            "track": 100
+          },
+          {
+            "absoluteOrbit": 11372,
+            "beamMode": "IW",
+            "beamModeType": "IW",
+            "browse": "https://datapool.asf.alaska.edu/BROWSE/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.jpg",
+            "centerLat": "6.2273",
+            "centerLon": "79.5043",
+            "collectionName": null,
+            "configurationName": "Interferometric Wide. 250 km swath, 5 m x 20 m spatial resolution and burst synchronization for interferometry. IW is considered to be the standard mode over land masses.",
+            "doppler": "0",
+            "downloadUrl": "https://datapool.asf.alaska.edu/GRD_HS/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.zip",
+            "farEndLat": "7.330577",
+            "farEndLon": "80.442017",
+            "farStartLat": "5.579461",
+            "farStartLon": "80.795532",
+            "faradayRotation": null,
+            "fileName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75.zip",
+            "finalFrame": "125",
+            "firstFrame": "125",
+            "flightDirection": "ASCENDING",
+            "flightLine": null,
+            "frameNumber": 14,
+            "granuleName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "granuleType": "SENTINEL_1A_FRAME",
+            "groupID": "S1A_IWSV_0015_0021_011372_100",
+            "insarGrouping": null,
+            "insarStackSize": null,
+            "lookDirection": "R",
+            "md5sum": "bece4cb6ca1f4f6eefe294f59e304a38",
+            "missionName": null,
+            "nearEndLat": "6.875325",
+            "nearEndLon": "78.21064",
+            "nearStartLat": "5.119426",
+            "nearStartLon": "78.572517",
+            "offNadirAngle": null,
+            "pgeVersion": "002.71",
+            "platform": "Sentinel-1A",
+            "pointingAngle": null,
+            "polarization": "VV",
+            "processingDate": "2016-05-22T12:56:51Z",
+            "processingDescription": "Sentinel-1A Ground Range High-resolution Single-polarization detected product",
+            "processingLevel": "GRD_HS",
+            "processingType": "L1",
+            "processingTypeDisplay": "L1 Detected High-Res Single-Pol (GRD-HS)",
+            "productName": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "product_file_id": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75-GRD_HS",
+            "relativeOrbit": 100,
+            "sceneDate": "2016-05-22T12:57:20.000000",
+            "sceneId": "S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75",
+            "sensor": "C-SAR",
+            "sizeMB": 554.9344100952148,
+            "startTime": "2016-05-22T12:56:51Z",
+            "stopTime": "2016-05-22T12:57:20Z",
+            "stringFootprint": "POLYGON ((78.21064 6.875325, 78.572517 5.119426, 80.795532 5.579461, 80.442017 7.330577, 78.21064 6.875325))",
+            "subswath": null,
+            "thumbnailUrl": "https://datapool.asf.alaska.edu/THUMBNAIL/SA/S1A_IW_GRDH_1SSV_20160522T125651_20160522T125720_011372_01146A_FD75_thumb.jpg",
+            "track": 100
+          }
+        ]
+      ]
+    }
+  },
+  "assessment": {
+    "independentCataloguesAgree": true,
+    "independentlyCorroboratedStart": "2016-05-22T12:56:51.949493Z",
+    "independentlyCorroboratedEnd": "2016-05-22T12:57:20.974269Z",
+    "originalEarthEngineAcquiredAt": "2016-05-22T00:56:51.950Z",
+    "originalEarthEngineMillis": 1463878611950,
+    "earthEngineMinusCatalogueSeconds": -43199.999,
+    "conclusion": "Two independent public catalogue records support the product-ID time near 12:56:51 UTC. The Earth Engine timestamp conflict remains in original evidence; no source values are overwritten.",
+    "limitations": [
+      "The original SAFE manifest was not inspected; public manifest/ISO access attempts returned authentication requirements.",
+      "The root cause of the Earth Engine metadata discrepancy is not established.",
+      "Corroborating a timestamp does not provide a matching pre-event image or prove floodwater."
+    ]
+  }
+}

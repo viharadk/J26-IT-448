@@ -1,0 +1,21 @@
+{
+  "ahpLandClassUnavailable": 0,
+  "ahpNoData": 0,
+  "ahpUnexpectedCode": 0,
+  "ahpWorldCoverWaterExcluded": 8376990.7513101315,
+  "aoi": 545694693.6182659,
+  "commonDomain": 494325947.44883466,
+  "historicalPermanentExcluded": 190594.37169647217,
+  "historicalUnknown": 0,
+  "ledgerRemainder": 494325947.44883466,
+  "marginal_ahpNoData": 8352.319543636544,
+  "marginal_ahpUnexpectedCode": 0,
+  "marginal_ahpValid": 537220818.2318808,
+  "marginal_ahpWorldCoverWater": 8465523.066841334,
+  "marginal_historicalPermanent": 3626612.0293023204,
+  "marginal_historicalUnknown": 0,
+  "marginal_terrainUnknown": 0,
+  "missingSar": 39536300.7142982,
+  "smoothingUnsupported": 3264860.332126184,
+  "terrainUnknown": 0
+}

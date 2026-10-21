@@ -1,0 +1,1042 @@
+{
+  "status": "running",
+  "startedAt": "2026-10-20T17:06:07.298Z",
+  "sceneIds": {
+    "before": "COPERNICUS/S1_GRD/S1A_IW_GRDH_1SDV_20170524T002512_20170524T002537_016716_01BC28_3CCB",
+    "later": "COPERNICUS/S1_GRD/S1B_IW_GRDH_1SDV_20170530T002430_20170530T002501_005820_00A340_FB2A"
+  },
+  "filters": {
+    "terrainFilter": "slope-v1",
+    "maxSlopeDegrees": 5,
+    "clusterFilter": "connected-v1",
+    "minConnectedPixels": 8
+  },
+  "classes": [
+    {
+      "code": 1,
+      "label": "Low"
+    },
+    {
+      "code": 2,
+      "label": "Moderate"
+    },
+    {
+      "code": 3,
+      "label": "High"
+    },
+    {
+      "code": 4,
+      "label": "Very High"
+    }
+  ],
+  "scenarios": [
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "raw",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 1.0731410632400513,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737657636,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.00932312737390413,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0.017036433029695378
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.029313971712691,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.8013066073129991
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.8450224817581177,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.72855270219878,
+          "candidateSharePercent": 78.74290815103163,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1408069632876539
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.21845474988179,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5327268072690372
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.9117552731781006,
+          "candidateRate": 0.4681723537526955
+        },
+        "higherToLowerRateRatio": 1.3514112661821396,
+        "rateDifferencePercentagePoints": 12.174017173061923
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "terrain",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9707867079315186,
+      "nonCandidateAreaKm2": 1.442542142030394,
+      "candidateRate": 0.40226043290653885,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128414732,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5819126608585571
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7987991075668335,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218251481,
+          "candidateSharePercent": 82.28368817171553,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1921048718618656
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699869742,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5827143061632863
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.864831560256958,
+          "candidateRate": 0.4440777466034043
+        },
+        "higherToLowerRateRatio": 1.9524683961795222,
+        "rateDifferencePercentagePoints": 21.663347786525208
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "final",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9378697990951538,
+      "nonCandidateAreaKm2": 1.4754590508667589,
+      "candidateRate": 0.38862080445852015,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.09985185403442383,
+          "nonCandidateAreaKm2": 0.3527923232650757,
+          "candidatePercent": 22.059679333587273,
+          "candidateSharePercent": 10.646664828184015,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5676402055809607
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7767877766876221,
+          "nonCandidateAreaKm2": 0.8889851199194216,
+          "candidatePercent": 46.632273719294794,
+          "candidateSharePercent": 82.8246924506001,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1999428024515897
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06123016837310791,
+          "nonCandidateAreaKm2": 0.22047475139716652,
+          "candidatePercent": 21.73556941179447,
+          "candidateSharePercent": 6.528642721215896,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5593002011840166
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.09985185403442383,
+          "candidateRate": 0.2143428839603327
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.83801794506073,
+          "candidateRate": 0.43030936630621236
+        },
+        "higherToLowerRateRatio": 2.0075747715788292,
+        "rateDifferencePercentagePoints": 21.596648234587967
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "raw",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 494.3259474488271,
+      "candidateAreaKm2": 5.935594895981015,
+      "nonCandidateAreaKm2": 488.3903525528461,
+      "candidateRate": 0.012007451614899238,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.34961626576685,
+          "candidateAreaKm2": 0.0036019896087646484,
+          "nonCandidateAreaKm2": 144.3460142761581,
+          "candidatePercent": 0.0024953233004325454,
+          "candidateSharePercent": 0.060684559372533184,
+          "domainSharePercent": 29.201302705379433,
+          "enrichmentRatio": 0.002078145621953843
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.8589954028214,
+          "candidateAreaKm2": 1.2119243941116333,
+          "nonCandidateAreaKm2": 208.64707100870976,
+          "candidatePercent": 0.5774946133642551,
+          "candidateSharePercent": 20.41790949938693,
+          "domainSharePercent": 42.45356661649773,
+          "enrichmentRatio": 0.4809468585721228
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678097474,
+          "candidateAreaKm2": 4.345383598930539,
+          "nonCandidateAreaKm2": 118.6219431820442,
+          "candidatePercent": 3.5337708907589653,
+          "candidateSharePercent": 73.20889776141551,
+          "domainSharePercent": 24.875758073311417,
+          "enrichmentRatio": 2.9429815785175824
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.37468491333007814,
+          "nonCandidateAreaKm2": 16.77532408593391,
+          "candidatePercent": 2.184750534802391,
+          "candidateSharePercent": 6.312508179825023,
+          "domainSharePercent": 3.4693726048113964,
+          "enrichmentRatio": 1.8194955972935014
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.2086116685882,
+          "candidateAreaKm2": 1.215526383720398,
+          "candidateRate": 0.0034316680726489317
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023873,
+          "candidateAreaKm2": 4.720068512260617,
+          "candidateRate": 0.033686541968394365
+        },
+        "higherToLowerRateRatio": 9.816375376419042,
+        "rateDifferencePercentagePoints": 3.0254873895745433
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -1.1920928955078125e-7,
+        "candidateResidualM2": 9.313225746154785e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "terrain",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 494.3259474488424,
+      "candidateAreaKm2": 5.284160515297116,
+      "nonCandidateAreaKm2": 489.04178693354527,
+      "candidateRate": 0.010689628053247137,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.3496162657898,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 144.3496162657898,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 29.201302705383164,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.85899540281378,
+          "candidateAreaKm2": 0.8893556043624878,
+          "nonCandidateAreaKm2": 208.96963979845128,
+          "candidatePercent": 0.42378722086961984,
+          "candidateSharePercent": 16.830594032635695,
+          "domainSharePercent": 42.453566616494875,
+          "enrichmentRatio": 0.3964471156139881
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678097476,
+          "candidateAreaKm2": 4.031225430290402,
+          "nonCandidateAreaKm2": 118.93610135068435,
+          "candidatePercent": 3.2782898805881047,
+          "candidateSharePercent": 76.28885266865774,
+          "domainSharePercent": 24.875758073310646,
+          "enrichmentRatio": 3.0667950879659225
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.36357948064422607,
+          "nonCandidateAreaKm2": 16.786429518619762,
+          "candidatePercent": 2.1199958592431614,
+          "candidateSharePercent": 6.880553298706575,
+          "domainSharePercent": 3.469372604811289,
+          "enrichmentRatio": 1.9832269641965519
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.20861166860357,
+          "candidateAreaKm2": 0.8893556043624878,
+          "candidateRate": 0.0025108243421099147
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023876,
+          "candidateAreaKm2": 4.394804910934628,
+          "candidateRate": 0.03136517609660719
+        },
+        "higherToLowerRateRatio": 12.491983437698462,
+        "rateDifferencePercentagePoints": 2.8854351754497274
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -5.960464477539063e-8,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "final",
+      "domainKind": "reference-specific-stage-shared",
+      "commonDomainAreaKm2": 494.3259474488042,
+      "candidateAreaKm2": 5.232837089302063,
+      "nonCandidateAreaKm2": 489.09311035950213,
+      "candidateRate": 0.010585802983453567,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 144.34961626577453,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 144.34961626577453,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 29.201302705382336,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 209.85899540279848,
+          "candidateAreaKm2": 0.8749479642028809,
+          "nonCandidateAreaKm2": 208.98404743859558,
+          "candidatePercent": 0.41692183007143735,
+          "candidateSharePercent": 16.72033639250134,
+          "domainSharePercent": 42.45356661649507,
+          "enrichmentRatio": 0.3938499806987893
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 122.96732678096713,
+          "candidateAreaKm2": 3.9998122466278074,
+          "nonCandidateAreaKm2": 118.96751453433933,
+          "candidatePercent": 3.2527439209542113,
+          "candidateSharePercent": 76.43678139350003,
+          "domainSharePercent": 24.875758073311026,
+          "enrichmentRatio": 3.0727417901490353
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 17.15000899926399,
+          "candidateAreaKm2": 0.35807687847137454,
+          "nonCandidateAreaKm2": 16.791932120792612,
+          "candidatePercent": 2.0879107322144366,
+          "candidateSharePercent": 6.84288221399863,
+          "domainSharePercent": 3.4693726048115567,
+          "enrichmentRatio": 1.9723687805998313
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 354.208611668573,
+          "candidateAreaKm2": 0.8749479642028809,
+          "candidateRate": 0.0024701487636939637
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 140.11733578023112,
+          "candidateAreaKm2": 4.357889125099182,
+          "candidateRate": 0.031101712724072705
+        },
+        "higherToLowerRateRatio": 12.591028192796738,
+        "rateDifferencePercentagePoints": 2.863156396037874
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -5.960464477539063e-8,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "raw",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 1.0731410632400513,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737657636,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.00932312737390413,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0.017036433029695378
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.029313971712691,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.8013066073129991
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.8450224817581177,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.72855270219878,
+          "candidateSharePercent": 78.74290815103163,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1408069632876539
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.21845474988179,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5327268072690372
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.9117552731781006,
+          "candidateRate": 0.4681723537526955
+        },
+        "higherToLowerRateRatio": 1.3514112661821396,
+        "rateDifferencePercentagePoints": 12.174017173061923
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "terrain",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 0.9707867079391479,
+      "nonCandidateAreaKm2": 1.442542142030394,
+      "candidateRate": 0.4022604329084285,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128328956,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.5819126608558235
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.7987991075744629,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218275319,
+          "candidateSharePercent": 82.28368817185476,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1921048718621918
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699816286,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.582714306160549
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.8648315602645874,
+          "candidateRate": 0.4440777466055823
+        },
+        "higherToLowerRateRatio": 1.952468396189098,
+        "rateDifferencePercentagePoints": 21.663347786743007
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-conservative-v1",
+      "stage": "final",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499619128,
+      "candidateAreaKm2": 0.9378697990951538,
+      "nonCandidateAreaKm2": 1.4754590508667589,
+      "candidateRate": 0.38862080445852015,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428253798,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.09985185403442383,
+          "nonCandidateAreaKm2": 0.3527923232650757,
+          "candidatePercent": 22.059679333587273,
+          "candidateSharePercent": 10.646664828184015,
+          "domainSharePercent": 18.756009041479913,
+          "enrichmentRatio": 0.5676402055809607
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.6657728966070438,
+          "candidateAreaKm2": 0.7767877766876221,
+          "nonCandidateAreaKm2": 0.8889851199194216,
+          "candidatePercent": 46.632273719294794,
+          "candidateSharePercent": 82.8246924506001,
+          "domainSharePercent": 69.02386703881376,
+          "enrichmentRatio": 1.1999428024515897
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06123016837310791,
+          "nonCandidateAreaKm2": 0.22047475139716652,
+          "candidatePercent": 21.73556941179447,
+          "candidateSharePercent": 6.528642721215896,
+          "domainSharePercent": 11.672877476880961,
+          "enrichmentRatio": 0.5593002011840166
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.09985185403442383,
+          "candidateRate": 0.2143428839603327
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163773183,
+          "candidateAreaKm2": 0.83801794506073,
+          "candidateRate": 0.43030936630621236
+        },
+        "higherToLowerRateRatio": 2.0075747715788292,
+        "rateDifferencePercentagePoints": 21.596648234587967
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 4.656612873077393e-10,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "raw",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 1.0731410632400513,
+      "nonCandidateAreaKm2": 1.340187786729491,
+      "candidateRate": 0.44467253737657636,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0.00010005030822753907,
+          "nonCandidateAreaKm2": 0.013106805976867676,
+          "candidatePercent": 0.7575633903160759,
+          "candidateSharePercent": 0.00932312737390413,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0.017036433029695378
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.16128573975372315,
+          "nonCandidateAreaKm2": 0.2913584375457764,
+          "candidatePercent": 35.631904229048715,
+          "candidateSharePercent": 15.029313971712691,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.8013066073129991
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.8450224817581177,
+          "nonCandidateAreaKm2": 0.8207504148565554,
+          "candidatePercent": 50.72855270219878,
+          "candidateSharePercent": 78.74290815103163,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1408069632876539
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06673279141998291,
+          "nonCandidateAreaKm2": 0.21497212835029153,
+          "candidatePercent": 23.688898111684512,
+          "candidateSharePercent": 6.21845474988179,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5327268072690372
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.1613857900619507,
+          "candidateRate": 0.34643218202207626
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.9117552731781006,
+          "candidateRate": 0.4681723537526955
+        },
+        "higherToLowerRateRatio": 1.3514112661821396,
+        "rateDifferencePercentagePoints": 12.174017173061923
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": 0
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "terrain",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499695427,
+      "candidateAreaKm2": 0.9707867079391479,
+      "nonCandidateAreaKm2": 1.4425421420303945,
+      "candidateRate": 0.40226043290842844,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236496,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10595514767456055,
+          "nonCandidateAreaKm2": 0.34668902962493897,
+          "candidatePercent": 23.40804388707591,
+          "candidateSharePercent": 10.914359128328956,
+          "domainSharePercent": 18.75600904142061,
+          "enrichmentRatio": 0.5819126608558236
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.7987991075744629,
+          "nonCandidateAreaKm2": 0.8669737890402102,
+          "candidatePercent": 47.95366218275319,
+          "candidateSharePercent": 82.28368817185476,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1921048718621918
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06603245269012452,
+          "nonCandidateAreaKm2": 0.21567246708014992,
+          "candidatePercent": 23.440290905807696,
+          "candidateSharePercent": 6.801952699816286,
+          "domainSharePercent": 11.672877476844057,
+          "enrichmentRatio": 0.5827143061605491
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10595514767456055,
+          "candidateRate": 0.22744426873815224
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.8648315602645874,
+          "candidateRate": 0.4440777466055823
+        },
+        "higherToLowerRateRatio": 1.952468396189098,
+        "rateDifferencePercentagePoints": 21.663347786743007
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": -4.656612873077393e-10,
+        "candidateResidualM2": 1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    },
+    {
+      "referenceMethod": "yearly-monthly-dry-v1",
+      "stage": "final",
+      "domainKind": "identical-cross-reference",
+      "commonDomainAreaKm2": 2.4133288499695422,
+      "candidateAreaKm2": 0.9635829000625611,
+      "nonCandidateAreaKm2": 1.4497459499069811,
+      "candidateRate": 0.399275424099257,
+      "rows": [
+        {
+          "code": 1,
+          "label": "Low",
+          "domainAreaKm2": 0.013206856285095214,
+          "candidateAreaKm2": 0,
+          "nonCandidateAreaKm2": 0.013206856285095214,
+          "candidatePercent": 0,
+          "candidateSharePercent": 0,
+          "domainSharePercent": 0.5472464428236498,
+          "enrichmentRatio": 0
+        },
+        {
+          "code": 2,
+          "label": "Moderate",
+          "domainAreaKm2": 0.4526441772994995,
+          "candidateAreaKm2": 0.10415410767364502,
+          "nonCandidateAreaKm2": 0.3484900696258545,
+          "candidatePercent": 23.01015077561237,
+          "candidateSharePercent": 10.809044833286558,
+          "domainSharePercent": 18.756009041420615,
+          "enrichmentRatio": 0.5762976979492785
+        },
+        {
+          "code": 3,
+          "label": "High",
+          "domainAreaKm2": 1.665772896614673,
+          "candidateAreaKm2": 0.794796968421936,
+          "nonCandidateAreaKm2": 0.8709759281927371,
+          "candidatePercent": 47.71340499279288,
+          "candidateSharePercent": 82.48350695828387,
+          "domainSharePercent": 69.02386703891167,
+          "enrichmentRatio": 1.1949997949518594
+        },
+        {
+          "code": 4,
+          "label": "Very High",
+          "domainAreaKm2": 0.28170491977027445,
+          "candidateAreaKm2": 0.06463182396697999,
+          "nonCandidateAreaKm2": 0.21707309580329445,
+          "candidatePercent": 22.943093794629547,
+          "candidateSharePercent": 6.707448208429574,
+          "domainSharePercent": 11.672877476844059,
+          "enrichmentRatio": 0.5746182311718254
+        }
+      ],
+      "groupedComparison": {
+        "lower": {
+          "codes": [
+            1,
+            2
+          ],
+          "domainAreaKm2": 0.46585103358459473,
+          "candidateAreaKm2": 0.10415410767364502,
+          "candidateRate": 0.22357814014537652
+        },
+        "higher": {
+          "codes": [
+            3,
+            4
+          ],
+          "domainAreaKm2": 1.9474778163849473,
+          "candidateAreaKm2": 0.859428792388916,
+          "candidateRate": 0.4413035081366172
+        },
+        "higherToLowerRateRatio": 1.9738222522544904,
+        "rateDifferencePercentagePoints": 21.772536799124065
+      },
+      "accounting": {
+        "toleranceM2": 1,
+        "passed": true,
+        "domainResidualM2": 0,
+        "candidateResidualM2": -1.1641532182693481e-10
+      },
+      "estimability": "Area-based descriptive measures only."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "auditedAt": "2026-10-20T18:27:57.473Z",
+  "resultsSha256": "a7dd1eff4bd58b44bdbb87b58f8ac30871665420fc1560a26841ff0955638a33",
+  "originalMeasurementSourceHashes": {
+    "services/hazardService.js": "090125a4b2ebf6f1642abb48d1a1855a927ac3a1aff4a22e6752c0000c8cbb69",
+    "services/ahpService.js": "842d69956820879f168efdf3b7e3d1ddac1892b70d11f30845d2daa3e1e79714",
+    "controllers/floodController.js": "c91caf773b9e6446120bac990cd9cac8ae9a4d61276ff1de6653bc1175b2e789",
+    "services/sarPreviewService.js": "055bebc3425d701d84f4e7ee519bfc7925b9dd6f0f855817ef4702efea8ffd23",
+    "services/sarPixelQuality.js": "c374431a50adcc0b986fbc57444af94be2747dfb36c51a3eb2040f9c3f4e6303",
+    "services/sarCandidateService.js": "c1c532e64ad6b270b1ecb647ede39204f732b6abfccfd7e3f3b0bee3708b18dd",
+    "services/sarFiltering.js": "87860f05d7e2e35175e19fcf63ff652679439381a7b52161c89d7b390f820e7d",
+    "services/sarWaterReferenceService.js": "3f0f62cdfc455d48748169471871cb9ad30fb031efdbb3edd6e717286df3dafd",
+    "services/ahpSarResearchService.js": "c53458203f349fda4c5b207601078b2373e36800190a0e3941270d28e35fbcec",
+    "scripts/run-ahp-sar-research.js": "00adb00686fa805e3dc857765e599ca8104056a4ad757f9c9dbec63a7e0181bb",
+    "tests/ahpSarResearch.test.js": "b9a97c3a4bd49ebe47049fc6ea4e895ab499480df0f893d833e92ece14b7b5d1",
+    "research/phase5c/uncertaintyService.js": "a02c6a6e5ea2441b2ec7b3b39a363a7a9c317fe43ef50fcb9444333df559ffd6",
+    "scripts/run-phase5c-uncertainty.js": "e871f07d6a6f38e05e50fa5027107bf741dc164cc2dc25273a400525437bf28e"
+  },
+  "auditSourceHashes": {
+    "research/phase5c/uncertaintyService.js": "1dec944bedf10d9fbcf6d4cfaa2ab695c7913f11e55e5edd6049d368432c2b88",
+    "scripts/audit-phase5c-results.js": "db1ca348e4b79b302dc8b9871120bcb42565817da9916c5fed87722d6ec2d6fc"
+  },
+  "explanation": "Additional validation assertions were added while the measurement run was executing. This offline audit applies them to the preserved results and raw control measurements; measurement source snapshots remain unchanged.",
+  "checks": [
+    "12-scenario matrix and accounting",
+    "fixed class denominators",
+    "matched native subsets",
+    "stage candidate nonincrease",
+    "response partition identities including individual method totals",
+    "original class identity",
+    "class loss partition",
+    "native shared/exclusive partition",
+    "zero spatial support leaks",
+    "unchanged sensitivity calculations",
+    "Phase 5A reproduction"
+  ]
+}
