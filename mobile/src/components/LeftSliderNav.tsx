@@ -21,10 +21,12 @@ import { useAppTheme } from '../context/ThemeContext';
 
 const PANEL_WIDTH = 310;
 
+type AppRoute = '/' | '/alerts' | '/history' | '/settings' | '/gis-flood';
+
 interface NavItem {
   id: string;
   name: string;
-  route: string;
+  route: AppRoute;
   emoji: string;
   description: string;
   badge?: string;
@@ -60,6 +62,14 @@ const MAIN_NAV_ITEMS: NavItem[] = [
     emoji: '⚙️',
     description: 'Dark mode & system preferences',
   },
+  {
+    id: 'gis-flood',
+    name: 'GIS FloodWatch',
+    route: '/gis-flood',
+    emoji: '🗺️',
+    description: 'AHP hazard maps & historical SAR research',
+    badge: 'GIS',
+  },
 ];
 
 interface UpcomingFeature {
@@ -91,13 +101,6 @@ const UPCOMING_FEATURES: UpcomingFeature[] = [
     emoji: '📡',
     tag: 'IoT',
     description: 'Hardware voltage, RSSI signal & calibration',
-  },
-  {
-    id: 'gis_basin',
-    name: 'River Basin GIS',
-    emoji: '🗺️',
-    tag: 'GIS',
-    description: 'Catchment topography & rain runoff radar',
   },
 ];
 
@@ -235,22 +238,18 @@ export default function LeftSliderNav() {
     return () => pulse.stop();
   }, [statusPulseAnim]);
 
-  const handleNavigate = (route: string) => {
+  const handleNavigate = (route: AppRoute) => {
     closeSlider();
     setTimeout(() => {
       if (route === '/' && pathname !== '/') {
         router.replace('/');
-      } else if (route === '/alerts' && pathname !== '/alerts') {
-        router.push('/alerts');
-      } else if (route === '/history' && pathname !== '/history') {
-        router.push('/history');
-      } else if (route === '/settings' && pathname !== '/settings') {
-        router.push('/settings');
+      } else if (route !== '/' && pathname !== route) {
+        router.push(route);
       }
     }, 100);
   };
 
-  const isActive = (route: string) => {
+  const isActive = (route: AppRoute) => {
     if (route === '/') {
       return pathname === '/' || pathname === '/index' || pathname === '';
     }

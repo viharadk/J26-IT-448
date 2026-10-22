@@ -26,6 +26,7 @@ function TabLayoutInner() {
         <Tabs.Screen name="alerts" options={{ title: 'Alerts' }} />
         <Tabs.Screen name="history" options={{ title: 'History' }} />
         <Tabs.Screen name="settings" options={{ title: 'Settings' }} />
+        <Tabs.Screen name="gis-flood" options={{ href: null }} />
         {/* Hidden screen */}
         <Tabs.Screen name="explore" options={{ href: null }} />
       </Tabs>

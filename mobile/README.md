@@ -54,3 +54,29 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## GIS FloodWatch integration
+
+Kelani FloodWatch is integrated into this Expo Router application at
+`src/app/gis-flood/`. Open the left-side navigation and choose **GIS
+FloodWatch** to access:
+
+- GIS-AHP flood hazard mapping and selected-location analysis
+- Study-area population exposure and hazard summaries
+- The five-step historical Sentinel-1 SAR research workflow
+
+The interactive Earth Engine maps use `react-native-maps` on Android and iOS.
+Web builds show explicit non-map fallbacks while retaining the research summary
+screens.
+
+Copy `.env.example` to an ignored `.env` and set `EXPO_PUBLIC_API_URL` to the
+root backend origin. A physical phone must use the computer's LAN address, for
+example `http://192.168.1.100:3000`; do not use `localhost` from a phone.
+
+`GOOGLE_MAPS_ANDROID_API_KEY` is optional in Expo Go but required for a
+production Android build that uses Google Maps. Keep it restricted in Google
+Cloud and never commit it. The Earth Engine service-account key belongs only on
+the backend and must never use an `EXPO_PUBLIC_` variable.
+
+GIS and SAR results are research outputs, not an operational flood warning or
+independently validated flood extent.

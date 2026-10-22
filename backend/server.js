@@ -9,6 +9,27 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// GIS FloodWatch APIs. Earth Engine credentials are loaded lazily by the
+// service layer so these route registrations do not affect sensor endpoints.
+app.use(
+  "/api/sar",
+  require("./routes/sarSelectionRoutes").createSarSelectionRouter()
+);
+app.use(
+  "/api/sar",
+  require("./routes/sarPreviewRoutes").createSarPreviewRouter()
+);
+app.use("/api/sar", require("./routes/sarRoutes").createSarRouter());
+app.use(
+  "/api/geocoding",
+  require("./routes/geocodingRoutes").createGeocodingRouter()
+);
+app.use(
+  "/api/research",
+  require("./routes/researchRoutes").createResearchRouter()
+);
+app.use("/api/flood", require("./routes/floodRoutes"));
+
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -80,6 +101,17 @@ const SAVE_INTERVAL_MS = 60 * 1000;
 app.get("/", (req, res) => {
   res.json({
     message: "River Water Monitoring API is running",
+  });
+});
+
+// Lightweight GIS health check; it deliberately does not initialize Earth Engine.
+app.get("/api/flood/test", (req, res) => {
+  res.json({
+    success: true,
+    component: "GIS-Based Flood Risk Simulation",
+    function1: "Flood Hazard Estimation",
+    function2: "Scenario-Based Flood Risk Simulation",
+    status: "Flood API is working",
   });
 });
 
