@@ -66,7 +66,9 @@ function getRiskLevel(waterLevel, sensorHeight) {
 }
 
 function toWaterLevel(distance, sensorHeight) {
-  if (typeof distance !== "number") return null;
+  if (typeof distance !== 'number' || Number.isNaN(distance)) {
+    return null;
+  }
   const level = sensorHeight - distance;
   return Math.max(0, Math.min(sensorHeight, Number(level.toFixed(2))));
 }

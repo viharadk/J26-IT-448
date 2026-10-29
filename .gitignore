@@ -65,7 +65,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
+# dotenv environment variable files — NEVER commit real .env files
 .env
 .env.*
 !.env.example
@@ -85,8 +85,6 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
 # vuepress build output
@@ -141,3 +139,24 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# ─── Expo / React Native ──────────────────────────────────────────────────────
+mobile/.expo/
+mobile/dist/
+mobile/web-build/
+mobile/.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.metro-health-check*
+
+# ─── Empty placeholder directories ───────────────────────────────────────────
+# state/ is empty and not tracked
+state/
+
+# ─── Screenshots (added by developers, not committed unless intentional) ──────
+docs/screenshots/*
+!docs/screenshots/.gitkeep
