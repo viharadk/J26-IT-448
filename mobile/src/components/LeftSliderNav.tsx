@@ -44,7 +44,6 @@ const MAIN_NAV_ITEMS: NavItem[] = [
     route: '/alerts',
     emoji: '🔔',
     description: 'Active alarms & safety thresholds',
-    badge: '1 Alert',
   },
   {
     id: 'history',
