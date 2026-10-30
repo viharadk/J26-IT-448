@@ -2,27 +2,44 @@
 
 **Group:** J26-IT-448 · SLIIT Research Project
 
-A modular, multi-component system that monitors Kelani River water levels in real time using IoT ultrasonic sensors and a React Native mobile application, with architectural provisions for future machine-learning flood prediction.
+A modular research system combining IoT-based river monitoring, locally executed FloodEdge forecasting, a backend and mobile application, and a separately developed machine-learning component for longer-range river-level forecasting at Hanwella. **The standalone ML pipeline and forecasting dashboard have been developed; automatic data ingestion and integration with the group backend/mobile app are still pending.**
 
-The sensing layer is **FloodEdge**: flood forecasting runs *on the ESP32 nodes themselves*, so the network keeps producing 15/30/60-minute stage forecasts with uncertainty bands even when cellular and grid backhaul fail.
+The sensing layer is **FloodEdge**: short-range forecasting runs *on ESP32 nodes themselves*, allowing local forecasts and decision support even if the upstream network connection fails. **Kelani Guard ML-Based Rainfall and River-Level Forecasting**, developed separately in Python, uses historical water-level and rainfall patterns to estimate Hanwella levels **1, 3, 6, 12 and 24 hours ahead**. These serve different forecasting horizons and are not yet a single deployed prediction engine.
 
 ---
 
 ## 📐 System Overview
 
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│                      Kelani Guard System                         │
-│                                                                  │
-│  [FloodEdge ESP32 nodes] ── POST ─► [Backend API + MongoDB]       │
-│                                           │                      │
-│                                  GET /api/readings/*             │
-│                                           │                      │
-│                                [React Native Mobile App]         │
-│                                                                  │
-│  [ML Prediction Service] ─── (Future Integration) ───► [Backend] │
-└──────────────────────────────────────────────────────────────────┘
+                   KELANI GUARD — CURRENT COMPONENTS AND PLANNED LINKS
+
+    [FloodEdge ESP32 sensing / local forecasts]
+                 |                    |
+           local forecasts       sensor readings
+                 |                    |
+           [Firebase RTDB]       [Backend API + MongoDB]
+                 |                    |
+           [FloodEdge console]   [React Native mobile app]
+
+    [Historical river levels + rainfall / public event records]
+                              |
+                      [Python ML pipeline]
+                 clean -> 48-h features -> train/test
+                              |
+              [Saved models: XGBoost / LSTM / GRU / ...]
+                              |
+                 [1 / 3 / 6 / 12 / 24-h forecasts]
+                              |
+                  [forecast JSON + ML web demo]
+                              |
+                  FUTURE BACKEND INTEGRATION
+                              v
+                      [Backend API + DB]
+                              |
+                 [Mobile / alert / decision modules]
 ```
+
+**Integration status:** The existing backend reading endpoints and mobile app are documented below. No ML forecast-ingestion endpoint or confirmed automatic ML-to-backend connection is documented in this repository yet. The ML web dashboard demonstrates forecast presentation and river-condition scenarios. Do not treat its scenario buttons as live IoT or API-fed model inference without verifying the connection.
 
 | Component | Technology | Owner | Location | Status |
 |---|---|---|---|---|
@@ -30,7 +47,46 @@ The sensing layer is **FloodEdge**: flood forecasting runs *on the ESP32 nodes t
 | **FloodEdge Web Console** | Single-file HTML/JS · Firebase RTDB | Karunatilake V.D. (Vihara) | `components/iot-esp32/dashboard/`, `simulator/` | Implemented (Working) |
 | **Mobile Frontend** | React Native · Expo Router | Pasindu | `mobile/` *(docs in `components/mobile-frontend/`)* | Implemented (Working) |
 | **Backend API** | Node.js · Express · MongoDB | Backend member | `backend/` *(docs in `components/backend-api/`)* | Implemented (Working) |
-| **ML Prediction** | Python (Planned) | ML member | `components/ml-prediction/` | Future Component (Not Implemented Yet) |
+| **ML-Based Rainfall & River-Level Forecasting** | Python · pandas · scikit-learn · XGBoost · TensorFlow/Keras · Google Colab | Vijayarathne K.A.D.K.B. (IT23209398) | Standalone notebook `KelaniGuard_Advanced_Flood_Forecasting_v2.ipynb`; repository specification at `components/ml-prediction/` | Training/evaluation pipeline, saved models, JSON output and separate web UI demonstrated; group API/mobile integration pending |
+
+### ML-based river-level forecasting at a glance
+
+**Owner:** Vijayarathne K.A.D.K.B. (IT23209398)  
+**Research component:** ML-Based Rainfall and River-Level Forecasting  
+**Study area:** Hanwella gauge, Kelani River Basin  
+**Implementation:** Separate Google Colab / Python notebook and a local river-forecasting web interface  
+**Status:** Standalone forecasting workflow developed and executed; larger-scale validation and group-system integration remain outstanding.
+
+The ML component predicts river levels **1, 3, 6, 12 and 24 hours ahead**. It is intended to complement the FloodEdge node-level method, which supports much shorter local forecasts. The ML component is **decision support only**, not a replacement for official hydrological warnings and not an automatic reservoir gate controller.
+
+| Aspect | Current ML implementation |
+|---|---|
+| Main objective | Forecast future Hanwella gauge levels, with forecast ranges and point-estimate risk labels |
+| Source data | River-level and rainfall CSV files; public November 2025 Ditwah record used for a separate preliminary event check |
+| Development dataset | Simulated hourly Kelani-format dataset informed by the public event; **not** official long-term Irrigation Department observations |
+| Input history | A 48-hour feature window, including Hanwella level, upstream levels, historical rainfall and derived features |
+| Input stations | Hanwella target gauge; Glencourse and Deraniyagala upstream gauges; configurable rainfall stations |
+| Forecast horizons | 1, 3, 6, 12 and 24 hours |
+| Candidate models | Ridge regression; three XGBoost configurations; LSTM, GRU, stacked LSTM, CNN-LSTM; equal-weight ensemble, plus persistence baselines |
+| Training/evaluation | Chronological 60% training, 15% validation, 10% calibration, 15% final test; a 24-hour boundary embargo |
+| Model selection | Lowest validation RMSE for each target/horizon, then test evaluation |
+| Forecast outputs | Future river level, lower/upper interval, optional rainfall accumulation target, risk label, selected model, generation timestamp and model version |
+| Artifacts | `.keras`, `.ubj`, `scalers.joblib`, `metadata.json`, `forecast_output.json`, evaluation tables and plots |
+
+**Completed development-run evidence:** A recorded full run processed **50,236 usable windows**, compared **nine trained candidates**, selected `xgb_1` for 1h and 3h, an ensemble for 6h and 12h, and stacked LSTM for 24h. It also exported saved model artifacts and prediction JSON. These are **development-run results**, not demonstrated long-term operational accuracy. The run scorecard also reported **two failed acceptance checks**, which require follow-up.
+
+**Public-event evaluation:** The notebook contains a preliminary check using a short public Ditwah event series and the no-rain fallback model. A short event check is not equivalent to validation across several years and flood conditions.
+
+**Frontend demonstration:** The separate River Forecast web UI shows a Hanwella overview, past readings, five forecast points, uncertainty bands, and river-condition selectors (`Normal`, `Rising`, `High water`, `Data unavailable`). These selectors demonstrate display and risk-classification behaviour. They are not evidence that the current React Native mobile app or backend receives forecasts automatically.
+
+#### Why this component matters to the whole project
+
+- **FloodEdge / IoT:** Supplies physical measurements and short-range on-device forecasts. Once measurements are aligned by station, time, gauge reference and units, suitable historical observations could be used as future inputs to the ML forecasting service. One local ultrasonic sensor is **not** interchangeable with the three gauge series and rainfall features expected by the current ML model.
+- **Backend / database:** Is the proposed central place to store time-stamped inputs and share ML-generated forecasts with other applications. Existing `/api/readings/*` endpoints handle readings; forecast endpoints are **not yet implemented in the shared README**.
+- **Mobile app / web dashboard:** Can eventually display forecasts, their issue time, interval bounds, risk labels and stale-data status. The independent ML web demo is not the same as the team's React Native app.
+- **Flood-risk and decision modules:** Can use validated forecast outputs as one input to risk interpretation and alert preparation. Forecasts must not directly command reservoir gates.
+
+**Next steps:** Obtain more extensive verified historical river-level and rainfall records (ideally from the Irrigation Department and relevant weather data providers), retrain and validate across multiple flood events, establish reliable recent-observation ingestion, agree on an ML API contract with the backend team, and connect the mobile/alert consumers. See [ML Forecasting Integration Plan](docs/ml-forecasting-integration.md).
 
 ### FloodEdge at a glance
 
@@ -59,7 +115,7 @@ Lead time shortens as events get faster; this is a real limit of the approach an
 > **Mobile Source Code vs. Documentation Structure:**
 > - `mobile/` contains the actual working React Native Expo application source code, dependencies, and configuration.
 > - `components/mobile-frontend/` contains component-level documentation and GitHub collaboration guidelines.
-> - `components/ml-prediction/` currently defines the interface specification and payload contracts; the ML model and prediction engine will be developed in a future project phase.
+> - `components/ml-prediction/` is the repository location reserved for the component specification and contracts. ML development is already underway in a **separate notebook and saved run artifacts**; source/artifact migration and API integration with this repository remain future tasks.
 
 ---
 
@@ -78,6 +134,7 @@ Research project/
 │   │   ├── wiring-connections.md ← GPIO pin mappings & schematic notes
 │   │   └── sensor-calibration.md ← 200 cm sensor calibration & filtering
 │   ├── api-integration.md      ← Backend API usage & payload format
+│   ├── ml-forecasting-integration.md ← ML component, evidence and proposed connection
 │   ├── testing/
 │   │   └── test-plan.md        ← Component-level test procedures
 │   └── screenshots/            ← Project UI & hardware setup screenshots
@@ -97,8 +154,9 @@ Research project/
 │   │   └── README.md           ← Points to /mobile source with architecture details
 │   ├── backend-api/            ← Backend component documentation
 │   │   └── README.md           ← Backend setup, routes, and data model
-│   └── ml-prediction/          ← Machine Learning component (Future)
-│       └── README.md           ← Future ML interface specification & data contracts
+│   └── ml-prediction/          ← ML repository integration workspace
+│       └── README.md           ← Existing ML interface specification & data contracts
+│                                  (standalone implementation currently outside this repo)
 │
 ├── integration/                ← Cross-component contracts and testing
 │   ├── README.md               ← Integration overview & boundaries
@@ -238,6 +296,26 @@ Full details: [`components/iot-esp32/README.md`](components/iot-esp32/README.md)
 
 ---
 
+### 4. ML Forecasting Component (Standalone Notebook)
+
+The ML research implementation has been developed separately from the current Node.js backend. It is not started by the root project's backend or Expo commands.
+
+**Existing research notebook:** `KelaniGuard_Advanced_Flood_Forecasting_v2.ipynb` (Google Colab/Jupyter). The notebook is **not included in this README upload or verified as committed under `components/ml-prediction/`**. Add it to the repository intentionally after removing private data and credentials.
+
+1. Open the notebook in Google Colab. Run the cells in order, from the top, using **Runtime → Run all**.
+2. Configure `RUN_PROFILE` as `quick`, `standard`, or `full` and ensure Google Drive contains the required `data/<MAIN_DATA>/river_levels.csv` and `rainfall.csv` inputs. The notebook documents its exact file formats.
+3. The notebook cleans and combines the input data, builds training examples, trains candidates, selects models by validation RMSE, evaluates on separate data and exports artifacts to `MyDrive/KelaniGuard_Forecasting/runs/<RUN_ID>/`.
+4. Inspect `model_selection.csv`, `test_metrics.csv`, `RUN_REPORT.md`, `metadata.json` and `forecast_output.json` from the **same run**. Trained XGBoost models are `.ubj` files and TensorFlow models are `.keras` files.
+5. To make a new offline forecast from a saved run, use the notebook's `kg.Forecaster(run_directory).predict(history, forecasts=None, now=...)` interface. `history` must be correctly prepared, time-zone-aware canonical hourly input, with enough older records to calculate rolling features. The current code rejects missing inputs and observations that are too old.
+
+**Operational distinction:** A large historical dataset is used for training and validation. Continuously updated forecasts require **fresh recent station readings and rainfall inputs**, consistent with the training features. The current model does not automatically retrieve new measurements from the Irrigation Department, Firebase or the Node.js backend. Model retraining is not required for every prediction, but suitable new observations are.
+
+**Data validity:** The default notebook development data is simulated. Separate public Ditwah measurements are used for a limited event check. A larger multi-event official dataset and prospective tests are required before performance or operational readiness can be claimed.
+
+**Frontend distinction:** A local River Forecast web interface has been demonstrated at `/forecasting`, but the shared React Native app's ML integration is not yet documented or verified. Do not assume the local web interface is served by this backend's `PORT=3000`.
+
+---
+
 ## 🔌 API Endpoints Summary
 
 The backend exposes the following REST API endpoints:
@@ -251,6 +329,13 @@ The backend exposes the following REST API endpoints:
 
 For full request/response schemas, units, and validation rules, see the canonical [API Contract Document](integration/api-contract.md).
 
+### Proposed ML forecast integration (not an existing backend endpoint)
+
+The trained Python forecaster currently exports `forecast_output.json` containing `station_id`, `origin_time`, `generated_at`, `model_version`, `decision_support_only`, and a `forecasts` array. Each forecast includes `horizon_hours`, `target_time`, `river_level_m`, lower/upper level bounds, rainfall accumulation, `risk_from_point_forecast` and the selected model name.
+
+**Proposed flow:** ingestion of fresh canonical hourly gauge/rainfall data → Python forecasting service → validated JSON response → new backend forecast-ingestion/storage route → mobile/dashboard consumers. The backend team should agree on **new forecast endpoints** and authentication before implementing them. Suggested route names such as `POST /api/forecasts` and `GET /api/forecasts/latest?station_id=HANWELLA` are **design proposals only**; they are **not** included in the existing routes listed above. See [ML Forecasting Integration Plan](docs/ml-forecasting-integration.md) for an example payload and integration checklist.
+
+
 ---
 
 ## 👥 Team Collaboration & Component Ownership
@@ -260,7 +345,7 @@ For full request/response schemas, units, and validation rules, see the canonica
 | **Karunatilake V.D. (Vihara)** | FloodEdge: IoT Hardware, ESP32 Firmware & Web Console | `components/iot-esp32/`, `docs/hardware/` |
 | **Pasindu** | Mobile Frontend Application | `mobile/`, `components/mobile-frontend/` |
 | **Backend Member** | REST API & Database Services | `backend/`, `components/backend-api/`, `docs/api-integration.md` |
-| **ML Member** | Machine Learning Flood Prediction | `components/ml-prediction/` *(Future)* |
+| **Vijayarathne K.A.D.K.B. (IT23209398)** | ML-Based Rainfall & River-Level Forecasting | Standalone Google Colab notebook and saved model run; `components/ml-prediction/` reserved for integration |
 
 > [!IMPORTANT]
 > **Security & Secret Management:**
@@ -289,7 +374,8 @@ Explore the detailed system documentation across the repository:
 - [IoT ESP32 Component Guide](components/iot-esp32/README.md) — Microcontroller firmware and hardware setup
 - [Mobile Frontend Component Guide](components/mobile-frontend/README.md) — Mobile UI architecture and navigation
 - [Backend API Component Guide](components/backend-api/README.md) — Server architecture, endpoints, and data schema
-- [ML Prediction Component Specification](components/ml-prediction/README.md) — Future prediction models and interface contracts
+- [ML Prediction Component Specification](components/ml-prediction/README.md) — Repository interface specification and data contracts
+- [ML Forecasting Integration Plan](docs/ml-forecasting-integration.md) — Implemented standalone forecasting pipeline, output contract and planned backend/mobile integration
 
 ### Integration & Quality Assurance
 - [Canonical API Contract](integration/api-contract.md) — Field-by-field schema definitions and data types
